@@ -1,0 +1,10 @@
+.main {
+  display: flex;
+}
+
+.coverpage {
+  width: 100%;
+  height: 100dvh;
+  background-color: black;
+}
+

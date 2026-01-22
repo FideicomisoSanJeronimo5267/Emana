@@ -1,0 +1,31 @@
+.units__available {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  max-width: 765px;
+  padding-block: 99px;
+}
+
+.units__available__title {
+  font-size: 45px;
+  font-weight: normal;
+}
+
+.units__available__button {
+  margin-block: 30px 57px;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+  .units__available__title {
+    font-size: clamp(1.375rem, -1.0208rem + 5.9896vw, 2.8125rem);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .units__available__logo{
+    width: 319px;
+}
+}

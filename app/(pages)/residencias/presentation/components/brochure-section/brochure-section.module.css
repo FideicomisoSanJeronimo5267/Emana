@@ -1,0 +1,59 @@
+.brochure__section {
+  display: flex;
+  width: 100%;
+  padding: 79px 50px;
+  align-items: center;
+  justify-content: space-between;
+  justify-self: center;
+  max-width: 1512px;
+}
+
+.brochure__section__info__title {
+  font-size: 25px;
+}
+
+.brochure__section__info__title__mobile {
+  display: none;
+}
+
+.brochure__section__info__description {
+  font-size: 19px;
+  max-width: 70ch;
+}
+
+@media screen and (max-width: 1024px) {
+  .brochure__section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    row-gap: 40px;
+  }
+  .brochure__section__info{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  .brochure__section__info__title {
+    font-size: clamp(1.125rem, 0.3958rem + 1.8229vw, 1.5625rem);
+  }
+}
+@media screen and (max-width: 640px) {
+  .brochure__section__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .brochure__section__info__title {
+    display: none;
+    font-size: clamp(1.125rem, 0.3958rem + 1.8229vw, 1.5625rem);
+  }
+  .brochure__section__info__title__mobile {
+    display: flex;
+    text-align: center;
+    font-size: clamp(1.125rem, 0.3958rem + 1.8229vw, 1.5625rem);
+  }
+
+  .brochure__section__info__description {
+    display: none;
+  }
+}

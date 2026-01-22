@@ -1,0 +1,43 @@
+.coverpage {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  background-color: black;
+}
+
+.coverpage__image{
+  object-fit: cover;
+}
+
+.panoramic__photo{
+  display: flex;
+  justify-self: center;
+  width: 100%;
+  height: 100%;
+  max-width: 1512px;
+  padding-inline: 52px;
+  margin-bottom: 121px;
+}
+
+.main__axis__divisor{
+  display: flex;
+  justify-self: center;
+  width: 100%;
+  max-width: 1512px;
+  height: 1px;
+  background-color: #E5E5E5;
+}
+
+@media screen and (max-width:720px) {
+  .panoramic__photo{
+    aspect-ratio: 394/244;
+    padding-inline: 20px;
+    margin-bottom: 88px;
+  }
+
+  .panoramic__photo__image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

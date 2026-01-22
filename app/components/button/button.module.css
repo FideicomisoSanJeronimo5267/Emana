@@ -1,0 +1,24 @@
+.button {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  border: 1px solid #676861;
+  background-color: #d6d2ce;
+  padding-inline: 13px;
+  height: 33px;
+  border-radius: 20px;
+  font-size: 18px;
+  transition: all 0.1s ease;
+  cursor: pointer;
+  color: var(--greenDark);
+}
+
+.button:hover {
+  color: white;
+  background: linear-gradient(
+    92.56deg,
+    rgba(149, 151, 140, 0.6) 2.95%,
+    rgba(100, 101, 96, 0.6) 98.18%
+  );
+  border: 1px solid #D6D2CE;
+}

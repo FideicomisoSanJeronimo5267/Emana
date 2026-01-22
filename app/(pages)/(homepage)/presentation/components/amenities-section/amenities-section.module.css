@@ -1,0 +1,38 @@
+.wrapper{
+    display: flex;
+    width: 100%;
+    height: 100dvh;
+    color: white;
+    max-height: 982px;
+}
+
+.wrapper__content{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    background: var(--emanaGreen);
+    padding: 50px;
+}
+
+.wrapper__content__title{
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.wrapper__content__description{
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+.wrapper__amenities__cover{
+    width: 50%;
+    height: 100%;
+}
+
+.wrapper__amenities__cover__image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
