@@ -1,0 +1,72 @@
+.villas__section{
+    display: flex;
+    padding-inline: 99px 77px;
+    padding-block: 121px;
+    column-gap: 118px;
+    max-width: 1512px;
+    justify-self: center;
+}
+
+.villas__section__image{
+    position: relative;
+    max-width: 695px;
+    width: 100%;
+    aspect-ratio: 695/740;
+}
+
+.villas__section__cover__image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+}
+
+.villas__section__info__title{
+    font-size: 30px;
+}
+
+.villas__section__info__description{
+    font-size: 19px;
+    max-width: 100ch;
+    margin-block: 40px;
+}
+
+.villas__section__info__features{
+    display: flex;
+    flex-direction: column;   
+    row-gap: 15px;
+    padding-top: 40px;
+    border-top: 1px solid #E5E7EB;
+}
+
+.villas__section__info__features__item{
+    display: flex;
+    column-gap: 16px;
+}
+
+.villas__section__info__features__item__text{
+    color: var(--greenDark);
+}
+
+@media screen and (max-width:1024px) {
+    .villas__section{
+        flex-direction: column;
+        row-gap: 49px;
+    }
+    .villas__section__info{
+        order: 2;
+    }
+    .villas__section__image{
+        max-width: 100%;
+        aspect-ratio: auto;
+        order: 1;
+    }
+}
+
+@media screen and (max-width:720px) {
+    .villas__section{
+        padding-inline: 20px;
+        padding-block: 88px;
+    }    
+}
