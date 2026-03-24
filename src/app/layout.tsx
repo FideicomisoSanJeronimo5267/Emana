@@ -1,15 +1,57 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const gilroy = localFont({
+  src: [
+    {
+      path: "./fonts/Gilroy-Light.otf",
+      weight: "300",
+    },
+    {
+      path: "./fonts/Gilroy-Regular.otf",
+      weight: "400",
+    },
+    {
+      path: "./fonts/Gilroy-Medium.otf",
+      weight: "500",
+    },
+    {
+      path: "./fonts/Gilroy-SemiBold.otf",
+      weight: "600",
+    },
+    {
+      path: "./fonts/Gilroy-Bold.otf",
+      weight: "700",
+    },
+    {
+      path: "./fonts/Gilroy-ExtraBold.otf",
+      weight: "800",
+    },
+    {
+      path: "./fonts/Gilroy-Black.otf",
+      weight: "900",
+    },
+  ],
+  variable: "--font-gilroy",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const neueMachina = localFont({
+  src: [
+    {
+      path: "./fonts/NeueMachina-Light.woff2",
+      weight: "300",
+    },
+    {
+      path: "./fonts/NeueMachina-Regular.woff2",
+      weight: "400",
+    },
+    {
+      path: "./fonts/NeueMachina-Ultrabold.woff2",
+      weight: "800",
+    },
+  ],
+  variable: "--font-neue-machina",
 });
 
 export const metadata: Metadata = {
@@ -23,10 +65,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="es">
+      <body className={`${gilroy.variable} ${neueMachina.variable} antialiased`}>
         {children}
       </body>
     </html>
