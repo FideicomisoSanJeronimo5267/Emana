@@ -1,0 +1,35 @@
+.wrapper__amenities__list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 75px;
+  width: 100%;
+}
+
+.wrapper__amenities__list__item__button {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--brand-terra-foreground);
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  color: #ffffff4d;
+  transition: all 0.3s ease;
+}
+
+.wrapper__amenities__list__item__button__active {
+  color: white;
+}
+
+.wrapper__amenities__list__item {
+  font-size: 48px;
+}
+
+@media screen and (max-width: 1024px) {
+  .wrapper__amenities__list {
+    margin-top: 35px;
+  }
+  .wrapper__amenities__list__item {
+    font-size: 30px;
+  }
+}

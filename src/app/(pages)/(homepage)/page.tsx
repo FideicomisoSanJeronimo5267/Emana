@@ -9,7 +9,8 @@ import coverpage from '@assets/images/homepage/cover-image.png';
 
 // Components
 import { AmenitiesSection, FeaturesSection, LocationSection } from './presentation/components';
-  
+import AmenitiesGallery from './presentation/components/amenities-gallery';
+
 export default function Home() {
   return (
     <main className={styles.main}>
@@ -20,7 +21,8 @@ export default function Home() {
       <FeaturesSection />
       <div className={styles.main__axis__divisor} />
       <LocationSection />
-      <AmenitiesSection />
+
+        <AmenitiesSection />
     </main>
   );
 }
