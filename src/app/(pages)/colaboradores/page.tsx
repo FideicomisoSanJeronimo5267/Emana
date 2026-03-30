@@ -1,3 +1,5 @@
+import AppointmentSection from '../../components/appoiment-section';
+import BrochureSection from '../residencias/presentation/components/brochure-section';
 import styles from './colaboradores.module.css';
 import CollaboratorSection from './presentation/components/collaborator-section';
 import { collaboratorsImagesdata } from '@/src/core/constants/image-data/collaborators-page';
@@ -38,6 +40,16 @@ export default function CollaboratorsPage() {
                     />
                 ))}
             </div>
+            <BrochureSection
+                title=''
+                description='Conoce todos los detalles detrás del proyecto.'
+            />
+            <AppointmentSection
+                title={'Vive la experiencia EMANA'}
+                description={'Conoce nuestro showroom'}
+                coverImage={collaboratorsImagesdata.emana_experience.src}
+                blurDataURL={collaboratorsImagesdata.emana_experience.blurData}
+            />
         </main>
     )
 }
