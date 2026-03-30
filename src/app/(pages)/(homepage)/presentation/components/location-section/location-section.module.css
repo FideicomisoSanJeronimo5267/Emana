@@ -8,9 +8,10 @@
 }
 
 .wrapper__cover {
+  position: relative;
   display: flex;
   width: 50%;
-  padding-left: 50px;
+  margin-left: 50px;
   aspect-ratio: 695/740;
 }
 

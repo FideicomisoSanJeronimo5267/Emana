@@ -5,20 +5,20 @@ import Image from "next/image";
 
 // Styles
 import styles from './amenities-gallery.module.css'
-import { residencesImagesdata } from "@/src/core/constants/image-data/residences-page";
-import { useAmenitieSelectedStore } from "../../stores/amenitie-selected.store";
 
 // Constants & Store
+import { useAmenitieSelectedStore } from "../../stores/amenitie-selected.store";
+import { homepageImagesdata } from "@/src/core/constants/image-data/home-page";
 
 
 export default function AmenitiesGallery() {
     const currentAmenity = useAmenitieSelectedStore((state) => state.currentAmenitie);
 
     const GALLERY_IMAGES = {
-        SKYPOOL: residencesImagesdata.apartmentsBG,
-        GRILLDECK: residencesImagesdata.bedroom,
-        BUSINESSCENTER: residencesImagesdata.apartmentsBG,
-        POOL: residencesImagesdata.apartmentsBG,
+        SKYPOOL: homepageImagesdata.skyPool,
+        GRILLDECK: homepageImagesdata.grillDeck,
+        BUSINESSCENTER: homepageImagesdata.businessCenter,
+        POOL: homepageImagesdata.pool,
     } as const
 
     return (

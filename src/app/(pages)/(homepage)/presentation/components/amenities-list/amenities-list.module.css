@@ -27,9 +27,11 @@
 
 @media screen and (max-width: 1024px) {
   .wrapper__amenities__list {
-    margin-top: 35px;
+    margin-bottom: 82px;
   }
+
   .wrapper__amenities__list__item {
-    font-size: 30px;
+    font-size: 15px;
+    line-height: 22px;
   }
 }

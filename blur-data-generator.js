@@ -1,7 +1,8 @@
 import sharp from 'sharp'
 
 const images = [
-  'https://dlsxqwz0ptmx4.cloudfront.net/residences/residences-villas-bg.webp',
+  'https://dlsxqwz0ptmx4.cloudfront.net/homepage/emana_experience.webp',
+
 
 ]
 
