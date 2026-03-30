@@ -5,10 +5,6 @@ import styles from './colaboradores.module.css';
 export default function ColaboradoresPage() {
     return (
         <main className={styles.main}>
-            {/* 
-        NOTE: Se omitting the first coverpage section as requested:
-        "no agregues la primer seccion la del coverpage, la hare manualmente yo"
-      */}
 
             <CollaboratorSection
                 title="One Development Group"

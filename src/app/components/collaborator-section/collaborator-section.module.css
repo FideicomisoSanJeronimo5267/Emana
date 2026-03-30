@@ -1,27 +1,17 @@
 .section {
-  width: 1512px;
-  max-width: 100%;
-  margin: 120px auto;
-  padding: 0 88px;
+  width: 100%;
+  margin: 60px auto;
+  padding: 0; /* Default mobile padding is often 0 for full-width images or handled by gap */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
-}
-
-@media (min-width: 768px) {
-  .section {
-    flex-direction: row;
-  }
-  .reversed {
-    flex-direction: row-reverse;
-  }
+  gap: 49px; /* Gap from mobile Figma */
 }
 
 .imagePlaceholder {
-  width: 695px;
-  height: 740px;
+  width: 100%;
+  height: 418px;
   background-color: #f3f4f6;
   flex-shrink: 0;
   display: flex;
@@ -33,29 +23,34 @@
 .content {
   display: flex;
   flex-direction: column;
-  width: 504px;
+  align-items: center;
+  width: 100%;
+  max-width: 402px; /* From Figma's 402.4px */
+  padding: 0 16px;
   color: var(--foreground);
 }
 
 .title {
   font-family: var(--font-neue-machina);
-  font-size: 30px;
-  line-height: 45px;
+  font-size: 18px;
+  line-height: 22px;
   text-transform: uppercase;
-  margin-bottom: 40px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid #E5E5E5;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 .description {
   font-family: var(--font-gilroy);
-  font-size: 19px;
-  line-height: 27px;
+  font-size: 15px;
+  line-height: 22px;
   white-space: pre-line;
+  text-align: center;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(214, 210, 206, 0.65);
 }
 
 .logoPlaceholder {
-  margin-top: 64px;
+  margin-top: 30px; /* Space between description border and logo */
   background-color: #f3f4f6;
   display: flex;
   align-items: center;
@@ -63,3 +58,52 @@
   color: #9ca3af;
   font-size: 14px;
 }
+
+/* DESKTOP (1024px+) */
+@media (min-width: 1024px) {
+  .section {
+    width: 1512px;
+    margin: 120px auto;
+    padding: 0 88px;
+    flex-direction: row;
+    gap: 2rem;
+  }
+  
+  .reversed {
+    flex-direction: row-reverse;
+  }
+
+  .imagePlaceholder {
+    width: 695px;
+    height: 740px;
+  }
+
+  .content {
+    align-items: flex-start;
+    max-width: none;
+    width: 504px;
+    padding: 0;
+  }
+
+  .title {
+    font-size: 30px;
+    line-height: 45px;
+    text-align: left;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #E5E5E5;
+  }
+
+  .description {
+    font-size: 19px;
+    line-height: 27px;
+    text-align: left;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .logoPlaceholder {
+    margin-top: 64px;
+  }
+}
+
