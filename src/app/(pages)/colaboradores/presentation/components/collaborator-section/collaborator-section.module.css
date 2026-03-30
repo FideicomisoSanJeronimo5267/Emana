@@ -4,7 +4,7 @@
     gap: 40px;
     max-width: 1512px;
     width: 100%;
-
+    align-items: center;
 }
 
 
@@ -68,7 +68,7 @@
 }
 
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
     .collaboratorSection {
         flex-direction: row;
         align-items: center;
@@ -80,7 +80,29 @@
     .collaboratorSection.reversed {
         flex-direction: row-reverse;
     }
+
 }
+
+@media (max-width: 768px) {
+    .collaboratorName {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .collaboratorDescription {
+        text-align: center;
+        padding-inline: 20px;
+        font-size: 15px;
+    }
+
+    .collaboratorInfo {
+        align-items: center;
+    }
+}
+
+
+
+
 
 .logo {
     position: relative !important;
