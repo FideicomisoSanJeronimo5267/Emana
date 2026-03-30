@@ -1,6 +1,6 @@
 // Styles 
-import Button from '@/src/app/components/button'
 import styles from './brochure-section.module.css'
+import BrochureButton from './brochure-button';
 
 interface BrochureSectionProps {
     title: string;
@@ -25,9 +25,7 @@ export default function BrochureSection(props: BrochureSectionProps) {
                     )
                 }
             </div>
-            <Button>
-                Descargar brochure
-            </Button>
+            <BrochureButton />
         </section>
     )
 }

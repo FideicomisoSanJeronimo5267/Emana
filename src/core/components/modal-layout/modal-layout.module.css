@@ -30,14 +30,14 @@
 .wrapper__content {
   position: absolute;
   max-width: 900px;
-  padding: 50px;
-  background-color: var(--surface-primary);
+  padding: 40px 30px;
+  margin-inline: 20px;
+  background-color: #ffffff;
 }
 
 .icon__wrapper {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 40px;
+  right: 30px;
   cursor: pointer;
-  filter: invert(100%);
 }
