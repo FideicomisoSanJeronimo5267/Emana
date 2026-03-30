@@ -34,6 +34,6 @@ h5 {
   font-weight: 500;
 }
 
-span {
+span,p,li,a {
   font-family: var(--font-gilroy);
 }
