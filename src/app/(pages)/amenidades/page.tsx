@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Button } from "../../components";
+import { AppointmentSection, Button } from "../../components";
 import styles from "./amenidades.module.css";
 import HeroSection from "./presentation/components/hero-section";
 import { amenitiesImagesData } from "@/src/core/constants/image-data/amenities-page";
@@ -103,7 +103,12 @@ export default function AmenitiesPage() {
       </section>
       <div className={styles.divisor} />
        <BrochureSection />
-       
+       <AppointmentSection
+                       title={'Vive la experiencia EMANA'}
+                       description={'Agenda un recorrido en nuestro showroom y conoce más sobre tu nuevo estilo de vida.'}
+                       coverImage={amenitiesImagesData.emanaExperience.src}
+                       blurDataURL={amenitiesImagesData.emanaExperience.blurData}
+                   />
     </main>
   );
 }

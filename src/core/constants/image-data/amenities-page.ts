@@ -41,5 +41,10 @@ export const amenitiesImagesData = {
         alt: "Toy library",
         src: `${ENV.ASSETS_BASE_URL}/amenities/toy_library.webp`,
         blurData: "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACwAwCdASoUAAoALk02m02hJCQkBABMSxgE6ZQANXkiVDqHnLhzAAD+6ExSHF+xuK+mALpzb3EVRFlNUQ3KqCzcRFh6mJIb+3wRda3sy35rLLhmCkzCSAruoBklUWuAAAA="
+    },
+    emanaExperience: {
+        alt: "Emana experience",
+        src: `${ENV.ASSETS_BASE_URL}/amenities/emana-experience.webp`,
+        blurData: "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACQAwCdASoUAA0APm0uk0YkIqGhMAgAgA2JaQAAW7fp0OmrWAiAAP75iK3Fv/nLQiiBSyigWRr0aTqmHKAm9J9Ooi4gcGas4AA="
     }
 } satisfies ImageDataStructure;
