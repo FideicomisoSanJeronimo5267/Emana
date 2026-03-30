@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import styles from './header.module.css';
 import logo from '@assets/images/general/logo.svg'
+import logoContacto from '@assets/images/general/logo-contacto.svg'
 import sidebarLogo from '@assets/images/general/sidebarLogo.svg'
 import logoMobile from '@assets/images/general/extra-largeLogo.svg'
 import close from '@assets/images/general/close.svg'
@@ -61,7 +62,7 @@ export default function Header() {
                 <nav className={styles.header__nav}>
                     <Link className={styles.header__nav__logo} href="/">
                         <Image
-                            src={logo}
+                            src={isContactPage ? logoContacto : logo}
                             alt="Logo"
                             fill
                             priority
