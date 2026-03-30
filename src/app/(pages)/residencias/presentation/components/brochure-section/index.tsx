@@ -1,20 +1,29 @@
 // Styles 
 import Button from '@/src/app/components/button'
 import styles from './brochure-section.module.css'
-export default function BrochureSection() {
+
+interface BrochureSectionProps {
+    title: string;
+    description?: string
+}
+export default function BrochureSection(props: BrochureSectionProps) {
     return (
         <section className={styles.brochure__section}>
             <div className={styles.brochure__section__info}>
                 <h2 className={styles.brochure__section__info__title}>
-                    Conoce más sobre EMANA
+                    {props.title}
                 </h2>
                 <h2 className={styles.brochure__section__info__title__mobile}>
-                    Descubre más sobre EMANA
+                    {props.title}
                 </h2>
-                
-                <p className={styles.brochure__section__info__description}>
-                    Descubre cómo el diseño, la ubicación y las amenidades del proyecto se unen para crear una experiencia residencial única.
-                </p>
+                {
+                    props.description &&
+                    (
+                        <p className={styles.brochure__section__info__description}>
+                            {props.description}
+                        </p>
+                    )
+                }
             </div>
             <Button>
                 Descargar brochure
