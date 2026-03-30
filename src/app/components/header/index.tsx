@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import styles from './header.module.css';
 import logo from '@assets/images/general/logo.svg'
 import sidebarLogo from '@assets/images/general/sidebarLogo.svg'
@@ -11,6 +12,9 @@ import Button from '../button';
 
 
 export default function Header() {
+    const pathname = usePathname();
+    const isContactPage = pathname === '/contacto';
+
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
 
@@ -53,7 +57,7 @@ export default function Header() {
 
     return (
         <>
-            <header className={`${styles.header}`}>
+            <header className={`${styles.header} ${isContactPage ? styles.headerContact : ''}`}>
                 <nav className={styles.header__nav}>
                     <Link className={styles.header__nav__logo} href="/">
                         <Image
@@ -65,8 +69,8 @@ export default function Header() {
                     </Link>
 
                     <ul className={styles.header__nav__options__list}>
-                        <li className={styles.header__nav__options__list__item}><Link href="/Residencias">Residencias</Link></li>
-                        <li className={styles.header__nav__options__list__item}><Link href="/Amenidades">Amenidades</Link></li>
+                        <li className={styles.header__nav__options__list__item}><Link href="/residencias">Residencias</Link></li>
+                        <li className={styles.header__nav__options__list__item}><Link href="/amenidades">Amenidades</Link></li>
                         <li className={styles.header__nav__options__list__item}><Link href="/colaboradores">Colaboradores</Link></li>
                         <li className={styles.header__nav__options__list__item}><Link href="/contacto">Contacto</Link></li>
                         <li className={styles.header__nav__options__list__item}>
@@ -104,8 +108,8 @@ export default function Header() {
 
                     <ul className={styles.mobileNavList}>
                         <li><Link href="/" className={styles.mobileNavLink} onClick={closeMenu}>INICIO</Link></li>
-                        <li><Link href="/Residencias" className={styles.mobileNavLink} onClick={closeMenu}>RESIDENCIAS</Link></li>
-                        <li><Link href="/Amenidades" className={styles.mobileNavLink} onClick={closeMenu}>AMENIDADES</Link></li>
+                        <li><Link href="/residencias" className={styles.mobileNavLink} onClick={closeMenu}>RESIDENCIAS</Link></li>
+                        <li><Link href="/amenidades" className={styles.mobileNavLink} onClick={closeMenu}>AMENIDADES</Link></li>
                         <li><Link href="/colaboradores" className={styles.mobileNavLink} onClick={closeMenu}>COLABORADORES</Link></li>
                         <li><Link href="/contacto" className={styles.mobileNavLink} onClick={closeMenu}>CONTACTO</Link></li>
                     </ul>
