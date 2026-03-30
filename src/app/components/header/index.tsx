@@ -1,29 +1,124 @@
-import styles from './header.module.css'
+"use client";
+import { useState, useEffect } from 'react';
+import styles from './header.module.css';
+import logo from '@assets/images/general/logo.svg'
+import sidebarLogo from '@assets/images/general/sidebarLogo.svg'
+import logoMobile from '@assets/images/general/extra-largeLogo.svg'
+import close from '@assets/images/general/close.svg'
+import Image from 'next/image';
+import Link from 'next/link';
+import Button from '../button';
+
 
 export default function Header() {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+    };
+
+    const closeMenu = () => {
+        setIsMobileMenuOpen(false);
+        setIsMobileDropdownOpen(false);
+    };
+
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            const scrollY = window.scrollY;
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollY}px`;
+            document.body.style.width = '100%';
+        } else {
+            const scrollY = document.body.style.top;
+
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+
+            if (scrollY) {
+                window.scrollTo(0, parseInt(scrollY || '0') * -1);
+            }
+        }
+
+        return () => {
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+        };
+    }, [isMobileMenuOpen]);
+
     return (
-        <header className={styles.header}>
-            <nav className={styles.header__nav}>
-                <a className={styles.header__nav__logo} href="/">
-                    logo
-                </a>
+        <>
+            <header className={`${styles.header}`}>
+                <nav className={styles.header__nav}>
+                    <Link className={styles.header__nav__logo} href="/">
+                        <Image
+                            src={logo}
+                            alt="Logo"
+                            fill
+                            priority
+                        />
+                    </Link>
 
-                <ul className={styles.header__nav__options__list}>
-                    <li className={styles.header__nav__options__list__item}><a href="/">Inicio</a></li>
-                    <li className={styles.header__nav__options__list__item}><a href="/residencias">Residencias</a></li>
-                    <li className={styles.header__nav__options__list__item}><a href="/amenidades">Amenidades</a></li>
-                    <li className={styles.header__nav__options__list__item}><a href="/colaboradores">Colaboradores</a></li>
-                    <li className={styles.header__nav__options__list__item}><a href="/contacto">Contacto</a></li>
-                </ul>
+                    <ul className={styles.header__nav__options__list}>
+                        <li className={styles.header__nav__options__list__item}><Link href="/Residencias">Residencias</Link></li>
+                        <li className={styles.header__nav__options__list__item}><Link href="/Amenidades">Amenidades</Link></li>
+                        <li className={styles.header__nav__options__list__item}><Link href="/colaboradores">Colaboradores</Link></li>
+                        <li className={styles.header__nav__options__list__item}><Link href="/contacto">Contacto</Link></li>
+                        <li className={styles.header__nav__options__list__item}>
+                            <Link href="/contacto">
+                                <Button className={styles.header__nav__options__list__item__button}>
+                                    Agenda una cita
+                                </Button>
+                            </Link>
+                        </li>
+                    </ul>
 
-                {/* <button
-                    aria-label="Abrir menú"
-                    aria-expanded={isOpen}
-                    aria-controls="main-menu"
-                >
-                    ☰
-                </button> */}
-            </nav>
-        </header>
-    ) 
+                    <div className={styles.header__nav__sidebarLogo} onClick={toggleMenu}>
+                        <Image
+                            src={sidebarLogo}
+                            alt="Menu"
+                            fill
+                        />
+                    </div>
+                </nav>
+            </header>
+
+            <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
+                <div className={styles.closeButtonWrapper}>
+                    <button className={styles.closeButton} onClick={closeMenu} aria-label="Close menu">
+                        <Image
+                            src={close}
+                            alt="Close"
+                            fill
+                        />
+                    </button>
+                </div>
+
+                <div className={styles.mobileNavContent}>
+
+
+                    <ul className={styles.mobileNavList}>
+                        <li><Link href="/" className={styles.mobileNavLink} onClick={closeMenu}>INICIO</Link></li>
+                        <li><Link href="/Residencias" className={styles.mobileNavLink} onClick={closeMenu}>RESIDENCIAS</Link></li>
+                        <li><Link href="/Amenidades" className={styles.mobileNavLink} onClick={closeMenu}>AMENIDADES</Link></li>
+                        <li><Link href="/colaboradores" className={styles.mobileNavLink} onClick={closeMenu}>COLABORADORES</Link></li>
+                        <li><Link href="/contacto" className={styles.mobileNavLink} onClick={closeMenu}>CONTACTO</Link></li>
+                    </ul>
+
+                    <div className={styles.mobileLogo}>
+                        <Image
+                            src={logoMobile}
+                            alt="Monterra Park"
+                            fill
+                        />
+                    </div>
+                </div>
+            </div>
+        </>
+    )
 }

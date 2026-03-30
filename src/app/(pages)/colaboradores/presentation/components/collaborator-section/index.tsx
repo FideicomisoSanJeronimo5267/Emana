@@ -25,7 +25,6 @@ export default function CollaboratorSection({ name, description, image, isRevers
                         src={logo}
                         alt={name}
                         fill
-                        objectFit='contain'
                         className={styles.logo}
                     />
 
@@ -35,11 +34,12 @@ export default function CollaboratorSection({ name, description, image, isRevers
                 <Image
                     src={image.src}
                     alt={image.alt}
-                    fill
+
                     className={styles.collaboratorImage}
                     placeholder={"blur"}
                     blurDataURL={image.blurData}
-                    objectFit='cover'
+
+                    fill
                 />
             </div>
         </section>
