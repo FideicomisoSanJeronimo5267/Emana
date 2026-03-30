@@ -1,7 +1,7 @@
 // Styles
 import Image from 'next/image';
 import styles from './footer.module.css'
-
+import Link from 'next/link';
 // Assets
 import Logo from '@assets/images/general/large-logo.svg'
 export default function Footer() {
@@ -11,19 +11,19 @@ export default function Footer() {
             <div className={styles.container__content}>
                 <ul className={styles.container__pages_list}>
                     <li>
-                        Inicio
+                        <Link href={'/'}>Inicio</Link>
                     </li>
                     <li>
-                        Residencias
+                        <Link href={'/residencias'}>Residencias</Link>
                     </li>
                     <li>
-                        Amenidades
+                        <Link href={'/amenidades'}>Amenidades</Link>
                     </li>
                     <li>
-                        Nosotros
+                        <Link href={'/nosotros'}>Nosotros</Link>
                     </li>
                     <li>
-                        Contacto
+                        <Link href={'/contacto'}>Contacto</Link>
                     </li>
                 </ul>
 
@@ -40,12 +40,14 @@ export default function Footer() {
                 </ul>
                 <span>Todos los Derechos Reservados.</span>
                 <div className={styles.container__content__logo__wrapper}>
-                    <Image src={Logo} alt={'Logo'}/>
+                    <Image src={Logo} alt={'Logo'} />
                 </div>
             </div>
             <div className={styles.main__axis__divisor} />
             <div className={styles.container__privacy__notice}>
-                <span>Aviso de Privacidad</span>
+                <Link href={'/aviso-de-privacidad'}>
+                    <span>Aviso de Privacidad</span>
+                </Link>
             </div>
         </footer>
     );
