@@ -58,6 +58,11 @@
   object-fit: cover;
 }
 
+.amenities__wrapper{
+  position: relative;
+  display: flex;
+}
+
 @media screen and (max-width: 1024px) {
   .wrapper {
     flex-direction: column;

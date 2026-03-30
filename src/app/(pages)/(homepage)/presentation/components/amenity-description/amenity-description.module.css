@@ -1,7 +1,7 @@
 .wrapper{
     position: absolute;
     width: 337px;
-    bottom: 5dvh;
+    top: 0;
     right: 37px;
     
 }
@@ -10,4 +10,17 @@
     font-size: 37px;
     line-height: 52px;
     max-width: 2ch;
+    color: var(--emanaLight);
+}
+
+@media screen and (max-width: 1024px) {
+    .wrapper {
+        right: 0px;
+        width: 189px;
+    }
+    .wrapper__text{
+        font-size: 22px;
+        line-height: 28px;
+    }
+    
 }

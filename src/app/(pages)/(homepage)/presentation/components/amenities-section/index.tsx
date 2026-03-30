@@ -20,8 +20,10 @@ export default function AmenitiesSection() {
 
                 </div>
 
-                <AmenitiesList />
-                <AmenityDescription/>
+                <div className={styles.amenities__wrapper}>
+                    <AmenitiesList />
+                    <AmenityDescription />
+                </div>
 
             </div>
 
