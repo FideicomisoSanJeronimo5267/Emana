@@ -36,7 +36,7 @@ export default function AppointmentSection(props: Props) {
                 <Image
                     src={props.coverImage}
                     alt={props.title}
-                    fill objectFit="cover"
+                    fill
                     placeholder={"blur"}
                     blurDataURL={props.blurDataURL}
                 />

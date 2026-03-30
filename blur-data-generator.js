@@ -12,7 +12,7 @@ for (const url of images) {
   const buffer = Buffer.from(await res.arrayBuffer())
 
   console.log(url)
-console.log(res.status, res.headers.get('content-type'))
+  console.log(res.status, res.headers.get('content-type'))
   const blur = await sharp(buffer)
     .resize(20)
     .blur()
