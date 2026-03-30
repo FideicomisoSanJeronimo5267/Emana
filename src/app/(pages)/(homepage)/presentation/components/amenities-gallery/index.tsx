@@ -25,7 +25,6 @@ export default function AmenitiesGallery() {
         <div className={styles.container}>
             {Object.entries(GALLERY_IMAGES).map(([key, image]) => {
                 const isActive = currentAmenity === key
-                console.log('isActive', isActive, 'currentAmenity', currentAmenity, 'key', key)
                 return (
                     <Image
                         key={key}
