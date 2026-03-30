@@ -27,7 +27,7 @@ export default function PropertyTypeSection() {
                     alt={residencesImagesdata.apartmentsBG.alt}
                     placeholder={"blur"}
                     blurDataURL={residencesImagesdata.apartmentsBG.blurData}
-                    objectFit='cover'
+
                     fill
                 />
             </div>
