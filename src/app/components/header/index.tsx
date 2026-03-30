@@ -10,7 +10,7 @@ import close from '@assets/images/general/close.svg'
 import Image from 'next/image';
 import Link from 'next/link';
 import Button from '../button';
-
+import sidebarLogoMobile from '@assets/images/general/sidebarLogoMobile.svg'
 
 export default function Header() {
     const pathname = usePathname();
@@ -85,7 +85,7 @@ export default function Header() {
 
                     <div className={styles.header__nav__sidebarLogo} onClick={toggleMenu}>
                         <Image
-                            src={sidebarLogo}
+                            src={isContactPage ? sidebarLogoMobile : sidebarLogo}
                             alt="Menu"
                             fill
                         />
