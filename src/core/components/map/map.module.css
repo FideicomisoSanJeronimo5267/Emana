@@ -1,0 +1,21 @@
+.map__container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.marker {
+  cursor: pointer;
+}
+
+
+.map__container canvas {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}

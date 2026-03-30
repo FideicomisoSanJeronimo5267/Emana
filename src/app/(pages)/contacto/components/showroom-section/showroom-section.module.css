@@ -1,0 +1,134 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 643px;
+}
+
+.info__column {
+  display: flex;
+  flex-direction: column;
+  flex: 1; 
+  align-items: flex-start;
+  height: 100%;
+  background-color: #95978C; 
+  position: relative;
+  box-sizing: border-box;
+  
+  padding-left: 50px;
+  padding-top: 51px;
+  padding-right: 50px;
+}
+
+.content__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0; 
+  width: 100%;
+  max-width: 628px; 
+  box-sizing: border-box;
+}
+
+.top__block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  width: 100%;
+  max-width: 628px;
+}
+
+.title__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0px 20px 0px; 
+  height: 75px;
+  box-sizing: border-box;
+}
+
+.title {
+  font-family: var(--font-neue-machina), sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 45px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0;
+  width: 100%;
+}
+
+.description {
+  font-family: var(--font-gilroy), sans-serif;
+  font-weight: 300;
+  font-size: 25px;
+  line-height: 36px;
+  color: #FFFFFF;
+  margin: 0 0 77px 0;
+  width: 100%;
+}
+
+.bottom__block {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  width: 100%;
+  font-style: regular;
+  max-width: 628px;
+  font-family: var(--font-neue-machina), sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 27px;
+  color: #D6D2CE; 
+}
+
+.bottom__block p {
+  margin: 0;
+}
+
+.map__column {
+  flex: 1;
+  height: 100%;
+  position: relative;
+  background-color: #E5E5E5;
+  display: flex; 
+  flex-direction: column;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+  }
+
+  .info__column {
+    width: 100%;
+    flex: none;
+    align-items: flex-start;
+    min-height: auto; 
+    height: auto; 
+    background-color: #95978C;
+  }
+
+  .content__wrapper {
+    width: 100%;
+    max-width: 100%;
+    padding: 50px 30px; 
+  }
+  
+  .description {
+    margin-bottom: 50px;
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .map__column {
+    width: 100%;
+    height: 400px; 
+    min-height: 400px;
+  }
+}
