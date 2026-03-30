@@ -5,13 +5,21 @@ import Image from 'next/image';
 import styles from './location-section.module.css'
 
 // Assets
-import LocationCover from '@assets/images/homepage/location-cover.png';
+import { homepageImagesdata } from '@/src/core/constants/image-data/home-page';
 
 export default function LocationSection() {
     return (
         <section className={styles.wrapper}>
             <div className={styles.wrapper__cover}>
-                <Image className={styles.wrapper__cover__image} src={LocationCover} alt={'Location cover image'}/>
+                <Image
+                    className={styles.wrapper__cover__image}
+                    src={homepageImagesdata.frontalTower.src}
+                    alt={homepageImagesdata.frontalTower.alt}
+                    blurDataURL={homepageImagesdata.frontalTower.blurData}
+                    placeholder={"blur"}
+                    objectFit="cover"
+                    fill
+                />
             </div>
             <div className={styles.wrapper__content}>
                 <h2 className={styles.wrapper__content__title}>

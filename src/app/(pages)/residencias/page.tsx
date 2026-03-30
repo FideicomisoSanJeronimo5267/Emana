@@ -44,7 +44,7 @@ export default function Residences() {
                     alt={residencesImagesdata.socialArea.alt}
                     placeholder={"blur"}
                     blurDataURL={residencesImagesdata.socialArea.blurData}
-                    objectFit='cover'
+
                     fill
                 />
             </div>

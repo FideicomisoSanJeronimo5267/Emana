@@ -11,13 +11,22 @@ import coverpage from '@assets/images/homepage/cover-image.png';
 import { AmenitiesSection, FeaturesSection, LocationSection } from './presentation/components';
 import { BrochureSection, UnitsAvailable } from '../residencias/presentation/components';
 import { AppointmentSection } from '../../components';
-import { residencesImagesdata } from '@/src/core/constants/image-data/residences-page';
+import { homepageImagesdata } from '@/src/core/constants/image-data/home-page';
 
 export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.coverpage}>
-        <Image className={styles.coverImage} src={coverpage} alt={'Cover page image'} fill />
+        <Image
+          className={styles.coverImage}
+          src={homepageImagesdata.coverpage.src}
+          alt={homepageImagesdata.coverpage.alt}
+          blurDataURL={homepageImagesdata.coverpage.blurData}
+          placeholder='blur'
+          objectFit="cover"
+          fill
+          priority
+        />
       </div>
 
       <FeaturesSection />
@@ -40,8 +49,8 @@ export default function Home() {
       <AppointmentSection
         title={'Vive la experiencia EMANA'}
         description={'Visita nuestro showroom y conoce el futuro de tu inversión.'}
-        coverImage={residencesImagesdata.appointmentBG.src}
-        blurDataURL={residencesImagesdata.appointmentBG.blurData}
+        coverImage={homepageImagesdata.emanaExperience.src}
+        blurDataURL={homepageImagesdata.emanaExperience.blurData}
       />
     </main>
   );
