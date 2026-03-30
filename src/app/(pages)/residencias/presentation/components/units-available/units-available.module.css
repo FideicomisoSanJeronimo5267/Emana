@@ -16,7 +16,17 @@
   margin-block: 30px 57px;
 }
 
+.units__available__header__description {
+  font-size: 25px;
+  line-height: 36px;
+  margin-bottom: 20px;
+}
 
+.units__available__footer__description {
+  font-size: 16px;
+  line-height: 19px;
+  margin-top: 70px;
+}
 
 @media screen and (max-width: 1024px) {
   .units__available__title {
@@ -25,7 +35,7 @@
 }
 
 @media screen and (max-width: 640px) {
-  .units__available__logo{
+  .units__available__logo {
     width: 319px;
-}
+  }
 }
