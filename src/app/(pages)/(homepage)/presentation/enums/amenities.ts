@@ -1,11 +1,7 @@
 export enum  Amenities {
+    SKYPOOL = 'SKYPOOL',
+    GRILLDECK = 'GRILLDECK',
+    BUSINESSCENTER = 'BUSINESSCENTER',
     POOL = 'POOL',
-    GYM = 'GYM',
-    TOYLIBRARY = 'TOYLIBRARY',
-    COWORKING = 'COWORKING',
-    ZENZONE = 'ZENZONE',
-    FIREPITS = 'FIREPITS',
-    ROOFTOPS = 'ROOFTOPS',
-    HIGHBAR = 'HIGHBAR',
-    SPA = 'SPA'
+
 }

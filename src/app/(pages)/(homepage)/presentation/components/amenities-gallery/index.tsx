@@ -15,22 +15,17 @@ export default function AmenitiesGallery() {
     const currentAmenity = useAmenitieSelectedStore((state) => state.currentAmenitie);
 
     const GALLERY_IMAGES = {
+        SKYPOOL: residencesImagesdata.apartmentsBG,
+        GRILLDECK: residencesImagesdata.bedroom,
+        BUSINESSCENTER: residencesImagesdata.apartmentsBG,
         POOL: residencesImagesdata.apartmentsBG,
-        GYM: residencesImagesdata.bedroom,
-        TOYLIBRARY: residencesImagesdata.apartmentsBG,
-        COWORKING: residencesImagesdata.bedroom,
-        ZENZONE: residencesImagesdata.apartmentsBG,
-        FIREPITS: residencesImagesdata.bedroom,
-        ROOFTOPS: residencesImagesdata.apartmentsBG,
-        HIGHBAR: residencesImagesdata.bedroom,
-        SPA: residencesImagesdata.apartmentsBG
     } as const
 
     return (
         <div className={styles.container}>
             {Object.entries(GALLERY_IMAGES).map(([key, image]) => {
                 const isActive = currentAmenity === key
-
+                console.log('isActive', isActive, 'currentAmenity', currentAmenity, 'key', key)
                 return (
                     <Image
                         key={key}
