@@ -49,9 +49,16 @@ export default function Residences() {
                 />
             </div>
             <ResidencesHeroSection />
-            <UnitsAvailable />
+            <UnitsAvailable
+                title='Conoce las unidades disponibles'
+                button={{
+                    title: 'Agenda una cita'
+                }}
+            />
             <div className={styles.main__axis__divisor} />
-            <BrochureSection />
+            <BrochureSection
+                title='Descubre más sobre EMANA'
+            />
             <AppointmentSection
                 title={'Vive la experiencia EMANA'}
                 description={'Visita nuestro showroom y conoce el futuro de tu inversión.'}
