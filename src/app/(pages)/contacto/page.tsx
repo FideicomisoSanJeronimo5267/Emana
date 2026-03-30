@@ -7,7 +7,6 @@ import ExperienceSection from './components/experience-section';
 export default function ContactPage() {
     return (
         <main className={styles.main}>
-            {/* Si tienes un HeroSection en Emana, agrégalo aquí arriba */}
             
             <div className={styles.content__wrapper}>
                 <div className={styles.centered__container}>

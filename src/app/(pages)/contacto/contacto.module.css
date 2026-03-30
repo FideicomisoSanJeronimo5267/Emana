@@ -68,20 +68,25 @@
 }
 
 @media screen and (max-width: 1024px) {
+
   .content__wrapper {
-    padding-top: 40px;
+    padding-top: 20px;
   }
   .centered__container {
     padding-inline: 20px;
-    margin-bottom: 80px;
-    gap: 27px;
+    margin-bottom: 60px;
+    gap: 41px;
+  }
+  .header {
+    gap: 15px;
   }
   .title {
-    font-size: 28px;
-    line-height: 40px;
+    font-size: 22px;
+    line-height: 28px;
+    margin-bottom: 41px;
   }
   .subtitle {
     font-size: 18px;
-    line-height: 25px;
+    line-height: 23px;
   }
 }
