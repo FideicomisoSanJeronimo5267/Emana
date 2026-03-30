@@ -5,6 +5,7 @@ import styles from './amenities-section.module.css';
 import AmenitiesList from '../amenities-list';
 import AmenitiesGallery from '../amenities-gallery';
 import AmenityDescription from '../amenity-description';
+import Link from 'next/link';
 
 export default function AmenitiesSection() {
     return (
@@ -29,6 +30,15 @@ export default function AmenitiesSection() {
 
             <div className={styles.wrapper__amenities__cover}>
                 <AmenitiesGallery />
+
+
+                <Link className={styles.wrapper__amenities__link} href="/amenidades">
+                    Ver todas las amenidades
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.0788 7.5H0V6.5H12.0788L6.2865 0.70775L7 0L14 7L7 14L6.2865 13.2923L12.0788 7.5Z" fill="white" />
+                    </svg>
+
+                </Link>
             </div>
         </section>
     )
