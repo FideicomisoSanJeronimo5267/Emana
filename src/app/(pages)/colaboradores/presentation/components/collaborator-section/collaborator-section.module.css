@@ -1,0 +1,119 @@
+.collaboratorSection {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1512px;
+    width: 100%;
+    align-items: center;
+}
+
+
+.collaboratorInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 523px;
+}
+
+.collaboratorName {
+    font-size: 30px;
+    font-weight: 500;
+
+    margin: 0;
+}
+
+.collaboratorRole {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-top: -10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.collaboratorDescription {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 300;
+    white-space: pre-line;
+
+}
+
+.logoPlaceholder {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+
+    background-color: rgba(255, 255, 255, 0.4);
+    width: fit-content;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+
+
+.collaboratorImageWrapper {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    max-width: 695px;
+    aspect-ratio: 695/740;
+    overflow: hidden;
+}
+
+.collaboratorImage {
+    position: relative;
+    object-fit: cover;
+}
+
+
+@media (min-width: 768px) {
+    .collaboratorSection {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+
+    }
+
+    .collaboratorSection.reversed {
+        flex-direction: row-reverse;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .collaboratorName {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .collaboratorDescription {
+        text-align: center;
+        padding-inline: 20px;
+        font-size: 15px;
+    }
+
+    .collaboratorInfo {
+        align-items: center;
+    }
+}
+
+
+
+
+
+.logo {
+    position: relative !important;
+    width: 100% !important;
+    max-height: 34px !important;
+    object-fit: contain !important;
+}
+
+.logo>img {
+    width: 100%;
+    height: 100%;
+    max-height: 34px;
+    object-fit: contain;
+}

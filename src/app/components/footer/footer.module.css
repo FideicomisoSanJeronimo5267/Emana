@@ -1,25 +1,42 @@
-.container{
+.container {
     display: flex;
     flex-direction: column;
-    padding: 46px 50px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: space-between;
+    padding: 26px 0;
+    padding-inline: 51px;
 }
 
 
-.main__axis__divisor{
+.main__axis__divisor {
     width: 100%;
     height: 1px;
     background-color: #E6E6E6;
     margin-bottom: 46px;
 }
 
-.container__content{
+.container__content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 36px;
+    max-width: 1512px;
+    width: 100%;
+    gap: 100px;
+}
+
+.container__content__left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 36px;
+    max-width: 1512px;
+    width: 100%;
 }
 
 .container__pages_list,
-.container__content__contact__info{
+.container__content__contact__info {
     display: flex;
     flex-direction: column;
     row-gap: 4px;
@@ -27,14 +44,71 @@
     line-height: 36px;
 }
 
-.container__content__contact__info__address{
+.container__content__contact__info__address {
     max-width: 23ch;
 }
 
-.container__privacy__notice{
+.container__privacy__notice {
     display: flex;
     justify-content: center;
     color: var(--emanaGreen);
     font-size: 16px;
     line-height: 19px;
+}
+
+
+@media (max-width: 992px) {
+    .container__content__copy {
+        display: none;
+        visibility: hidden;
+        position: none
+    }
+
+    .container {
+        padding-inline: 28px;
+    }
+
+    .container__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 36px;
+        max-width: 1512px;
+        width: 100%;
+        gap: 50px;
+    }
+
+    .container__pages_list,
+    .container__content__contact__info {
+        line-height: 16px;
+    }
+
+
+    .container__privacy__notice {
+        line-height: 10px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .container__pages_list {
+        font-size: 14px;
+    }
+
+    .container__content__contact__info {
+        font-size: 14px;
+    }
+
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding-inline: 18px;
+    }
+
+    .container__content {
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
 }

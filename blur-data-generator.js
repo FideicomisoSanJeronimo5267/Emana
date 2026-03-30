@@ -1,7 +1,8 @@
 import sharp from 'sharp'
 
 const images = [
-  'https://dlsxqwz0ptmx4.cloudfront.net/residences/residences-villas-bg.webp',
+  'https://dlsxqwz0ptmx4.cloudfront.net/homepage/emana_experience.webp',
+
 
 ]
 
@@ -12,7 +13,7 @@ for (const url of images) {
   const buffer = Buffer.from(await res.arrayBuffer())
 
   console.log(url)
-console.log(res.status, res.headers.get('content-type'))
+  console.log(res.status, res.headers.get('content-type'))
   const blur = await sharp(buffer)
     .resize(20)
     .blur()

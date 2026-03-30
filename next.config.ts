@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         hostname: 'dlsxqwz0ptmx4.cloudfront.net',
         pathname: '/**',
       },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        pathname: '/**',
+      },
     ],
   }
 };
