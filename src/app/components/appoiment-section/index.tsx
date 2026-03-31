@@ -11,6 +11,8 @@ interface Props {
     description: string;
     coverImage: string;
     blurDataURL?: string;
+    className?: string;
+    style?: React.CSSProperties;
 }
 export default function AppointmentSection(props: Props) {
     return (
@@ -32,7 +34,10 @@ export default function AppointmentSection(props: Props) {
                     <span>Llamada</span>
                 </div>
             </div>
-            <div className={styles.container__coverImage}>
+            <div
+                className={`${styles.container__coverImage} ${props.className || ''}`}
+                style={props.style}
+            >
                 <Image
                     src={props.coverImage}
                     alt={props.title}

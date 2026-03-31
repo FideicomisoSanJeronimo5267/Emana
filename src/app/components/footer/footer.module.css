@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    justify-content: space-between;
-    align-items: space-between;
+    justify-content: top;
+    align-items: center;
     padding: 26px 0;
     padding-inline: 51px;
 }
@@ -23,13 +23,13 @@
     margin-bottom: 36px;
     max-width: 1512px;
     width: 100%;
-    gap: 100px;
+
 }
 
 .container__content__left {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+
     margin-bottom: 36px;
     max-width: 1512px;
     width: 100%;
@@ -52,10 +52,17 @@
     display: flex;
     justify-content: center;
     color: var(--emanaGreen);
+    align-items: center;
     font-size: 16px;
     line-height: 19px;
 }
 
+.container__content__logo__wrapper {
+    align-self: flex-start;
+    min-width: 278px;
+    margin-left: clamp(2.5rem, -17.0313rem + 31.25vw, 12.5rem);
+    aspect-ratio: 278/215;
+}
 
 @media (max-width: 992px) {
     .container__content__copy {
@@ -81,12 +88,19 @@
     .container__pages_list,
     .container__content__contact__info {
         line-height: 16px;
+        column-gap: 10px;
     }
 
 
     .container__privacy__notice {
         line-height: 10px;
     }
+
+    .container__content__logo__wrapper {
+        margin-left: clamp(0.9375rem, -1.9034rem + 7.1023vw, 2.5rem);
+
+    }
+
 
 }
 
@@ -99,6 +113,11 @@
         font-size: 14px;
     }
 
+    .container__content__logo__wrapper {
+        margin-left: 0;
+
+    }
+
 }
 
 @media (max-width: 640px) {
@@ -109,6 +128,36 @@
     .container__content {
         flex-direction: column;
         row-gap: 20px;
+    }
+
+    .container__content__logo__wrapper {
+        margin-left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .container__pages_list,
+    .container__content__contact__info {
+        row-gap: 0;
+    }
+
+    .main__axis__divisor {
+
+        margin-bottom: 16px;
+    }
+
+    .container__content {
+
+        margin-bottom: 16px;
+
+
+    }
+
+    .container__content__left {
+        margin-bottom: 16px;
+
     }
 
 }
