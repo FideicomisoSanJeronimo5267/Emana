@@ -49,6 +49,7 @@ export default function CollaboratorsPage() {
                 description={'Conoce nuestro showroom'}
                 coverImage={collaboratorsImagesdata.emana_experience.src}
                 blurDataURL={collaboratorsImagesdata.emana_experience.blurData}
+                className={styles.container__coverImage}
             />
         </main>
     )

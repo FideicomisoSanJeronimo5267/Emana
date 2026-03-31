@@ -12,16 +12,17 @@
   flex-direction: column;
   gap: 121px; 
   width: 100%;
-  max-width: 1412px;
+  max-width: 1512px;
   margin: 0 auto;
   padding: 0px 50px;
+  box-sizing: border-box;
 }
 
 .card {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 147px; 
+  column-gap: 147px;
   width: 100%;
 }
 
@@ -30,9 +31,10 @@
 }
 
 .imageWrapper {
-  flex: 0 0 auto; 
-  width: 928px;
-  height: 566px;
+  position: relative;
+  width: 100%;
+  max-width: 928px;
+  aspect-ratio: 928 / 566;
   overflow: hidden;
 }
 
@@ -55,8 +57,8 @@
 .textWrapper {
   display: flex;
   flex-direction: column;
-  width: 337px;
-  flex: none;
+  width: 100%;
+  max-width: 337px;
 }
 
 .titleContainer {
@@ -125,37 +127,85 @@
   width: 95%;
   height: 1px;
   background-color: #E5E5E5;
-  margin: 90px 0px 0px 0px; 
+  margin: 90px auto 0px auto;
 }
 
-@media (max-width: 1400px) {
-  .card {
-    gap: 80px;
-  }
-  .imageWrapper {
-    width: 60%;
-    height: auto;
-    aspect-ratio: 928 / 566;
-  }
-}
 
-@media (max-width: 1024px) {
-  .main {
+@media (max-width: 1300px) {
+  .container {
     padding: 60px 20px;
   }
+  
   .card, .reverse {
     flex-direction: column;
-    gap: 40px;
+    align-items: center; 
+    gap: 40px; 
   }
+  
   .imageWrapper {
     width: 100%;
+    max-width: 800px;
+    aspect-ratio: 928 / 566;
   }
+  
   .textWrapper {
     width: 100%;
-    max-width: 500px;
-    align-items: flex-start;
+    max-width: 800px;
+    align-items: center; 
   }
+  
+  .titleContainer, .descriptionContainer {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .title, .description {
+    text-align: center;
+  }
+  
   .divisor {
-    width: calc(100% - 40px); /* 20px de cada lado */
+    width: calc(100% - 40px);
+    
+  }
+}
+
+@media (max-width: 768px) {
+  .card, .reverse {
+    gap: 28px;
+  }
+
+  .imageWrapper {
+    max-width: 100%;
+    aspect-ratio: 394 / 264;
+  }
+
+  .textWrapper {
+    max-width: 100%; 
+  }
+
+  .titleContainer {
+    padding: 0px 0px 35px;
+  }
+
+  .title {
+    font-size: 30px;
+    line-height: 45px;
+  }
+
+.descriptionContainer {
+    padding: 0px 0px 40px;
+    margin-bottom: 28px;
+  }
+
+  .description {
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .button {
+    font-size: 15px;
+    line-height: 22px;
+    height: 33px;
+    padding: 0px 13px;
   }
 }
