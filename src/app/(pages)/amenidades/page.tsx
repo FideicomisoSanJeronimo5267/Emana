@@ -106,7 +106,7 @@ export default function AmenitiesPage() {
       <BrochureSection
       title='Conoce más sobre nuestras amenidades'
       description='Planos, amenidades y especificaciones en un PDF.'
-      
+      titleFont='gilroy'
       />
        <AppointmentSection
                        title={'Vive la experiencia EMANA'}
