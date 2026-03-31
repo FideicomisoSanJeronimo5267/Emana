@@ -24,7 +24,7 @@ export default function AppointmentSection(props: Props) {
             </div>
             <div className={styles.container__divider} />
             <div className={styles.container__contact__info}>
-                <Button>Agenda una visita</Button>
+                <Button link={{ href: "/contacto" }}>Agenda una visita</Button>
 
                 <div className={styles.container__contact__info__details}>
                     <span>WhatsApp</span>

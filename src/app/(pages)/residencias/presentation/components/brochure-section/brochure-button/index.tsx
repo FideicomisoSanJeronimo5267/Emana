@@ -11,7 +11,7 @@ export default function BrochureButton() {
 
     return (
         <>
-            <Button onClick={() => setModalVisible(true)}>
+            <Button className={styles.button} onClick={() => setModalVisible(true)}>
                 Descargar brochure
             </Button>
 
