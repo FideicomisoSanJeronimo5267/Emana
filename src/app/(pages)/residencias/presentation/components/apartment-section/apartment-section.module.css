@@ -1,5 +1,6 @@
 .apartment__section{
     display: flex;
+    width: 100%;
     padding-inline: 99px 77px;
     padding-block: 121px;
     column-gap: 118px;

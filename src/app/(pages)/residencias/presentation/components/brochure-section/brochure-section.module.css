@@ -53,7 +53,5 @@
     font-size: clamp(1.125rem, 0.3958rem + 1.8229vw, 1.5625rem);
   }
 
-  .brochure__section__info__description {
-    display: none;
-  }
+
 }
