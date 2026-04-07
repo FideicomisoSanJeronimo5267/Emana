@@ -12,22 +12,18 @@ import { AmenitiesSection, FeaturesSection, LocationSection } from './presentati
 import { BrochureSection, UnitsAvailable } from '../residencias/presentation/components';
 import { AppointmentSection } from '../../components';
 import { homepageImagesdata } from '@/src/core/constants/image-data/home-page';
+import CoverPageV2 from '../../components/coverpage-v2';
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className={styles.coverpage}>
-        <Image
-          className={styles.coverImage}
-          src={homepageImagesdata.coverpage.src}
-          alt={homepageImagesdata.coverpage.alt}
-          blurDataURL={homepageImagesdata.coverpage.blurData}
-          placeholder='blur'
-          objectFit="cover"
-          fill
-          priority
-        />
-      </div>
+      <CoverPageV2
+        coverImage={{
+          alt: 'Cover Image',
+          src: homepageImagesdata.coverpage.src,
+          blurData: homepageImagesdata.coverpage.blurData
+        }}
+      />
 
       <FeaturesSection />
       <div className={styles.main__axis__divisor} />
