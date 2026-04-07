@@ -1,9 +1,7 @@
 .wrapper {
   position: fixed;
-  top: 0dvh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100dvh;
   z-index: 999;
@@ -14,30 +12,54 @@
 
   backdrop-filter: blur(0);
   transition: backdrop-filter 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto; 
 }
-
-@keyframes slide-in {
-  from {
-    opacity: 0;
-    backdrop-filter: blur(0px);
-  }
-  to {
-    opacity: 1;
-    backdrop-filter: blur(6px);
-  }
+.wrapper::before,
+.wrapper::after {
+  content: "";
+  flex: 1 1 auto;
+  min-height: 40px; 
 }
 
 .wrapper__content {
-  position: absolute;
-  max-width: 900px;
-  padding: 40px 30px;
-  margin-inline: 20px;
+  position: relative; 
+  width: 100%;
+  max-width: 900px; 
   background-color: #ffffff;
+  padding: 50px;
+  
+  flex: 0 0 auto; 
+  height: auto; 
+  min-height: min-content; 
+  box-sizing: border-box;
 }
 
 .icon__wrapper {
   position: absolute;
-  top: 40px;
-  right: 30px;
+  top: 20px;
+  right: 20px;
   cursor: pointer;
+  background: transparent;
+  border: none;
+  z-index: 10;
+}
+
+@keyframes slide-in {
+  from { opacity: 0; backdrop-filter: blur(0px); }
+  to { opacity: 1; backdrop-filter: blur(6px); }
+}
+
+@media screen and (max-width: 1024px) {
+  .wrapper::before,
+  .wrapper::after {
+    min-height: 20px; 
+  }
+  
+  .wrapper__content {
+    width: calc(100% - 30px); 
+    padding: 40px 20px 20px 20px; 
+  }
 }

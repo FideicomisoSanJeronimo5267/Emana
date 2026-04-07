@@ -202,12 +202,12 @@
     width: 20px;
   }
 
-  .thumbsSwiper {
+ .thumbsSwiper {
     padding: 5px 0 10px;
   }
 
-  .thumbImageWrapper {
-    aspect-ratio: 1 / 1;
+ .thumbImageWrapper {
+    aspect-ratio: 16 / 9; 
   }
 
   .thumbTitle {

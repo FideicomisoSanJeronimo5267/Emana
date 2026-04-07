@@ -6,6 +6,7 @@ import { useFormik } from 'formik'
 
 import styles from './brochure-form.module.css'
 import { Button } from "@/src/app/components";
+import { ENV } from "@/src/core/config/env";
 
 const validationSchema = Yup.object({
     email: Yup.string().email("Ingresa un correo válido").required('El correo electrónico es obligatorio'),
@@ -19,10 +20,16 @@ export default function BrochureForm() {
         },
         validationSchema,
         onSubmit: (values) => {
-            console.log(values)
+            console.log("Datos del formulario:", values);
+            if (ENV.BROCHURE_URL) {
+                window.open(ENV.BROCHURE_URL, "_blank");
+            } else {
+                console.error("La URL del brochure no está configurada");
+            }
         }
 
     })
+
     return (
         <form className={styles.wrapper} onSubmit={formik.handleSubmit}>
             <ul className={styles.inputs__list}>
