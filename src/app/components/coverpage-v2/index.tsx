@@ -7,6 +7,7 @@ import { JSX } from 'react';
 
 interface CoverPageV2Props {
     coverImage: {
+        className?: string;
         alt: string;
         src: string;
         blurData: string;
@@ -31,7 +32,7 @@ export default function CoverPageV2(props: CoverPageV2Props) {
     return (
         <div className={styles.coverpage}>
             <Image
-                className={styles.coverpage__image}
+                className={`${styles.coverpage__image} ${props.coverImage.className || ""}`}
                 src={props.coverImage.src}
                 alt={props.coverImage.alt}
                 placeholder="blur"

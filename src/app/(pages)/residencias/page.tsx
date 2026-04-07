@@ -9,7 +9,6 @@ import {
     ApartmentSection,
     BrochureSection,
     FeaturesSection,
-    PropertyTypeSection,
     ResidencesHeroSection,
     UnitsAvailable,
     VillasSection
