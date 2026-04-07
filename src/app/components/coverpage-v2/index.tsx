@@ -3,12 +3,18 @@ import Image from 'next/image'
 import styles from './coverpage.module.css'
 import Button from '../button';
 import { motion, useScroll, useTransform } from 'motion/react';
+import { JSX } from 'react';
 
 interface CoverPageV2Props {
     coverImage: {
         alt: string;
         src: string;
         blurData: string;
+    }
+    title: string | JSX.Element | JSX.Element[];
+    subtitle: string | JSX.Element | JSX.Element[];
+    button:{
+        title: string;
     }
 }
 
@@ -34,10 +40,10 @@ export default function CoverPageV2(props: CoverPageV2Props) {
             />
             <motion.div style={{ filter }} className={styles.coverpage__content}>
                 <h1 className={styles.coverpage__content__title}>
-                    Residencias para habitar <br /> con propósito
+                    {props.title}
                 </h1>
                 <span className={styles.coverpage__content__subtitle}>
-                    Descubre el lugar donde vivir es una experiencia
+                    {props.subtitle}
                 </span>
                 <Button>
                     Conoce tu nuevo hogar

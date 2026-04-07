@@ -23,6 +23,15 @@ export default function Residences() {
     return (
         <main className={styles.main}>
             <CoverPageV2
+                title={
+                    'Residencias para habitar\ncon propósito'
+                }
+                subtitle={
+                    'Departamentos y villas que emanan\nequilibrio, funcionalidad y diseño.'
+                }
+                button={{
+                    title: 'Conoce tu nuevo hogar'
+                }}
                 coverImage={{
                     alt: 'Cover Image',
                     src: residencesImagesdata.coverpage.src,
