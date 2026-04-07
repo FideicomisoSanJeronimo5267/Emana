@@ -5,6 +5,7 @@ import "react-phone-number-input/style.css";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import styles from "./contact-form.module.css";
 import { useCreateContact } from "@/src/core/hooks/useCreateContact";
+import { ENV } from "@/src/core/config/env"; 
 
 const validationSchema = Yup.object({
   name: Yup.string().required("El nombre completo es obligatorio"),
@@ -25,12 +26,11 @@ export default function ContactForm({ isBrochureModal = false }: ContactFormProp
   const { status, submitContact } = useCreateContact();
 
   const handleDownloadBrochure = () => {
-    const link = document.createElement('a');
-    link.href = '/assets/BrochureEmana.pdf'; // <- Ajusta esta ruta a tu PDF real
-    link.download = 'BrochureEmana.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    if (ENV.BROCHURE_URL) {
+      window.open(ENV.BROCHURE_URL, '_blank');
+    } else {
+      console.error("Falta configurar NEXT_PUBLIC_BROCHURE_URL en el .env");
+    }
   };
 
   const formik = useFormik({
