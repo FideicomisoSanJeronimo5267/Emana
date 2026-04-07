@@ -14,13 +14,14 @@ interface CoverPageV2Props {
     }
     title: string | JSX.Element | JSX.Element[];
     subtitle: string | JSX.Element | JSX.Element[];
-    button: {
+    button?: {
         title: string;
         href?: string;
     }
+    darkLayout?: boolean;
 }
 
-export default function CoverPageV2(props: CoverPageV2Props) {
+export default function CoverPageV2({ darkLayout = false, ...props }: CoverPageV2Props) {
     const { scrollYProgress } = useScroll();
     const filter = useTransform(
         scrollYProgress,
@@ -40,6 +41,7 @@ export default function CoverPageV2(props: CoverPageV2Props) {
                 blurDataURL={props.coverImage.blurData}
                 fill
             />
+            <div className={styles.dark__layout} />
             <motion.div style={{ filter }} className={styles.coverpage__content}>
                 <h1 className={styles.coverpage__content__title}>
                     {props.title}
@@ -47,13 +49,19 @@ export default function CoverPageV2(props: CoverPageV2Props) {
                 <span className={styles.coverpage__content__subtitle}>
                     {props.subtitle}
                 </span>
-                <Button
-                    link={{
-                        href: '/contacto'
-                    }}
-                >
-                    {props.button.title}
-                </Button>
+
+                {
+                    props.button && (
+                        <Button
+                            link={{
+                                href: '/contacto'
+                            }}
+                        >
+                            {props.button.title}
+                        </Button>
+
+                    )
+                }
             </motion.div>
 
         </div >
