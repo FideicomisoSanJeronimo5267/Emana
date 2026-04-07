@@ -1,15 +1,14 @@
-import BrochureForm from './brochure-form'
-import styles from './brochure_modal.module.css'
+
+import ContactForm from '@/src/app/(pages)/contacto/components/contact-form';
+import styles from './brochure_modal.module.css';
 
 export default function BrochureModal() {
     return (
         <div className={styles.wrapper}>
             <h2 className={styles.title}>
-                Compártenos tu correo electrónico
-                y recibe el brochure.
+                Compártenos tu información y recibe el brochure.
             </h2>
-
-            <BrochureForm/>
+            <ContactForm isBrochureModal={true} />
         </div>
     )
 }
