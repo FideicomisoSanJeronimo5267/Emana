@@ -17,20 +17,37 @@ const validationSchema = Yup.object({
   message: Yup.string().max(300, "Máximo 300 caracteres").nullable(),
 });
 
-export default function ContactForm() {
-  // Extraemos el estado y el método de nuestro hook del módulo de contacto
+interface ContactFormProps {
+  isBrochureModal?: boolean;
+}
+
+export default function ContactForm({ isBrochureModal = false }: ContactFormProps) {
   const { status, submitContact } = useCreateContact();
+
+  const handleDownloadBrochure = () => {
+    const link = document.createElement('a');
+    link.href = '/assets/BrochureEmana.pdf'; // <- Ajusta esta ruta a tu PDF real
+    link.download = 'BrochureEmana.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   const formik = useFormik({
     initialValues: { name: "", email: "", phone: "", message: "" },
     validationSchema,
     onSubmit: async (values, { resetForm }) => {
       try {
-        // Delegamos el envío al hook enviando los valores validados
         await submitContact(values);
+        
+        // Si estamos en el modal, descargar el PDF al tener éxito
+        if (isBrochureModal) {
+          handleDownloadBrochure();
+        }
+        
         resetForm();
       } catch (error) {
-        // El estado de error ya es manejado por el hook, no requerimos setStatus aquí
+        // El estado de error ya es manejado por el hook
       }
     },
   });
@@ -38,127 +55,56 @@ export default function ContactForm() {
   return (
     <form className={styles.form__container} onSubmit={formik.handleSubmit}>
       <div className={styles.columns__wrapper}>
-        {/* COLUMNA IZQUIERDA: Inputs cortos */}
         <div className={styles.column__left}>
           <div className={styles.input__group}>
-            <label htmlFor="name" className={styles.label}>
-              Nombre completo
-            </label>
-            <div
-              className={`${styles.input__wrapper} ${
-                formik.touched.name && formik.errors.name ? styles.input__error : ""
-              }`}
-            >
-              <input
-                type="text"
-                id="name"
-                className={styles.input}
-                placeholder="Tu nombre completo"
-                {...formik.getFieldProps("name")}
-              />
+            <label htmlFor="name" className={styles.label}>Nombre completo</label>
+            <div className={`${styles.input__wrapper} ${formik.touched.name && formik.errors.name ? styles.input__error : ""}`}>
+              <input type="text" id="name" className={styles.input} placeholder="Tu nombre completo" {...formik.getFieldProps("name")} />
             </div>
-            {formik.touched.name && formik.errors.name && (
-              <span className={styles.error__message}>{formik.errors.name}</span>
-            )}
+            {formik.touched.name && formik.errors.name && <span className={styles.error__message}>{formik.errors.name}</span>}
           </div>
 
           <div className={styles.input__group}>
-            <label htmlFor="email" className={styles.label}>
-              Correo electrónico
-            </label>
-            <div
-              className={`${styles.input__wrapper} ${
-                formik.touched.email && formik.errors.email ? styles.input__error : ""
-              }`}
-            >
-              <input
-                type="email"
-                id="email"
-                className={styles.input}
-                placeholder="tu@email.com"
-                {...formik.getFieldProps("email")}
-              />
+            <label htmlFor="email" className={styles.label}>Correo electrónico</label>
+            <div className={`${styles.input__wrapper} ${formik.touched.email && formik.errors.email ? styles.input__error : ""}`}>
+              <input type="email" id="email" className={styles.input} placeholder="tu@email.com" {...formik.getFieldProps("email")} />
             </div>
-            {formik.touched.email && formik.errors.email && (
-              <span className={styles.error__message}>{formik.errors.email}</span>
-            )}
+            {formik.touched.email && formik.errors.email && <span className={styles.error__message}>{formik.errors.email}</span>}
           </div>
 
           <div className={styles.input__group}>
-            <label htmlFor="phone" className={styles.label}>
-              Teléfono
-            </label>
-            <div
-              className={`${styles.input__wrapper} ${
-                formik.touched.phone && formik.errors.phone ? styles.input__error : ""
-              }`}
-            >
-              <PhoneInput
-                international
-                defaultCountry="MX"
-                placeholder="000 000 0000"
-                limitMaxLength={true}
-                value={formik.values.phone}
-                onChange={(v) => formik.setFieldValue("phone", v)}
-                onBlur={() => formik.setFieldTouched("phone", true)}
-                className={styles.phone__lib__container}
-              />
+            <label htmlFor="phone" className={styles.label}>Teléfono</label>
+            <div className={`${styles.input__wrapper} ${formik.touched.phone && formik.errors.phone ? styles.input__error : ""}`}>
+              <PhoneInput international defaultCountry="MX" placeholder="000 000 0000" limitMaxLength={true} value={formik.values.phone} onChange={(v) => formik.setFieldValue("phone", v)} onBlur={() => formik.setFieldTouched("phone", true)} className={styles.phone__lib__container} />
             </div>
-            {formik.touched.phone && formik.errors.phone && (
-              <span className={styles.error__message}>{formik.errors.phone}</span>
-            )}
+            {formik.touched.phone && formik.errors.phone && <span className={styles.error__message}>{formik.errors.phone}</span>}
           </div>
         </div>
 
-        {/* COLUMNA DERECHA: Textarea */}
         <div className={styles.column__right}>
           <div className={styles.input__group} style={{ height: "100%" }}>
-            <label htmlFor="message" className={styles.label}>
-              Mensaje
-            </label>
-            <div
-              className={`${styles.textarea__wrapper} ${
-                formik.touched.message && formik.errors.message ? styles.input__error : ""
-              }`}
-            >
-              <textarea
-                id="message"
-                className={styles.textarea}
-                placeholder="Cuéntanos sobre tu interés en el proyecto"
-                {...formik.getFieldProps("message")}
-              />
+            <label htmlFor="message" className={styles.label}>Mensaje</label>
+            <div className={`${styles.textarea__wrapper} ${formik.touched.message && formik.errors.message ? styles.input__error : ""}`}>
+              <textarea id="message" className={styles.textarea} placeholder="Cuéntanos sobre tu interés en el proyecto" {...formik.getFieldProps("message")} />
             </div>
-            <div
-              style={{
-                textAlign: "right",
-                fontSize: "12px",
-                color: "#676861",
-                width: "100%",
-                marginTop: "4px",
-              }}
-            >
+            <div style={{ textAlign: "right", fontSize: "12px", color: "#676861", width: "100%", marginTop: "4px" }}>
               {formik.values.message?.length || 0}/300
             </div>
           </div>
         </div>
       </div>
 
-      <button
-        type="submit"
-        className={styles.submit__button}
-        disabled={status === "loading" || status === "success"}
-      >
-        {status === "loading"
-          ? "Enviando..."
-          : status === "success"
-          ? "¡Enviado!"
-          : "Enviar mensaje"}
-      </button>
-      {status === "error" && (
-        <p className={styles.status__error}>
-          Error al enviar. Intenta de nuevo.
+      {isBrochureModal && (
+        <p style={{ marginTop: "20px", color: "#676861", fontSize: "14px" }}>
+          Déjanos tus datos para descargar automáticamente el brochure digital.
         </p>
       )}
+
+      <button type="submit" className={styles.submit__button} disabled={status === "loading" || status === "success"}>
+        {status === "loading" ? "Enviando..." : status === "success" ? "¡Enviado!" : "Descargar brochure"}
+      </button>
+      
+      {status === "error" && <p className={styles.status__error}>Error al enviar. Intenta de nuevo.</p>}
     </form>
   );
 }
