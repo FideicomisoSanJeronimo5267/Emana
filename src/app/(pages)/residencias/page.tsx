@@ -30,7 +30,8 @@ export default function Residences() {
                     'Departamentos y villas que emanan\nequilibrio, funcionalidad y diseño.'
                 }
                 button={{
-                    title: 'Conoce tu nuevo hogar'
+                    title: 'Conoce tu nuevo hogar',
+                    href: '/contacto'
                 }}
                 coverImage={{
                     alt: 'Cover Image',

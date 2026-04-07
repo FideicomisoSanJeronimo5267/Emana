@@ -13,8 +13,9 @@ interface CoverPageV2Props {
     }
     title: string | JSX.Element | JSX.Element[];
     subtitle: string | JSX.Element | JSX.Element[];
-    button:{
+    button: {
         title: string;
+        href?: string;
     }
 }
 
@@ -45,8 +46,12 @@ export default function CoverPageV2(props: CoverPageV2Props) {
                 <span className={styles.coverpage__content__subtitle}>
                     {props.subtitle}
                 </span>
-                <Button>
-                    Conoce tu nuevo hogar
+                <Button
+                    link={{
+                        href: '/contacto'
+                    }}
+                >
+                    {props.button.title}
                 </Button>
             </motion.div>
 
