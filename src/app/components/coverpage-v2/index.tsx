@@ -41,7 +41,11 @@ export default function CoverPageV2({ darkLayout = false, ...props }: CoverPageV
                 blurDataURL={props.coverImage.blurData}
                 fill
             />
-            <div className={styles.dark__layout} />
+            {
+                darkLayout && (
+                    <div className={styles.dark__layout} />
+                )
+            }
             <motion.div style={{ filter }} className={styles.coverpage__content}>
                 <h1 className={styles.coverpage__content__title}>
                     {props.title}

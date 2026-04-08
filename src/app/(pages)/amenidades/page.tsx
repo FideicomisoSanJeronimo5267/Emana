@@ -78,6 +78,7 @@ export default function AmenitiesPage() {
           src: amenitiesImagesData.grillDeckV2.src,
           blurData: amenitiesImagesData.grillDeckV2.blurData
         }}
+        darkLayout
       />
       {/* <HeroSection
         text="Espacios diseñados para promover un estilo de vida con movimiento, calma y comunidad."
