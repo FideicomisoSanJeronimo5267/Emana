@@ -21,7 +21,6 @@
 @media (max-width: 768px) {
   .heroSection {
     margin-top: 206px;
-    margin-bottom: 60px;
     margin-left: 20px;
     width: calc(100% - 40px);
     
