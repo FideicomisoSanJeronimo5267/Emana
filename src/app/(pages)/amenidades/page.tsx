@@ -121,11 +121,11 @@ export default function AmenitiesPage() {
         ))}
       </section>
 
-      <LazyAnimation>
+      {/* <LazyAnimation> */}
         <section className={styles.gallerySection}>
           <AmenitiesGallery amenitiesData={amenitiesData} />
         </section>
-      </LazyAnimation>
+      {/* </LazyAnimation> */}
       <div className={styles.divisor} />
 
       <LazyAnimation>
