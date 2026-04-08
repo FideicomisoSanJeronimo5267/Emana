@@ -4,9 +4,8 @@ import styles from "./amenidades.module.css";
 import HeroSection from "./presentation/components/hero-section";
 import { amenitiesImagesData } from "@/src/core/constants/image-data/amenities-page";
 import AmenitiesGallery from "./presentation/components/amenities-gallery";
-import BrochureSection from "./presentation/components/brochure-section";
 import CoverPageV2 from "../../components/coverpage-v2";
-import { residencesImagesdata } from "@/src/core/constants/image-data/residences-page";
+import { BrochureSection } from "../residencias/presentation/components";
 
 const amenitiesData = [
   {
@@ -121,7 +120,13 @@ export default function AmenitiesPage() {
         <AmenitiesGallery amenitiesData={amenitiesData} />
       </section>
       <div className={styles.divisor} />
-      <BrochureSection />
+      <div className={styles.brochureSection}>
+        <BrochureSection
+          title='Conoce más sobre nuestras amenidades'
+          description='Planos, amenidades y especificaciones en un PDF.'
+          titleFont='gilroy'
+        />
+      </div>
       <AppointmentSection
         title={'Vive la experiencia EMANA'}
         description={'Agenda un recorrido en nuestro showroom y conoce más sobre tu nuevo estilo de vida.'}

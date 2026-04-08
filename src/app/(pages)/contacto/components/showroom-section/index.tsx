@@ -2,7 +2,6 @@ import styles from './showroom-section.module.css';
 import Map from '@/src/core/components/map';
 
 export default function ShowroomSection() {
-    // Coordenadas actualizadas al nuevo showroom
     const location = {
         lat: 25.6515, 
         lng: -100.3658
