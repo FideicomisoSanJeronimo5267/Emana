@@ -32,7 +32,7 @@ export default function Home() {
       <UnitsAvailable
         title='Desde $8.7 MDP*'
         button={{
-          title: 'Agenda una cita'
+          title: 'Agenda una cita',
         }}
         headerDescription='Departamentos y villas de lujo'
         footerDescription='*Sujeto a disponibilidad y cambios sin previo aviso.'
