@@ -11,3 +11,8 @@
   text-align: center;
   font-size: 37px;
 }
+
+.container ul{
+  list-style: circle;
+  padding-left: 20px;
+}
