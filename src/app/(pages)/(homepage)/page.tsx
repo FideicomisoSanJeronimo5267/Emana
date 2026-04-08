@@ -1,11 +1,6 @@
-//Next JS
-import Image from 'next/image';
 
 // Styles
 import styles from './home-page.module.css'
-
-//Assets
-import coverpage from '@assets/images/homepage/cover-image.png';
 
 // Components
 import { AmenitiesSection, FeaturesSection, LocationSection } from './presentation/components';
@@ -13,6 +8,7 @@ import { BrochureSection, UnitsAvailable } from '../residencias/presentation/com
 import { AppointmentSection } from '../../components';
 import { homepageImagesdata } from '@/src/core/constants/image-data/home-page';
 import CoverPage from '../../components/coverpage';
+import LazyAnimation from '../../components/lazy-animation';
 
 export default function Home() {
   return (
@@ -25,29 +21,41 @@ export default function Home() {
         }}
       />
 
-      <FeaturesSection />
+      <LazyAnimation>
+        <FeaturesSection />
+      </LazyAnimation>
       <div className={styles.main__axis__divisor} />
-      <LocationSection />
-      <AmenitiesSection />
-      <UnitsAvailable
-        title='Desde $8.7 MDP*'
-        button={{
-          title: 'Agenda una cita',
-        }}
-        headerDescription='Departamentos y villas de lujo'
-        footerDescription='*Sujeto a disponibilidad y cambios sin previo aviso.'
-      />
+      <LazyAnimation>
+        <LocationSection />
+      </LazyAnimation>
+      <LazyAnimation>
+        <AmenitiesSection />
+      </LazyAnimation>
+      <LazyAnimation>
+        <UnitsAvailable
+          title='Desde $8.7 MDP*'
+          button={{
+            title: 'Agenda una cita',
+          }}
+          headerDescription='Departamentos y villas de lujo'
+          footerDescription='*Sujeto a disponibilidad y cambios sin previo aviso.'
+        />
+      </LazyAnimation>
       <div className={styles.main__axis__divisor} />
-      <BrochureSection
-        title='Conoce más sobre EMANA'
-        description='Descubre cómo el diseño, la ubicación y las amenidades del proyecto se unen para crear una experiencia residencial única.'
-      />
-      <AppointmentSection
-        title={'Vive la experiencia EMANA'}
-        description={'Visita nuestro showroom y conoce el futuro de tu inversión.'}
-        coverImage={homepageImagesdata.emanaExperience.src}
-        blurDataURL={homepageImagesdata.emanaExperience.blurData}
-      />
+      <LazyAnimation>
+        <BrochureSection
+          title='Conoce más sobre EMANA'
+          description='Descubre cómo el diseño, la ubicación y las amenidades del proyecto se unen para crear una experiencia residencial única.'
+        />
+      </LazyAnimation>
+      <LazyAnimation>
+        <AppointmentSection
+          title={'Vive la experiencia EMANA'}
+          description={'Visita nuestro showroom y conoce el futuro de tu inversión.'}
+          coverImage={homepageImagesdata.emanaExperience.src}
+          blurDataURL={homepageImagesdata.emanaExperience.blurData}
+        />
+      </LazyAnimation>
     </main>
   );
 }

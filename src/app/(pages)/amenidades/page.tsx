@@ -6,6 +6,7 @@ import { amenitiesImagesData } from "@/src/core/constants/image-data/amenities-p
 import AmenitiesGallery from "./presentation/components/amenities-gallery";
 import CoverPageV2 from "../../components/coverpage-v2";
 import { BrochureSection } from "../residencias/presentation/components";
+import LazyAnimation from "../../components/lazy-animation";
 
 const amenitiesData = [
   {
@@ -78,61 +79,73 @@ export default function AmenitiesPage() {
           blurData: amenitiesImagesData.grillDeckV2.blurData
         }}
       />
-      <HeroSection
+      {/* <HeroSection
         text="Espacios diseñados para promover un estilo de vida con movimiento, calma y comunidad."
         buttonText="Conoce nuestras amenidades"
-      />
+      /> */}
 
       <section className={styles.container}>
         {mainPageAmenities.map((amenity, index) => (
-          <article
+          <LazyAnimation
             key={amenity.id}
-            className={`${styles.card} ${index % 2 !== 0 ? styles.reverse : ""}`}
           >
-            <div className={styles.imageWrapper} style={{ position: "relative" }}>
-              <Image
-                src={amenity.imageData.src}
-                alt={amenity.imageData.alt}
-                fill
-                className={`${styles.image} ${amenity.title === "GRILL DECK" ? styles.grillDeckDrasticZoom : ""
-                  }`}
-                placeholder="blur"
-                blurDataURL={amenity.imageData.blurData}
-                sizes="(max-width: 1024px) 100vw, 928px"
-              />
-            </div>
-
-            <div className={styles.textWrapper}>
-              <div className={styles.titleContainer}>
-                <h2 className={styles.title}>{amenity.title}</h2>
+            <article
+              className={`${styles.card} ${index % 2 !== 0 ? styles.reverse : ""}`}
+            >
+              <div className={styles.imageWrapper} style={{ position: "relative" }}>
+                <Image
+                  src={amenity.imageData.src}
+                  alt={amenity.imageData.alt}
+                  fill
+                  className={`${styles.image} ${amenity.title === "GRILL DECK" ? styles.grillDeckDrasticZoom : ""
+                    }`}
+                  placeholder="blur"
+                  blurDataURL={amenity.imageData.blurData}
+                  sizes="(max-width: 1024px) 100vw, 928px"
+                />
               </div>
 
-              <div className={styles.descriptionContainer}>
-                <p className={styles.description}>{amenity.description}</p>
-              </div>
+              <div className={styles.textWrapper}>
+                <div className={styles.titleContainer}>
+                  <h2 className={styles.title}>{amenity.title}</h2>
+                </div>
 
-              <button className={styles.button}>Conoce más</button>
-            </div>
-          </article>
+                <div className={styles.descriptionContainer}>
+                  <p className={styles.description}>{amenity.description}</p>
+                </div>
+
+                <button className={styles.button}>Conoce más</button>
+              </div>
+            </article>
+          </LazyAnimation>
         ))}
       </section>
-      <section className={styles.gallerySection}>
-        <AmenitiesGallery amenitiesData={amenitiesData} />
-      </section>
+
+      <LazyAnimation>
+        <section className={styles.gallerySection}>
+          <AmenitiesGallery amenitiesData={amenitiesData} />
+        </section>
+      </LazyAnimation>
       <div className={styles.divisor} />
-      <div className={styles.brochureSection}>
-        <BrochureSection
-          title='Conoce más sobre nuestras amenidades'
-          description='Planos, amenidades y especificaciones en un PDF.'
-          titleFont='gilroy'
+
+      <LazyAnimation>
+        <div className={styles.brochureSection}>
+          <BrochureSection
+            title='Conoce más sobre nuestras amenidades'
+            description='Planos, amenidades y especificaciones en un PDF.'
+            titleFont='gilroy'
+          />
+        </div>
+      </LazyAnimation>
+
+      <LazyAnimation>
+        <AppointmentSection
+          title={'Vive la experiencia EMANA'}
+          description={'Agenda un recorrido en nuestro showroom y conoce más sobre tu nuevo estilo de vida.'}
+          coverImage={amenitiesImagesData.emanaExperience.src}
+          blurDataURL={amenitiesImagesData.emanaExperience.blurData}
         />
-      </div>
-      <AppointmentSection
-        title={'Vive la experiencia EMANA'}
-        description={'Agenda un recorrido en nuestro showroom y conoce más sobre tu nuevo estilo de vida.'}
-        coverImage={amenitiesImagesData.emanaExperience.src}
-        blurDataURL={amenitiesImagesData.emanaExperience.blurData}
-      />
+      </LazyAnimation>
     </main>
   );
 }

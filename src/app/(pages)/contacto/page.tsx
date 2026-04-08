@@ -3,11 +3,12 @@ import styles from './contacto.module.css';
 import ContactForm from './components/contact-form';
 import ShowroomSection from './components/showroom-section';
 import ExperienceSection from './components/experience-section';
+import LazyAnimation from '../../components/lazy-animation';
 
 export default function ContactPage() {
     return (
         <main className={styles.main}>
-            
+
             <div className={styles.content__wrapper}>
                 <div className={styles.centered__container}>
                     <div className={styles.header}>
@@ -20,10 +21,16 @@ export default function ContactPage() {
                     <ContactForm />
                 </div>
 
-                <ShowroomSection />
+                <LazyAnimation>
+                    <ShowroomSection />
+                </LazyAnimation>
+
 
                 <div className={styles.banner__filter__wrapper}>
-                    <ExperienceSection />
+                    <LazyAnimation>
+                        <ExperienceSection />
+                    </LazyAnimation>
+
                 </div>
             </div>
         </main>
