@@ -14,7 +14,8 @@ import sidebarLogoMobile from '@assets/images/general/sidebarLogoMobile.svg'
 
 export default function Header() {
     const pathname = usePathname();
-    const isContactPage = pathname === '/contacto';
+    const isContactPage = pathname === '/contacto' ;
+    const isPrivacyPolicy = pathname === '/aviso-de-privacidad'
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
@@ -58,11 +59,11 @@ export default function Header() {
 
     return (
         <>
-            <header className={`${styles.header} ${isContactPage ? styles.headerContact : ''}`}>
+            <header className={`${styles.header} ${isContactPage || isPrivacyPolicy ? styles.headerContact : ''}`}>
                 <nav className={styles.header__nav}>
                     <Link className={styles.header__nav__logo} href="/">
                         <Image
-                            src={isContactPage ? logoContacto : logo}
+                            src={isContactPage || isPrivacyPolicy ? logoContacto : logo}
                             alt="Logo"
                             fill
                             priority
@@ -85,7 +86,7 @@ export default function Header() {
 
                     <div className={styles.header__nav__sidebarLogo} onClick={toggleMenu}>
                         <Image
-                            src={isContactPage ? sidebarLogoMobile : sidebarLogo}
+                            src={isContactPage || isPrivacyPolicy ? sidebarLogoMobile : sidebarLogo}
                             alt="Menu"
                             fill
                         />
