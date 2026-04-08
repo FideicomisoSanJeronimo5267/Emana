@@ -1,4 +1,5 @@
 import AppointmentSection from '../../components/appoiment-section';
+import CoverPageV2 from '../../components/coverpage-v2';
 import BrochureSection from '../residencias/presentation/components/brochure-section';
 import styles from './colaboradores.module.css';
 import CollaboratorSection from './presentation/components/collaborator-section';
@@ -27,7 +28,14 @@ const collaborators = [
 export default function CollaboratorsPage() {
     return (
         <main className={styles.main}>
-
+            <CoverPageV2 coverImage={{
+                alt: collaboratorsImagesdata.frontal_tower.alt,
+                src: collaboratorsImagesdata.frontal_tower.src,
+                blurData: collaboratorsImagesdata.frontal_tower.blurData
+            }}
+                title={'El origen de un oasis\nen la ciudad'}
+                subtitle={'Una visión respaldada por experiencia, diseño y \n compromiso.'}
+            />
             <div className={styles.collaboratorsList}>
                 {collaborators.map((collab, index) => (
                     <CollaboratorSection

@@ -4,6 +4,7 @@ import styles from "./amenidades.module.css";
 import HeroSection from "./presentation/components/hero-section";
 import { amenitiesImagesData } from "@/src/core/constants/image-data/amenities-page";
 import AmenitiesGallery from "./presentation/components/amenities-gallery";
+import CoverPageV2 from "../../components/coverpage-v2";
 import { BrochureSection } from "../residencias/presentation/components";
 
 const amenitiesData = [
@@ -53,19 +54,36 @@ const amenitiesData = [
 ];
 
 export default function AmenitiesPage() {
-  const mainPageAmenities = amenitiesData.filter(amenity => 
+  const mainPageAmenities = amenitiesData.filter(amenity =>
     ["FAMILY POOL", "GRILL DECK", "BUSINESS CENTER"].includes(amenity.title)
   );
 
   return (
     <main className={styles.main}>
-      
-      
-      <section className={styles.container}>
-        <HeroSection
+      <CoverPageV2
+        title={
+          'Amenidades que emanan\nbienestar'
+        }
+        subtitle={
+          'Espacios diseñados para promover un estilo de\nvida con movimiento, calma y comunidad.'
+        }
+        button={{
+          title: 'Conoce nuestras amenidades',
+          href: '/contacto'
+        }}
+        coverImage={{
+          className: styles.coverImage,
+          alt: amenitiesImagesData.grillDeckV2.alt,
+          src: amenitiesImagesData.grillDeckV2.src,
+          blurData: amenitiesImagesData.grillDeckV2.blurData
+        }}
+      />
+      <HeroSection
         text="Espacios diseñados para promover un estilo de vida con movimiento, calma y comunidad."
         buttonText="Conoce nuestras amenidades"
       />
+
+      <section className={styles.container}>
         {mainPageAmenities.map((amenity, index) => (
           <article
             key={amenity.id}
@@ -75,13 +93,12 @@ export default function AmenitiesPage() {
               <Image
                 src={amenity.imageData.src}
                 alt={amenity.imageData.alt}
-                fill 
-                className={`${styles.image} ${
-                  amenity.title === "GRILL DECK" ? styles.grillDeckDrasticZoom : ""
-                }`} 
-                placeholder="blur" 
-                blurDataURL={amenity.imageData.blurData} 
-                sizes="(max-width: 1024px) 100vw, 928px" 
+                fill
+                className={`${styles.image} ${amenity.title === "GRILL DECK" ? styles.grillDeckDrasticZoom : ""
+                  }`}
+                placeholder="blur"
+                blurDataURL={amenity.imageData.blurData}
+                sizes="(max-width: 1024px) 100vw, 928px"
               />
             </div>
 
@@ -89,11 +106,11 @@ export default function AmenitiesPage() {
               <div className={styles.titleContainer}>
                 <h2 className={styles.title}>{amenity.title}</h2>
               </div>
-              
+
               <div className={styles.descriptionContainer}>
                 <p className={styles.description}>{amenity.description}</p>
               </div>
-              
+
               <button className={styles.button}>Conoce más</button>
             </div>
           </article>
@@ -104,18 +121,18 @@ export default function AmenitiesPage() {
       </section>
       <div className={styles.divisor} />
       <div className={styles.brochureSection}>
-      <BrochureSection
-      title='Conoce más sobre nuestras amenidades'
-      description='Planos, amenidades y especificaciones en un PDF.'
-      titleFont='gilroy'
-      />
+        <BrochureSection
+          title='Conoce más sobre nuestras amenidades'
+          description='Planos, amenidades y especificaciones en un PDF.'
+          titleFont='gilroy'
+        />
       </div>
-       <AppointmentSection
-                       title={'Vive la experiencia EMANA'}
-                       description={'Agenda un recorrido en nuestro showroom y conoce más sobre tu nuevo estilo de vida.'}
-                       coverImage={amenitiesImagesData.emanaExperience.src}
-                       blurDataURL={amenitiesImagesData.emanaExperience.blurData}
-                   />
+      <AppointmentSection
+        title={'Vive la experiencia EMANA'}
+        description={'Agenda un recorrido en nuestro showroom y conoce más sobre tu nuevo estilo de vida.'}
+        coverImage={amenitiesImagesData.emanaExperience.src}
+        blurDataURL={amenitiesImagesData.emanaExperience.blurData}
+      />
     </main>
   );
 }

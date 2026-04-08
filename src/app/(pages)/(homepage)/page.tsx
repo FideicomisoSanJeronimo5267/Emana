@@ -12,22 +12,18 @@ import { AmenitiesSection, FeaturesSection, LocationSection } from './presentati
 import { BrochureSection, UnitsAvailable } from '../residencias/presentation/components';
 import { AppointmentSection } from '../../components';
 import { homepageImagesdata } from '@/src/core/constants/image-data/home-page';
+import CoverPage from '../../components/coverpage';
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className={styles.coverpage}>
-        <Image
-          className={styles.coverImage}
-          src={homepageImagesdata.coverpage.src}
-          alt={homepageImagesdata.coverpage.alt}
-          blurDataURL={homepageImagesdata.coverpage.blurData}
-          placeholder='blur'
-          objectFit="cover"
-          fill
-          priority
-        />
-      </div>
+      <CoverPage
+        coverImage={{
+          alt: 'Cover Image',
+          src: homepageImagesdata.coverpage.src,
+          blurData: homepageImagesdata.coverpage.blurData
+        }}
+      />
 
       <FeaturesSection />
       <div className={styles.main__axis__divisor} />
@@ -36,7 +32,7 @@ export default function Home() {
       <UnitsAvailable
         title='Desde $8.7 MDP*'
         button={{
-          title: 'Agenda una cita'
+          title: 'Agenda una cita',
         }}
         headerDescription='Departamentos y villas de lujo'
         footerDescription='*Sujeto a disponibilidad y cambios sin previo aviso.'

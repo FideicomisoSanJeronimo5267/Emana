@@ -31,7 +31,12 @@ export default function UnitsAvailable(props: UnitsAvailableProps) {
             <h2 className={styles.units__available__title}>
                 {props.title}
             </h2>
-            <Button className={styles.units__available__button}>
+            <Button
+                className={styles.units__available__button}
+                link={{
+                    href: '/contacto'
+                }}
+            >
                 Ver Inventario
             </Button>
             <Image className={styles.units__available__logo} src={SmallLogo} alt={'Small logo'} />

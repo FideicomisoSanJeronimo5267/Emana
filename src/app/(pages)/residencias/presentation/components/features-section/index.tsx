@@ -3,7 +3,7 @@ import { useDragScroll } from '@/src/app/hooks/useDragScroll'
 import styles from './features-section.module.css'
 
 export default function FeaturesSection() {
-    const scrollRef = useDragScroll()
+    const scrollRef = useDragScroll() 
     return (
         <div ref={scrollRef} className={styles.features}>
             <li className={styles.feature__item}>
