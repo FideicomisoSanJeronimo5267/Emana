@@ -12,12 +12,12 @@ import { AmenitiesSection, FeaturesSection, LocationSection } from './presentati
 import { BrochureSection, UnitsAvailable } from '../residencias/presentation/components';
 import { AppointmentSection } from '../../components';
 import { homepageImagesdata } from '@/src/core/constants/image-data/home-page';
-import CoverPageV2 from '../../components/coverpage-v2';
+import CoverPage from '../../components/coverpage';
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <CoverPageV2
+      <CoverPage
         coverImage={{
           alt: 'Cover Image',
           src: homepageImagesdata.coverpage.src,
