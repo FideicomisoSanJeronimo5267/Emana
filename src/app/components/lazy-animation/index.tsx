@@ -16,11 +16,6 @@ export default function LazyAnimation(props: LazyAnimationProps) {
         once: true,
         margin: "0px 0px -100px 0px",
     });
-
-    useEffect(() => {
-        console.log("Is in view:", isInView)
-    }, [isInView])
-
     return (
         <div
             className={styles.wrapper}
