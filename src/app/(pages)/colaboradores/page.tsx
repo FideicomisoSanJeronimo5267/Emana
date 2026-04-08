@@ -1,5 +1,6 @@
 import AppointmentSection from '../../components/appoiment-section';
 import CoverPageV2 from '../../components/coverpage-v2';
+import LazyAnimation from '../../components/lazy-animation';
 import BrochureSection from '../residencias/presentation/components/brochure-section';
 import styles from './colaboradores.module.css';
 import CollaboratorSection from './presentation/components/collaborator-section';
@@ -38,27 +39,37 @@ export default function CollaboratorsPage() {
             />
             <div className={styles.collaboratorsList}>
                 {collaborators.map((collab, index) => (
-                    <CollaboratorSection
+                    <LazyAnimation
                         key={index}
-                        name={collab.name}
-                        description={collab.description}
-                        image={collab.image}
-                        isReversed={index % 2 == 0}
-                        logo={collab.logo}
-                    />
+                    >
+                        <CollaboratorSection
+                            name={collab.name}
+                            description={collab.description}
+                            image={collab.image}
+                            isReversed={index % 2 == 0}
+                            logo={collab.logo}
+                        />
+
+                    </LazyAnimation>
+
                 ))}
             </div>
-            <BrochureSection
-                title=''
-                description='Conoce todos los detalles detrás del proyecto.'
-            />
-            <AppointmentSection
-                title={'Vive la experiencia EMANA'}
-                description={'Conoce nuestro showroom'}
-                coverImage={collaboratorsImagesdata.emana_experience.src}
-                blurDataURL={collaboratorsImagesdata.emana_experience.blurData}
-                className={styles.container__coverImage}
-            />
+            <LazyAnimation>
+                <BrochureSection
+                    title=''
+                    description='Conoce todos los detalles detrás del proyecto.'
+                />
+
+            </LazyAnimation>
+            <LazyAnimation>
+                <AppointmentSection
+                    title={'Vive la experiencia EMANA'}
+                    description={'Conoce nuestro showroom'}
+                    coverImage={collaboratorsImagesdata.emana_experience.src}
+                    blurDataURL={collaboratorsImagesdata.emana_experience.blurData}
+                    className={styles.container__coverImage}
+                />
+            </LazyAnimation>
         </main>
     )
 }
