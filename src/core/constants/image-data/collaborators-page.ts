@@ -2,6 +2,11 @@ import { ENV } from "../../config/env";
 import { ImageDataStructure } from "../../interfaces";
 
 export const collaboratorsImagesdata = {
+    frontal_tower: {
+        alt: "Frontal tower",
+        src: `${ENV.ASSETS_BASE_URL}/collaborators/tower-frontal-view.webp`,
+        blurData: "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAADwBACdASoUABIAPm0wkkckIqGhKAqogA2JZwCw7AyF/c+z3up/Q+br+/UohlAJ7AAA/uo6qt3GIQ/X766Als2+lc/f/8+69m8HKkK1fvu2uVZqFh46Zu2UV68I+MElH5Q50WZGV2EGFraYbZfZxFZQPPLsthzwt7idEcLsP5KRPPOhgxKNOTbP/HrUzdQg2ShUUG1jnByxypMAK0AAAA=="
+    },
     one_development_group: {
         alt: "One development group",
         src: `${ENV.ASSETS_BASE_URL}/collaborators/one_development_group.webp`,

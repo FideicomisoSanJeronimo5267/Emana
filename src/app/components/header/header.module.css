@@ -9,7 +9,7 @@
   margin: 0 auto;
   padding-inline: clamp(1.4375rem, -2.3658rem + 5.9426vw, 3.25rem);
   padding-top: clamp(1.8125rem, -0.2859rem + 3.2787vw, 2.8125rem);
-  z-index: 10;
+  z-index: 100;
 }
 
 .header__nav {
@@ -57,6 +57,7 @@
   position: relative;
   min-width: 30px;
   height: 100%;
+  z-index: 40;
 }
 
 .header__nav__sidebarLogo img {
