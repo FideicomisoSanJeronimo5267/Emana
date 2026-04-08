@@ -5,11 +5,13 @@
   margin: 0 auto;
   margin-top: 168px;
   
-  max-width: 100vw;   
+  max-width: 99.25vw;   
   overflow: hidden;   
-  min-width: 0;       
+  min-width: 0;
   box-sizing: border-box; 
 }
+
+
 .mainSwiper {
   width: 100%;
   margin-bottom: 10px;
