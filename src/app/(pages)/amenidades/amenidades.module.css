@@ -11,6 +11,15 @@
   object-position: 0% 90%;
 }
 
+.coverTitle{
+  max-width: 18ch;
+}
+
+.coverDescription{
+  max-width: 35ch;
+}
+
+
 .container {
   display: flex;
   flex-direction: column;

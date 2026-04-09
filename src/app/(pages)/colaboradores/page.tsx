@@ -34,8 +34,14 @@ export default function CollaboratorsPage() {
                 src: collaboratorsImagesdata.frontal_tower.src,
                 blurData: collaboratorsImagesdata.frontal_tower.blurData
             }}
-                title={'El origen de un oasis\nen la ciudad'}
-                subtitle={'Una visión respaldada por experiencia, diseño y \n compromiso.'}
+                title={{
+                    className: styles.coverTitle,
+                    text: 'El origen de un oasis en la ciudad'
+                }}
+                subtitle={{
+                    className: styles.coverDescription,
+                    text: 'Una visión respaldada por experiencia, diseño y compromiso.'
+                }}
                 darkLayout
             />
             <div className={styles.collaboratorsList}>
