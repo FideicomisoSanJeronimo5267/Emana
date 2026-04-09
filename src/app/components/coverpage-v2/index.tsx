@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from './coverpage.module.css'
 import Button from '../button';
 import { motion, useScroll, useTransform } from 'motion/react';
-import { JSX } from 'react';
+import { JSX, useRef } from 'react';
 
 interface CoverPageV2Props {
     coverImage: {
@@ -22,52 +22,71 @@ interface CoverPageV2Props {
 }
 
 export default function CoverPageV2({ darkLayout = false, ...props }: CoverPageV2Props) {
-    const { scrollYProgress } = useScroll();
-    const filter = useTransform(
-        scrollYProgress,
-        [0, 0.1],
-        ["bottom(-45px)", "bottom(50px)"]
-    )
+    const sectionRef = useRef<HTMLElement | null>(null);
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start start", "end end"]
+    });
 
-
+    const titleScale = useTransform(scrollYProgress, [0, 1], [1, 0.7]);
+    const titleY = useTransform(scrollYProgress, [0, 1], [120, -80]);
     return (
-        <div className={styles.coverpage}>
-            <Image
-                className={`${styles.coverpage__image} ${props.coverImage.className || ""}`}
-                src={props.coverImage.src}
-                alt={props.coverImage.alt}
-                placeholder="blur"
-                objectFit='cover'
-                blurDataURL={props.coverImage.blurData}
-                fill
-            />
-            {
-                darkLayout && (
-                    <div className={styles.dark__layout} />
-                )
-            }
-            <motion.div style={{ filter }} className={styles.coverpage__content}>
-                <h1 className={styles.coverpage__content__title}>
-                    {props.title}
-                </h1>
-                <span className={styles.coverpage__content__subtitle}>
-                    {props.subtitle}
-                </span>
-
+        <section
+            ref={sectionRef}
+            className={styles.wrapper}
+        >
+            <div className={styles.wrapper__content}>
+                <Image
+                    className={`${styles.coverpage__image} ${props.coverImage.className || ""}`}
+                    src={props.coverImage.src}
+                    alt={props.coverImage.alt}
+                    placeholder="blur"
+                    objectFit='cover'
+                    blurDataURL={props.coverImage.blurData}
+                    fill
+                />
                 {
-                    props.button && (
-                        <Button
-                            link={{
-                                href: '/contacto'
-                            }}
-                        >
-                            {props.button.title}
-                        </Button>
-
+                    darkLayout && (
+                        <div className={styles.dark__layout} />
                     )
                 }
-            </motion.div>
+                <motion.div
+                    className={styles.wrapper__content__text}
+                    style={{
+                        y: titleY
+                    }}
+                >
+                    <motion.h1
+                        className={styles.wrapper__content__title}
+                        style={{
+                            scale: titleScale,
+                            transformOrigin: "left bottom",
+                        }}
+                    >
+                        {props.title}
+                    </motion.h1>
+                    <span className={styles.wrapper__content__subtitle}>
+                        {props.subtitle}
+                    </span>
 
-        </div >
+                    <div className={styles.button__wrapper}>
+                        {
+                            props.button && (
+                                <Button
+                                    link={{
+                                        href: '/contacto'
+                                    }}
+                                >
+                                    {props.button.title}
+                                </Button>
+
+                            )
+                        }
+                    </div>
+                </motion.div>
+
+            </div>
+
+        </section >
     )
 }

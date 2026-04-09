@@ -36,6 +36,7 @@ export default function CollaboratorsPage() {
             }}
                 title={'El origen de un oasis\nen la ciudad'}
                 subtitle={'Una visión respaldada por experiencia, diseño y \n compromiso.'}
+                darkLayout
             />
             <div className={styles.collaboratorsList}>
                 {collaborators.map((collab, index) => (
