@@ -9,7 +9,6 @@ import logoMobile from '@assets/images/general/extra-largeLogo.svg'
 import close from '@assets/images/general/close.svg'
 import Image from 'next/image';
 import Link from 'next/link';
-import Button from '../button';
 import sidebarLogoMobile from '@assets/images/general/sidebarLogoMobile.svg'
 
 export default function Header() {
@@ -76,10 +75,8 @@ export default function Header() {
                         <li className={styles.header__nav__options__list__item}><Link href="/colaboradores">Colaboradores</Link></li>
                         <li className={styles.header__nav__options__list__item}><Link href="/contacto">Contacto</Link></li>
                         <li className={styles.header__nav__options__list__item}>
-                            <Link href="/contacto">
-                                <Button className={styles.header__nav__options__list__item__button}>
-                                    Agenda una cita
-                                </Button>
+                            <Link href="/contacto" className={styles.citaLink}>
+                                Agenda una cita
                             </Link>
                         </li>
                     </ul>

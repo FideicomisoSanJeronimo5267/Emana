@@ -5,7 +5,6 @@ import Image from "next/image";
 import styles from './appoiment-section.module.css'
 import Button from "../button";
 
-
 interface Props {
     title: string;
     description: string;
@@ -14,26 +13,52 @@ interface Props {
     className?: string;
     style?: React.CSSProperties;
 }
+
 export default function AppointmentSection(props: Props) {
     return (
         <section className={styles.container}>
             <div className={styles.container__info}>
                 <h2 className={styles.container__info__title}>{props.title}</h2>
                 <p className={styles.container__info__description}>{props.description}</p>
-
             </div>
+            
             <div className={styles.container__divider} />
+            
             <div className={styles.container__contact__info}>
                 <Button link={{ href: "/contacto" }}>Agenda una visita</Button>
 
                 <div className={styles.container__contact__info__details}>
-                    <span>WhatsApp</span>
+                    <a 
+                        href="https://wa.me/528131243371" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className={styles.contactLink}
+                    >
+                        WhatsApp
+                    </a>
+                    
                     <div className={styles.cross__axis_divisor} />
-                    <span>Email</span>
+                    
+                    <a 
+                        href="https://mail.google.com/mail/?view=cm&fs=1&to=info@emana.com.mx" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className={styles.contactLink}
+                    >
+                        Email
+                    </a>
+                    
                     <div className={styles.cross__axis_divisor} />
-                    <span>Llamada</span>
+                    
+                    <a 
+                        href="tel:8131243371" 
+                        className={styles.contactLink}
+                    >
+                        Llamada
+                    </a>
                 </div>
             </div>
+            
             <div
                 className={`${styles.container__coverImage} ${props.className || ''}`}
                 style={props.style}
