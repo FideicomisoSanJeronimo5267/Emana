@@ -10,10 +10,12 @@ import close from '@assets/images/general/close.svg'
 import Image from 'next/image';
 import Link from 'next/link';
 import sidebarLogoMobile from '@assets/images/general/sidebarLogoMobile.svg'
+import { useCoverpageRefStore } from '@/src/core/stores/coverpage-ref.store';
+import { useScroll } from 'motion/react';
 
 export default function Header() {
     const pathname = usePathname();
-    const isContactPage = pathname === '/contacto' ;
+    const isContactPage = pathname === '/contacto';
     const isPrivacyPolicy = pathname === '/aviso-de-privacidad'
 
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -55,6 +57,20 @@ export default function Header() {
             document.body.style.width = '';
         };
     }, [isMobileMenuOpen]);
+
+
+    const coverRef = useCoverpageRefStore((state) => state.coverRef)
+
+    useEffect(() => {
+        console.log('Se cargo el ref correctamente')
+        console.log(coverRef)
+    }, [coverRef])
+
+
+    const { scrollYProgress } = useScroll({
+        target: coverRef, //TODO: Validate that Cover Ref isnt null
+        offset: ["start start", "end end"]
+    });
 
     return (
         <>
