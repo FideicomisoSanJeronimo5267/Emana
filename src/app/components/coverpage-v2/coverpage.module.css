@@ -1,8 +1,14 @@
-.coverpage {
-  position: relative;
+.wrapper{
+  width: 100%;
+  height: 200dvh;
+}
+.wrapper__content {
+  position: sticky;
+  top: 0;
   display: flex;
   width: 100%;
   height: 100dvh;
+  overflow: hidden;
   min-height: max-content;
 }
 
@@ -11,25 +17,25 @@
   z-index: 0;
 }
 
-.coverpage__content {
+.wrapper__content__text {
   position: absolute;
   display: flex;
   flex-direction: column;
   row-gap: 20px;
-  bottom: 78px;
+  bottom: 0px;
   left: 50px;
   z-index: 20;
   color: white;
 }
 
-.coverpage__content__title {
+.wrapper__content__title {
   font-size: 67px;
   line-height: 82px;
   text-transform: uppercase;
   white-space: pre-line;
 }
 
-.coverpage__content__subtitle {
+.wrapper__content__subtitle {
   font-size: 25px;
   line-height: 36px;
   white-space: pre-line;
@@ -45,4 +51,9 @@
     rgba(0, 0, 0, 0.2) 70%,
     rgba(0, 0, 0, 0.8)
   );
+}
+
+
+.button__wrapper{
+  height: 33px;
 }
