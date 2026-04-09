@@ -8,7 +8,13 @@
     row-gap: 110px;
 }
 
+.coverTitle{
+  max-width: 18ch;
+}
 
+.coverDescription{
+  max-width: 35ch;
+}
 
 .collaboratorsList {
     display: flex;

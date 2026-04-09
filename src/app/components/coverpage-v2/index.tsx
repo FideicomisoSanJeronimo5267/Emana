@@ -12,8 +12,14 @@ interface CoverPageV2Props {
         src: string;
         blurData: string;
     }
-    title: string | JSX.Element | JSX.Element[];
-    subtitle: string | JSX.Element | JSX.Element[];
+    title: {
+        className?: string
+        text: string | JSX.Element | JSX.Element[];
+    }
+    subtitle: {
+        className?: string
+        text: string | JSX.Element | JSX.Element[];
+    }
     button?: {
         title: string;
         href?: string;
@@ -29,7 +35,7 @@ export default function CoverPageV2({ darkLayout = false, ...props }: CoverPageV
     });
 
     const titleScale = useTransform(scrollYProgress, [0, 1], [1, 0.7]);
-    const titleY = useTransform(scrollYProgress, [0, 1], [120, -80]);
+    const titleY = useTransform(scrollYProgress, [0, 1], [150, -80]);
     return (
         <section
             ref={sectionRef}
@@ -57,16 +63,16 @@ export default function CoverPageV2({ darkLayout = false, ...props }: CoverPageV
                     }}
                 >
                     <motion.h1
-                        className={styles.wrapper__content__title}
+                        className={`${styles.wrapper__content__title} ${props.title.className}`}
                         style={{
                             scale: titleScale,
                             transformOrigin: "left bottom",
                         }}
                     >
-                        {props.title}
+                        {props.title.text}
                     </motion.h1>
-                    <span className={styles.wrapper__content__subtitle}>
-                        {props.subtitle}
+                    <span className={`${styles.wrapper__content__subtitle} ${props.subtitle.className}`}>
+                        {props.subtitle.text}
                     </span>
 
                     <div className={styles.button__wrapper}>

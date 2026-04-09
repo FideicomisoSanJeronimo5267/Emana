@@ -62,11 +62,15 @@ export default function AmenitiesPage() {
   return (
     <main className={styles.main}>
       <CoverPageV2
-        title={
-          'Amenidades que emanan\nbienestar'
+        title={{
+          className: styles.coverTitle,
+          text: 'Amenidades que emanan bienestar'
         }
-        subtitle={
-          'Espacios diseñados para promover un estilo de\nvida con movimiento, calma y comunidad.'
+        }
+        subtitle={{
+          className: styles.coverDescription,
+          text: 'Espacios diseñados para promover un estilo de vida con movimiento, calma y comunidad.'
+        }
         }
         button={{
           title: 'Conoce nuestras amenidades',
@@ -122,11 +126,11 @@ export default function AmenitiesPage() {
         ))}
       </section>
 
-      <LazyAnimation> 
+      <LazyAnimation>
         <section className={styles.gallerySection}>
           <AmenitiesGallery amenitiesData={amenitiesData} />
         </section>
-       </LazyAnimation> 
+      </LazyAnimation>
       <div className={styles.divisor} />
 
       <LazyAnimation>
