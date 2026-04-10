@@ -1,12 +1,11 @@
 .wrapper {
   width: 100%;
-  height: 200dvh;
+  height: 150dvh;
 }
 
 .wrapper__content {
   position: sticky;
   top: 0;
-  min-height: max-content;
   width: 100%;
   height: 100dvh;
   overflow: hidden;
@@ -16,28 +15,28 @@
   position: absolute;
   z-index: 0;
   object-position: 0% 90%;
-}
-
-.coverpage__image {
   transform: scale(1.5);
+  will-change: transform;
 }
 
 .logo__wrapper {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: 69px;
+  right: 69px;
   bottom: 0;
-  width: calc(100% - 140px);
-  margin-inline: 69px;
-}
-
-.logo__image {
-  width: 100%;
-  z-index: 30;
+  display: flex;
+  z-index: 2;
+  transform-origin: left bottom;
+  will-change: transform;
 }
 
 .title {
-  letter-spacing: 150px;
+  letter-spacing: 130px;
   font-size: 15vw;
-  z-index: 30;
   color: #d7d3cf;
   font-weight: 100;
+  margin: 0;
+  line-height: 1;
 }

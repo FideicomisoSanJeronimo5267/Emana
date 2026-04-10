@@ -1,68 +1,76 @@
-"use client"
-import styles from './coverpage.module.css'
-import Image from 'next/image';
-import { useEffect, useEffectEvent, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'motion/react';
-import { useCoverpageRefStore } from '@/src/core/stores/coverpage-ref.store';
+"use client";
+
+import styles from "./coverpage.module.css";
+import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { motion, useScroll, useSpring, useTransform } from "motion/react";
+import { useCoverpageRefStore } from "@/src/core/stores/coverpage-ref.store";
+
 interface CoverPageProps {
-    coverImage: {
-        className?: string;
-        alt: string;
-        src: string;
-        blurData: string;
-    }
+  coverImage: {
+    className?: string;
+    alt: string;
+    src: string;
+    blurData: string;
+  };
 }
 
 export default function CoverPage(props: CoverPageProps) {
-    const sectionRef = useRef<HTMLElement | null>(null);
-    const { scrollYProgress } = useScroll({
-        target: sectionRef,
-        offset: ["start start", "end end"]
-    });
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const setCoverRef = useCoverpageRefStore((state) => state.setCoverRef);
 
-    const setCoverRef = useCoverpageRefStore((state) => state.setCoverRef)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
 
-    useEffect(() => {
-        if (sectionRef.current != null) {
-            setCoverRef(sectionRef)
-        }
-    }, [sectionRef])
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 90,
+    damping: 22,
+    mass: 0.8,
+  });
 
+  useEffect(() => {
+    if (sectionRef.current) {
+      setCoverRef(sectionRef);
+    }
+  }, [setCoverRef]);
 
+  const logoBottom = useTransform(smoothProgress, [0, 1], ["0%", "90%"]);
+  const logoScale = useTransform(smoothProgress, [0, 1], [1, 0.12]);
+  const logoX = useTransform(smoothProgress, [0, 1], [0, -10]);
+  const coverpageHeight = useTransform(smoothProgress, [0.8, 1], ["100dvh", "40dvh"]);
 
-    const logoPosition = useTransform(scrollYProgress, [0, 1], [0, -500]);
-    return (
-        <section
-            ref={sectionRef}
-            className={styles.wrapper}
+  return (
+    <section ref={sectionRef} className={styles.wrapper}>
+      <motion.div
+        className={styles.wrapper__content}
+        style={{ height: coverpageHeight }}
+      >
+        <Image
+          className={styles.coverpage__image}
+          src={props.coverImage.src}
+          alt={props.coverImage.alt}
+          placeholder="blur"
+          blurDataURL={props.coverImage.blurData}
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: "cover" }}
+        />
+
+        <motion.div
+          className={styles.logo__wrapper}
+          style={{
+            scale: logoScale,
+            bottom: logoBottom,
+            x: logoX,
+          }}
         >
-            <div className={styles.wrapper__content}>
-                <Image
-                    className={`${styles.coverpage__image}`}
-                    src={props.coverImage.src}
-                    alt={props.coverImage.alt}
-                    placeholder="blur"
-                    objectFit='cover'
-                    blurDataURL={props.coverImage.blurData}
-                    fill
-                />
-
-
-                <motion.div
-                    className={styles.logo__wrapper}
-                    style={{
-                        y: logoPosition
-                    }}
-                >
-                    <h1 className={styles.title}>EMANA</h1>
-                    {/* <Image
-                        className={`${styles.logo__image}`}
-                        src={EmanaLogo}
-                        alt={'Emana Logo'}
-                        objectFit='cover'
-                    /> */}
-                </motion.div>
-            </div>
-        </section>
-    )
+          <h1 className={styles.title}>EMANA</h1>
+          {/* <span className={styles.title_part_two}>San Jerónimo</span> */}
+        </motion.div>
+      </motion.div>
+    </section>
+  );
 }

@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "./components/footer";
 import Header from "./components/header";
+import SmoothScrollProvider from "../core/components/smooth-scroll-provider";
 
 const gilroy = localFont({
   src: [
@@ -41,6 +42,10 @@ const gilroy = localFont({
 const neueMachina = localFont({
   src: [
     {
+      path: "./fonts/NeueMachina-Ultralight.woff2",
+      weight: "100",
+    },
+    {
       path: "./fonts/NeueMachina-Light.woff2",
       weight: "300",
     },
@@ -70,7 +75,10 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${gilroy.variable} ${neueMachina.variable} antialiased`}>
         <Header />
-        {children}
+        <SmoothScrollProvider>
+          {children}
+
+        </SmoothScrollProvider>
         <Footer />
       </body>
 
