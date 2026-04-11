@@ -34,10 +34,11 @@ export default function CoverPage(props: CoverPageProps) {
     if (sectionRef.current) {
       setCoverRef(sectionRef);
     }
+    return () => setCoverRef(null);
   }, [setCoverRef]);
 
-  const logoBottom = useTransform(smoothProgress, [0, 1], ["0%", "90%"]);
-  const logoScale = useTransform(smoothProgress, [0, 1], [1, 0.12]);
+
+  const logoScale = useTransform(smoothProgress, [0, 1], [1, 0.165]);
   const logoX = useTransform(smoothProgress, [0, 1], [0, -10]);
   const coverpageHeight = useTransform(smoothProgress, [0.8, 1], ["100dvh", "40dvh"]);
 
@@ -63,8 +64,8 @@ export default function CoverPage(props: CoverPageProps) {
           className={styles.logo__wrapper}
           style={{
             scale: logoScale,
-            bottom: logoBottom,
             x: logoX,
+            ...({ '--logo-progress': smoothProgress } as any)
           }}
         >
           <h1 className={styles.title}>EMANA</h1>

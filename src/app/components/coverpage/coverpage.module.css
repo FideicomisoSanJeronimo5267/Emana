@@ -15,7 +15,7 @@
   position: absolute;
   z-index: 0;
   object-position: 0% 90%;
-  transform: scale(1.5);
+  transform: scale(1.65);
   will-change: transform;
 }
 
@@ -25,7 +25,7 @@
   flex-direction: column;
   left: 69px;
   right: 69px;
-  bottom: 0;
+  bottom: calc((100% - clamp(1.8125rem, -0.2859rem + 3.2787vw, 2.8125rem) - 2.475vw) * var(--logo-progress, 0));
   display: flex;
   z-index: 2;
   transform-origin: left bottom;

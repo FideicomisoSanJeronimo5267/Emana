@@ -1,12 +1,12 @@
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   display: flex;
   width: 100%;
   left: 0;
   right: 0;
   margin: 0 auto;
-  padding-inline: clamp(1.4375rem, -2.3658rem + 5.9426vw, 3.25rem);
+  padding-inline: clamp(69px, -2.3658rem + 5.9426vw, 3.25rem);
   padding-top: clamp(1.8125rem, -0.2859rem + 3.2787vw, 2.8125rem);
   z-index: 100;
 }
@@ -50,6 +50,16 @@
   object-fit: contain !important;
   width: 100% !important;
   height: 100% !important;
+}
+
+.homeLogoContainer {
+  display: flex;
+  position: relative;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: calc(65px + 160px * var(--progress, 0));
+  /*  min-height: 85px; */
+  /*  margin-right: calc(clamp(1.75rem, -7.6926rem + 14.7541vw, 6.25rem) * var(--progress, 0)); */
 }
 
 .header__nav__sidebarLogo {

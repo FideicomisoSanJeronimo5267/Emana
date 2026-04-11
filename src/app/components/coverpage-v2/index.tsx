@@ -3,7 +3,8 @@ import Image from 'next/image'
 import styles from './coverpage.module.css'
 import Button from '../button';
 import { motion, useScroll, useTransform } from 'motion/react';
-import { JSX, useRef } from 'react';
+import { JSX, useRef, useEffect } from 'react';
+import { useCoverpageRefStore } from '@/src/core/stores/coverpage-ref.store';
 
 interface CoverPageV2Props {
     coverImage: {
@@ -29,6 +30,15 @@ interface CoverPageV2Props {
 
 export default function CoverPageV2({ darkLayout = false, ...props }: CoverPageV2Props) {
     const sectionRef = useRef<HTMLElement | null>(null);
+    const setCoverRef = useCoverpageRefStore((state) => state.setCoverRef);
+
+    useEffect(() => {
+        if (sectionRef.current) {
+            setCoverRef(sectionRef);
+        }
+        return () => setCoverRef(null);
+    }, [setCoverRef]);
+
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ["start start", "end end"]
