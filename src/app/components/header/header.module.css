@@ -64,10 +64,13 @@
 
 .header__nav__sidebarLogo {
   display: none;
-  position: relative;
+  position: absolute;
   min-width: 30px;
+  min-height: 30px;
   height: 100%;
   z-index: 40;
+  top: 29px;
+  right: 29px;
 }
 
 .header__nav__sidebarLogo img {
