@@ -1,0 +1,68 @@
+.oasis {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1512px;
+  justify-self: center;
+  padding: 80px 50px 48px;
+  row-gap: 24px;
+}
+
+.oasis__title {
+  font-family: var(--font-neue-machina);
+  font-weight: 400;
+  font-size: clamp(28px, 2.6vw, 40px);
+  letter-spacing: 0.02em;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.oasis__description {
+  font-size: 19px;
+  line-height: 1.5;
+  color: #525252;
+  max-width: 60ch;
+  margin: 0;
+}
+
+.oasis__actions {
+  display: flex;
+  align-items: center;
+  column-gap: 28px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+  row-gap: 16px;
+}
+
+.oasis__brochure {
+  background-color: transparent;
+  border: none;
+  column-gap: 8px;
+  padding-inline: 0;
+}
+
+.oasis__brochure:hover {
+  background: none;
+  border: none;
+  color: var(--greenDark);
+}
+
+.oasis__brochure__icon {
+  width: 18px;
+  height: 18px;
+}
+
+@media screen and (max-width: 1024px) {
+  .oasis {
+    padding: 56px 20px 32px;
+    row-gap: 18px;
+  }
+
+  .oasis__description {
+    font-size: 16px;
+  }
+
+  .oasis__actions {
+    column-gap: 20px;
+  }
+}

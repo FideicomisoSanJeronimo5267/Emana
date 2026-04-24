@@ -56,7 +56,7 @@ export default function VillasSection() {
                         </svg>
 
                         <span className={styles.villas__section__info__features__item__text}>
-                            Acceso privado y distribución tipo casa
+                            Distribución tipo casa
                         </span>
                     </li>
                     <li className={styles.villas__section__info__features__item}>
