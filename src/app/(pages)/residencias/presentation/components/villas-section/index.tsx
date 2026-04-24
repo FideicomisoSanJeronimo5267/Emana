@@ -13,7 +13,7 @@ export default function VillasSection() {
             <div className={styles.villas__section__info}>
                 <h2 className={styles.villas__section__info__title}>Villas</h2>
                 <p className={styles.villas__section__info__description}>
-                    Un concepto exclusivo que combina la comodidad de una casa con la practicidad de un proyecto vertical. Espacios amplios, techos altos y accesos privados se combinan con la tranquilidad de un entorno seguro y rodeado de naturaleza.
+                    Un concepto exclusivo que combina la comodidad de una casa con la practicidad de un proyecto vertical. Espacios amplios y techos altos que se combinan con la tranquilidad de un entorno seguro rodeado de naturaleza
                 </p>
 
                 <ul className={styles.villas__section__info__features}>
