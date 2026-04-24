@@ -3,7 +3,7 @@
 import styles from './home-page.module.css'
 
 // Components
-import { AmenitiesSection, FeaturesSection, LocationSection } from './presentation/components';
+import { AmenitiesSection, FeaturesSection, LocationSection, OasisSection } from './presentation/components';
 import { BrochureSection, UnitsAvailable } from '../residencias/presentation/components';
 import { AppointmentSection } from '../../components';
 import { homepageImagesdata } from '@/src/core/constants/image-data/home-page';
@@ -21,6 +21,9 @@ export default function Home() {
         }}
       />
 
+      <LazyAnimation>
+        <OasisSection />
+      </LazyAnimation>
       <LazyAnimation>
         <FeaturesSection />
       </LazyAnimation>
