@@ -39,15 +39,24 @@
   object-fit: cover;
 }
 
-.property__type__apartments__text:hover,
-.property__type__villas__text:hover {
-  background: rgba(121, 122, 115, 0.3);
-}
+@media (hover: hover) {
+  .property__type__apartments__text:hover,
+  .property__type__villas__text:hover {
+    background: rgba(121, 122, 115, 0.3);
+  }
 
-.property__type__apartments__text:hover
-  .property__type__apartments__text__title,
-.property__type__villas__text:hover .property__type__villas__text__title {
-  transform: translateY(-80px);
+  .property__type__apartments__text:hover
+    .property__type__apartments__text__title,
+  .property__type__villas__text:hover .property__type__villas__text__title {
+    transform: translateY(-80px);
+  }
+
+  .property__type__apartments__text:hover
+    .property__type__apartments__text__description,
+  .property__type__villas__text:hover .property__type__villas__text__description {
+    opacity: 1;
+    bottom: 80px;
+  }
 }
 
 .property__type__apartments__text__title,
@@ -65,13 +74,6 @@
   transition: all 0.3s ease;
 }
 
-.property__type__apartments__text:hover
-  .property__type__apartments__text__description,
-.property__type__villas__text:hover .property__type__villas__text__description {
-  opacity: 1;
-  bottom: 80px;
-}
-
 .property__type__apartments__text__button,
 .property__type__villas__text__button {
   display: flex;
@@ -82,12 +84,74 @@
 @media screen and (max-width: 1024px) {
   .property__type {
     flex-direction: column;
-  }
-  .property__type__apartments {
-    width: 100%;
+    aspect-ratio: auto;
   }
 
+  .property__type__apartments,
   .property__type__villas {
     width: 100%;
+    aspect-ratio: 15 / 16;
+    overflow: hidden;
+  }
+
+  .property__type__villas__image {
+    transform: scale(1.4);
+    transform-origin: center 70%;
+  }
+
+  .property__type__apartments__text,
+  .property__type__villas__text {
+    inset: 0;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 24px;
+    row-gap: 6px;
+  }
+
+  .property__type__apartments__text__title,
+  .property__type__villas__text__title {
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    transform: none !important;
+  }
+
+  .property__type__apartments__text__description,
+  .property__type__villas__text__description {
+    position: absolute;
+    bottom: 0;
+    left: 24px;
+    right: 24px;
+    opacity: 0;
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.4;
+    transition: all 0.35s ease;
+  }
+
+  .property__type__apartments__text.expanded,
+  .property__type__villas__text.expanded {
+    background: linear-gradient(
+      to top,
+      rgba(121, 122, 115, 0.55) 0%,
+      rgba(121, 122, 115, 0.35) 60%,
+      rgba(121, 122, 115, 0.2) 100%
+    );
+  }
+
+  .property__type__apartments__text.expanded .property__type__apartments__text__title,
+  .property__type__villas__text.expanded .property__type__villas__text__title {
+    transform: translateY(-92px) !important;
+  }
+
+  .property__type__apartments__text.expanded .property__type__apartments__text__description,
+  .property__type__villas__text.expanded .property__type__villas__text__description {
+    opacity: 1;
+    bottom: 60px;
+  }
+
+  .property__type__apartments__text__button,
+  .property__type__villas__text__button {
+    font-size: 14px;
   }
 }
