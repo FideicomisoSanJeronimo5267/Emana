@@ -106,7 +106,13 @@ export default function Header() {
         <>
             <header
                 className={`${styles.header} ${isContactPage || isPrivacyPolicy ? styles.headerContact : ''}`}
-                style={!isHeaderFixed ? { position: 'absolute', top: freezeY } : undefined}
+                style={
+                    !isHeaderFixed
+                        ? { position: 'absolute', top: freezeY }
+                        : !coverRef?.current
+                            ? { position: 'absolute', top: 0 }
+                            : undefined
+                }
             >
                 <nav className={styles.header__nav}>
 

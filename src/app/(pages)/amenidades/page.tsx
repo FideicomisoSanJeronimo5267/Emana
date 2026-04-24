@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { AppointmentSection, Button } from "../../components";
 import styles from "./amenidades.module.css";
 import HeroSection from "./presentation/components/hero-section";
@@ -119,7 +120,7 @@ export default function AmenitiesPage() {
                   <p className={styles.description}>{amenity.description}</p>
                 </div>
 
-                <button className={styles.button}>Conoce más</button>
+                <Link href="/contacto" className={styles.button}>Conoce más</Link>
               </div>
             </article>
           </LazyAnimation>

@@ -52,7 +52,7 @@ export default function FeaturesSection() {
                     Inversión
                 </span>
                 <span>
-                    Desde $$8.5 MDP
+                    Desde $8.5 MDP
                 </span>
             </li>
         </div>

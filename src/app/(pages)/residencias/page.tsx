@@ -9,6 +9,7 @@ import {
     ApartmentSection,
     BrochureSection,
     FeaturesSection,
+    PropertyTypeSection,
     ResidencesHeroSection,
     UnitsAvailable,
     VillasSection
@@ -44,7 +45,7 @@ export default function Residences() {
             <LazyAnimation>
                 <FeaturesSection />
             </LazyAnimation>
-            {/* <PropertyTypeSection /> */}
+            <PropertyTypeSection /> 
             <LazyAnimation>
                 <ApartmentSection />
             </LazyAnimation>
