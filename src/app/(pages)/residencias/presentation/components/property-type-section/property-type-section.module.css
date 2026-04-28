@@ -62,6 +62,7 @@
 .property__type__apartments__text__title,
 .property__type__villas__text__title {
   font-size: 32px;
+  text-transform: uppercase;
   transition: all 0.3s ease;
 }
 

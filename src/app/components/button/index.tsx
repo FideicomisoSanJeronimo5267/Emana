@@ -7,13 +7,20 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
         className?: string;
         link?: {
             href: string;
+            target?: React.HTMLAttributeAnchorTarget;
+            rel?: string;
         }
 }
 
 export default function Button({children, className, ...props}: ButtonProps) {
     if (props.link) {
         return (
-            <Link href={props.link.href} className={`${styles.button} ${className}`}>
+            <Link
+                href={props.link.href}
+                target={props.link.target}
+                rel={props.link.rel ?? (props.link.target === '_blank' ? 'noopener noreferrer' : undefined)}
+                className={`${styles.button} ${className}`}
+            >
                 {children}
             </Link>
         )

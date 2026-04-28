@@ -119,8 +119,6 @@ export default function AmenitiesPage() {
                 <div className={styles.descriptionContainer}>
                   <p className={styles.description}>{amenity.description}</p>
                 </div>
-
-                <Link href="/contacto" className={styles.button}>Conoce más</Link>
               </div>
             </article>
           </LazyAnimation>

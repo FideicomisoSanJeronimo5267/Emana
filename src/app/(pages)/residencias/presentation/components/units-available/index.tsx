@@ -34,7 +34,8 @@ export default function UnitsAvailable(props: UnitsAvailableProps) {
             <Button
                 className={styles.units__available__button}
                 link={{
-                    href: '/contacto'
+                    href: 'https://one-development-group.vercel.app/residencias?proyecto=Emana',
+                    target: '_blank'
                 }}
             >
                 Ver Inventario

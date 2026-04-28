@@ -67,7 +67,7 @@ export default function LocationSection() {
                             </g>
                         </svg>
 
-                        <span>Vialidades principales como Gonzalitos, Constitución y Morones Prieto.</span>
+                        <span>Vialidades principales como Gonzalitos, Constitución y Morones Prieto</span>
                     </li>
                 </ul>
             </div>
