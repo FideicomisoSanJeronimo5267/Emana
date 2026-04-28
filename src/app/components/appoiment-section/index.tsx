@@ -12,6 +12,7 @@ interface Props {
     blurDataURL?: string;
     className?: string;
     style?: React.CSSProperties;
+    hideButton?: boolean;
 }
 
 export default function AppointmentSection(props: Props) {
@@ -25,7 +26,9 @@ export default function AppointmentSection(props: Props) {
             <div className={styles.container__divider} />
             
             <div className={styles.container__contact__info}>
-                <Button link={{ href: "/contacto" }}>Agenda una visita</Button>
+                {!props.hideButton && (
+                    <Button link={{ href: "/contacto" }}>Agenda una visita</Button>
+                )}
 
                 <div className={styles.container__contact__info__details}>
                     <a 
@@ -39,10 +42,8 @@ export default function AppointmentSection(props: Props) {
                     
                     <div className={styles.cross__axis_divisor} />
                     
-                    <a 
-                        href="https://mail.google.com/mail/?view=cm&fs=1&to=info@emana.com.mx" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
+                    <a
+                        href="mailto:info@emana.com.mx"
                         className={styles.contactLink}
                     >
                         Email

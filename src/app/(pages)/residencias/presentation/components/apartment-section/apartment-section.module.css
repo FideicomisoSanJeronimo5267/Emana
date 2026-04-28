@@ -23,6 +23,7 @@
 
 .apartment__section__apartment__info__title{
     font-size: 30px;
+    text-transform: uppercase;
 }
 
 .apartment__section__apartment__info__description{

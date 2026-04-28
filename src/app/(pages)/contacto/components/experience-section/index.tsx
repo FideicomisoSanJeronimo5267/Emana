@@ -1,13 +1,14 @@
 import AppointmentSection from '@/src/app/components/appoiment-section';
-import { contactImagesData } from '@/src/core/constants/image-data/contacto-page';
+import { amenitiesImagesData } from '@/src/core/constants/image-data/amenities-page';
 
 export default function ExperienceSection() {
     return (
-        <AppointmentSection 
+        <AppointmentSection
             title="VISÍTANOS Y VIVE LA EXPERIENCIA EMANA"
             description="Agenda tu recorrido hoy mismo"
-            coverImage={contactImagesData.contactEmanaExperienceBg.src}
-            blurDataURL={contactImagesData.contactEmanaExperienceBg.blurData}
+            coverImage={amenitiesImagesData.emanaExperience.src}
+            blurDataURL={amenitiesImagesData.emanaExperience.blurData}
+            hideButton
         />
     );
 }

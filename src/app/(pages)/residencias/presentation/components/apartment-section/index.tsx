@@ -77,20 +77,6 @@ export default function ApartmentSection() {
                     </li>
                     <li className={styles.apartment__section__apartment__info__features__item}>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <mask id="mask0_323_1877" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                                <rect width="24" height="24" fill="#D9D9D9" />
-                            </mask>
-                            <g mask="url(#mask0_323_1877)">
-                                <path d="M9.02294 21.2305L7.35369 18.4153L4.17694 17.7305L4.48844 14.4535L2.34619 11.9998L4.48844 9.54604L4.17694 6.26904L7.35369 5.58429L9.02294 2.76904L11.9999 4.02679L14.9769 2.76904L16.6462 5.58429L19.8229 6.26904L19.5114 9.54604L21.6537 11.9998L19.5114 14.4535L19.8229 17.7305L16.6462 18.4153L14.9769 21.2305L11.9999 19.9728L9.02294 21.2305ZM9.44994 19.9498L11.9999 18.8883L14.5614 19.9498L15.9999 17.5498L18.7499 16.9383L18.4999 14.0998L20.3499 11.9998L18.4999 9.88829L18.7499 7.04979L15.9999 6.44979L14.5499 4.04979L11.9999 5.11129L9.43844 4.04979L7.99994 6.44979L5.24994 7.04979L5.49994 9.88829L3.64994 11.9998L5.49994 14.0998L5.24994 16.9498L7.99994 17.5498L9.44994 19.9498ZM10.9499 14.8575L15.9077 9.89979L15.1999 9.18054L10.9499 13.4305L8.79994 11.292L8.09219 11.9998L10.9499 14.8575Z" fill="#95978C" />
-                            </g>
-                        </svg>
-
-                        <span className={styles.apartment__section__apartment__info__features__item__text}>
-                            Baños con wc, vanity, regadera, toalleros, porta rollo
-                        </span>
-                    </li>
-                    <li className={styles.apartment__section__apartment__info__features__item}>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <mask id="mask0_323_1862" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
                                 <rect width="24" height="24" fill="#D9D9D9" />
                             </mask>

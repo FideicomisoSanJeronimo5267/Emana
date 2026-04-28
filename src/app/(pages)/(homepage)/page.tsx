@@ -36,7 +36,7 @@ export default function Home() {
       </LazyAnimation>
       <LazyAnimation>
         <UnitsAvailable
-          title='Desde $8.7 MDP*'
+          title='Desde $8.9 MDP*'
           button={{
             title: 'Agenda una cita',
           }}
@@ -49,6 +49,7 @@ export default function Home() {
         <BrochureSection
           title='Conoce más sobre EMANA'
           description='Descubre cómo el diseño, la ubicación y las amenidades del proyecto se unen para crear una experiencia residencial única.'
+          titleFont='gilroy'
         />
       </LazyAnimation>
       <LazyAnimation>

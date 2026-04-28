@@ -25,9 +25,9 @@ export default function CoverPage(props: CoverPageProps) {
   });
 
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 90,
-    damping: 22,
-    mass: 0.8,
+    stiffness: 220,
+    damping: 32,
+    mass: 0.4,
   });
 
   useEffect(() => {
@@ -38,9 +38,14 @@ export default function CoverPage(props: CoverPageProps) {
   }, [setCoverRef]);
 
 
-  const logoScale = useTransform(smoothProgress, [0, 1], [1, 0.165]);
+  const logoScale = useTransform(smoothProgress, [0, 1], [1, 0.14]);
   const logoX = useTransform(smoothProgress, [0, 1], [0, -10]);
   const coverpageHeight = useTransform(smoothProgress, [0.8, 1], ["100dvh", "40dvh"]);
+  const subtitleOpacity = useTransform(smoothProgress, [0, 0.15], [0, 1]);
+  const subtitleScale = useTransform(smoothProgress, [0, 0.6, 1], [1, 1, 1.55]);
+  // Separación SAN JERÓNIMO ↔ EMANA al final del scroll.
+  // Subir el último número aumenta la separación; bajarlo la reduce.
+  const subtitleY = useTransform(smoothProgress, [0, 0.6, 1], [0, 0, 200]);
 
   return (
     <section ref={sectionRef} className={styles.wrapper}>
@@ -69,7 +74,17 @@ export default function CoverPage(props: CoverPageProps) {
           }}
         >
           <h1 className={styles.title}>EMANA</h1>
-          {/* <span className={styles.title_part_two}>San Jerónimo</span> */}
+          <motion.span
+            className={styles.title_part_two}
+            style={{
+              opacity: subtitleOpacity,
+              scale: subtitleScale,
+              x: "-50%",
+              y: subtitleY,
+            }}
+          >
+            SAN JERÓNIMO
+          </motion.span>
         </motion.div>
       </motion.div>
     </section>
