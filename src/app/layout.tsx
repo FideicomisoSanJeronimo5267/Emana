@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import SmoothScrollProvider from "../core/components/smooth-scroll-provider";
+import MetaPixel from "../core/components/meta-pixel";
 
 const gilroy = localFont({
   src: [
@@ -74,6 +75,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${gilroy.variable} ${neueMachina.variable} antialiased`}>
+        <MetaPixel />
         <Header />
         <SmoothScrollProvider>
           {children}
