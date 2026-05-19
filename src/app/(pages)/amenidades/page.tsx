@@ -13,7 +13,7 @@ const amenitiesData = [
   {
     id: 1,
     title: "FAMILY POOL",
-    description: "Un espacio que te permite disfrutar en familia. Cuenta con carril de nado, zona lounge y chapoteadero infantil.",
+    description: "Un espacio que te permite disfrutar en familia. Cuenta con zona lounge y chapoteadero infantil.",
     galleryDescription: "Diseñada para el descanso y la convivencia.",
     imageData: amenitiesImagesData.familyPoolV2,
     galleryImageData: amenitiesImagesData.familyPool,
@@ -34,7 +34,7 @@ const amenitiesData = [
   },
   {
     id: 4,
-    title: "BUSINESS CENTER",
+    title: "SALON DE USOS MULTIPLES",
     description: "Sala de juntas y zonas de coworking con luz natural para promover tu productividad y creatividad.",
     galleryDescription: "Espacios para mantener tu productividad y comodidad en equilibrio",
     imageData: amenitiesImagesData.businessCenter,
@@ -57,7 +57,7 @@ const amenitiesData = [
 
 export default function AmenitiesPage() {
   const mainPageAmenities = amenitiesData.filter(amenity =>
-    ["FAMILY POOL", "GRILL DECK", "BUSINESS CENTER"].includes(amenity.title)
+    ["FAMILY POOL", "GRILL DECK", "SALON DE USOS MULTIPLES"].includes(amenity.title)
   );
 
   return (
