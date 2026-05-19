@@ -17,10 +17,10 @@ export default function ResidencesHeroSection() {
             </div>
             <Image
                 className={styles.hero__bg}
-                src={residencesImagesdata.socialArea.src}
-                alt={residencesImagesdata.socialArea.alt}
+                src={residencesImagesdata.socialAreaV3.src}
+                alt={residencesImagesdata.socialAreaV3.alt}
                 placeholder={"blur"}
-                blurDataURL={residencesImagesdata.socialArea.blurData}
+                blurDataURL={residencesImagesdata.socialAreaV3.blurData}
                 fill
             />
             <div className={styles.overlay}/>

@@ -28,6 +28,11 @@ export const residencesImagesdata = {
         blurData: "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADwAwCdASoUAAoAPm0skUWkIqGYBABABsSxgE6ZQAFagAtJtfnRspRAAP6rrNZJTcUke9ehAJ2qitNiuB7KydLYT95xJWEcKFJR43+mNTjhrdi+TejuyCsq5mSesLnLhldfIgZri/fHt9xphd8uTBGAAAA="
     
     },
+    socialAreaV3:{
+        alt: "Social area V3 background",
+        src: `${ENV.ASSETS_BASE_URL}/residences/social_area_v3.webp`,
+        blurData: "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADwAwCdASoUAAoAPm0skUWkIqGYBABABsSxgE6ZQAFagAtJtfnRspRAAP6rrNZJTcUke9ehAJ2qitNiuB7KydLYT95xJWEcKFJR43+mNTjhrdi+TejuyCsq5mSesLnLhldfIgZri/fHt9xphd8uTBGAAAA="
+    },
     socialAreaT4:{
         alt: "Social area T4 background",
         src: `${ENV.ASSETS_BASE_URL}/residences/residences-t4-social-area.webp`,
