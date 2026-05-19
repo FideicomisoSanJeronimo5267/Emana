@@ -19,7 +19,7 @@ export default function Footer() {
                             <Link href={'/amenidades'}>Amenidades</Link>
                         </li>
                         <li>
-                            <Link href={'/nosotros'}>Nosotros</Link>
+                            <Link href={'/contacto'}>Nosotros</Link>
                         </li>
                         <li>
                             <Link href={'/contacto'}>Contacto</Link>
