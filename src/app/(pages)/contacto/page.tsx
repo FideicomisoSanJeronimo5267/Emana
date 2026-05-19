@@ -14,7 +14,7 @@ export default function ContactPage() {
                     <div className={styles.header}>
                         <h1 className={styles.title}>QUEREMOS ESCUCHARTE</h1>
                         <p className={styles.subtitle}>
-                            Deja tu información de contacto detalles de tu interés y nos comunicaremos contigo a la brevedad.
+                            Deja tu información de contacto y nos comunicaremos contigo a la brevedad.
                         </p>
                     </div>
 

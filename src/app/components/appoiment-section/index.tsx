@@ -43,7 +43,7 @@ export default function AppointmentSection(props: Props) {
                     <div className={styles.cross__axis_divisor} />
                     
                     <a
-                        href="mailto:info@emana.com.mx"
+                        href="mailto:info@emanamx.com"
                         className={styles.contactLink}
                     >
                         Email
