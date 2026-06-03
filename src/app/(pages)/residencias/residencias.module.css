@@ -27,6 +27,7 @@
   width: 100%;
   aspect-ratio: 1412 /555;
   max-width: 1512px;
+  margin-top: 121px;
   margin-bottom: 121px;
   margin-inline: 49px;
 }
@@ -44,6 +45,7 @@
   .panoramic__photo{
     aspect-ratio: 394/244;
     padding-inline: 20px;
+    margin-top: 88px;
     margin-bottom: 88px;
   }
 

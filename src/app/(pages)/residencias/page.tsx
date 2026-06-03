@@ -53,6 +53,9 @@ export default function Residences() {
                 <VillasSection />
             </LazyAnimation>
             <LazyAnimation>
+                <ResidencesHeroSection />
+            </LazyAnimation>
+            <LazyAnimation>
                 <div className={styles.panoramic__photo}>
                     <Image
                         className={styles.panoramic__photo__image}
@@ -64,9 +67,6 @@ export default function Residences() {
                         fill
                     />
                 </div>
-            </LazyAnimation>
-            <LazyAnimation>
-                <ResidencesHeroSection />
             </LazyAnimation>
             <LazyAnimation>
                 <UnitsAvailable

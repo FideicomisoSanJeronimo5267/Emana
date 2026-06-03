@@ -15,7 +15,8 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
-  }
+  },
+  allowedDevOrigins:['cata-server.space']
 };
 
 export default nextConfig;

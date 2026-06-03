@@ -7,6 +7,11 @@ export const amenitiesImagesData = {
         src: `${ENV.ASSETS_BASE_URL}/amenities/business_center.webp`,
         blurData: "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAwBACdASoUAA4APm0skkWkIqGYBABABsSgCdMoB3AA8tdtrA4n+i296YAA/uojOauwJyF3yieymxeefmBuh6QzQnm4GpFp10A83ouE5xuE+O/a7vUxhcVSQTXHnYXWvGVzGYeVFpqQlvdR2q11tAAA"
     },
+    eventHall: {
+        alt: "Event hall",
+        src: `${ENV.ASSETS_BASE_URL}/amenities/event-hall.webp`,
+        blurData: "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAADwAwCdASoUAAwAPp0+mkgloyKhMAgAsBOJZQCdACB4xiPDiddnz1NQAPzujN0jccGgkKZB8WQ6S6QkMKmVACH9gwxaFskQGAijuSODu+Y7mFUYU3b9T62d4NFdKM3Le1nXxMECfUdLMqXpsD9B2IaKGiZ5xd4gaAA="
+    },
     familyPoolV2: {
         alt: "Family pool version 2",
         src: `${ENV.ASSETS_BASE_URL}/amenities/family_pool_v2.webp`,

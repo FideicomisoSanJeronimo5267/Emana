@@ -34,10 +34,10 @@ const amenitiesData = [
   },
   {
     id: 4,
-    title: "SALON DE USOS MULTIPLES",
-    description: "Sala de juntas y zonas de coworking con luz natural para promover tu productividad y creatividad.",
+    title: "SALÓN DE USOS MULTIPLES",
+    description: "El salón de usos múltiples te permite disfrutar de reuniones, celebraciones y momentos especiales en un espacio flexible y cómodo sin salir del proyecto.",
     galleryDescription: "Espacios para mantener tu productividad y comodidad en equilibrio",
-    imageData: amenitiesImagesData.businessCenter,
+    imageData: amenitiesImagesData.eventHall,
   },
   {
     id: 5,
@@ -57,7 +57,7 @@ const amenitiesData = [
 
 export default function AmenitiesPage() {
   const mainPageAmenities = amenitiesData.filter(amenity =>
-    ["FAMILY POOL", "GRILL DECK", "SALON DE USOS MULTIPLES"].includes(amenity.title)
+    ["FAMILY POOL", "GRILL DECK", "SALÓN DE USOS MULTIPLES"].includes(amenity.title)
   );
 
   return (
