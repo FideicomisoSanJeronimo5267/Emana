@@ -9,11 +9,16 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@payloadcms/db-mongodb": "^3.85.1",
+    "@payloadcms/next": "^3.85.1",
+    "@payloadcms/richtext-lexical": "^3.85.1",
     "@studio-freight/lenis": "^1.0.42",
     "formik": "^2.4.9",
+    "graphql": "^16.14.2",
     "mapbox-gl": "^3.20.0",
     "motion": "^12.38.0",
     "next": "^16.2.1",
+    "payload": "^3.85.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-phone-number-input": "^3.4.16",
