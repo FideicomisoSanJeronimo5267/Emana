@@ -1,4 +1,4 @@
-import AppointmentSection from '@/src/app/components/appoiment-section';
+import { AppointmentSection } from '@/src/app/(app)/components';
 import { amenitiesImagesData } from '@/src/core/constants/image-data/amenities-page';
 
 export default function ExperienceSection() {

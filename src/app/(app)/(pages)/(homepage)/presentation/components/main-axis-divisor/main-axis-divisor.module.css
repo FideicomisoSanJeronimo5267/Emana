@@ -1,0 +1,9 @@
+.main__axis__divisor{
+  display: flex;
+  justify-self: center;
+  width: calc(100% - 100px);
+  max-width: 1512px;
+  height: 1px;
+  background-color: #e5e5e5;
+  margin-inline: 50px;
+}

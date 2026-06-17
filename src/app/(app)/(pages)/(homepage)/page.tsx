@@ -3,63 +3,42 @@
 import styles from './home-page.module.css'
 
 // Components
-import { AmenitiesSection, FeaturesSection, LocationSection, OasisSection } from './presentation/components';
-import { BrochureSection, UnitsAvailable } from '../residencias/presentation/components';
-import { AppointmentSection } from '../../components';
-import { homepageImagesdata } from '@/src/core/constants/image-data/home-page';
-import CoverPage from '../../components/coverpage';
 import LazyAnimation from '../../components/lazy-animation';
+import { GetPageContentUseCase } from '@/src/core/modules/page-content/application/use-cases/get-page-content-use-case';
+import { pageContentFactory } from '@/src/core/modules/page-content/infrastructure/factories/page-content-factory';
+import { PageSections } from './presentation/constants/page-sections';
 
-export default function Home() {
+export default async function Home() {
+  const getPageContentUseCase = new GetPageContentUseCase(pageContentFactory());
+
+  const page = await getPageContentUseCase.execute('home');
+
+
+  if (!page.ok) {
+    return (
+      <main className={styles.main}>
+        <p>There was an error loading the page content. Please try again later.</p>
+      </main>
+    );
+  }
   return (
     <main className={styles.main}>
-      <CoverPage
-        coverImage={{
-          alt: 'Cover Image',
-          src: homepageImagesdata.coverpage.src,
-          blurData: homepageImagesdata.coverpage.blurData
-        }}
-      />
+      {
+        page.value.sections.map((section) => {
+          const Component =
+            PageSections[section.type as keyof typeof PageSections];
+          if (!Component) return null;
 
-      <LazyAnimation>
-        <OasisSection />
-      </LazyAnimation>
-      <LazyAnimation>
-        <FeaturesSection />
-      </LazyAnimation>
-      <div className={styles.main__axis__divisor} />
-      <LazyAnimation>
-        <LocationSection />
-      </LazyAnimation>
-      <LazyAnimation>
-        <AmenitiesSection />
-      </LazyAnimation>
-      <LazyAnimation>
-        <UnitsAvailable
-          title='Desde $8.9 MDP*'
-          button={{
-            title: 'Agenda una cita',
-          }}
-          headerDescription='Departamentos y villas de lujo'
-          footerDescription='*Sujeto a disponibilidad y cambios sin previo aviso.'
-        />
-      </LazyAnimation>
-      <div className={styles.main__axis__divisor} />
-      <LazyAnimation>
-        <BrochureSection
-          title='Conoce más sobre EMANA'
-          description='Descubre cómo el diseño, la ubicación y las amenidades del proyecto se unen para crear una experiencia residencial única.'
-          titleFont='gilroy'
-        />
-      </LazyAnimation>
-      <LazyAnimation>
-        <AppointmentSection
-          title={'Vive la experiencia EMANA'}
-          description={'Visita nuestro showroom y conoce el futuro de tu inversión.'}
-          coverImage={homepageImagesdata.emanaExperience.src}
-          blurDataURL={homepageImagesdata.emanaExperience.blurData}
-        />
-      </LazyAnimation>
+          return (
+            <LazyAnimation key={section.id}>
+              <Component
+                key={section.id}
+                {...section.props as any}
+              />
+            </LazyAnimation>
+          );
+        })
+      }
     </main>
   );
 }

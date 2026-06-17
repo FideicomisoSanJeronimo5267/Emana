@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './hero-section.module.css';
-import Button from '@/src/app/components/button';
+import { Button } from '@/src/app/(app)/components';
 
 interface HeroSectionProps {
   text: string;

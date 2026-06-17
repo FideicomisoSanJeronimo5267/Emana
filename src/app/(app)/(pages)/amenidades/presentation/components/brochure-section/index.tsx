@@ -1,4 +1,4 @@
-import Button from '@/src/app/components/button'
+import { Button } from '@/src/app/(app)/components'
 import styles from './brochure-section.module.css'
 
 export default function BrochureSection() {

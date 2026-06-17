@@ -6,7 +6,7 @@ import styles from './units-available.module.css';
 
 //Assets
 import SmallLogo from '@assets/images/residences-page/small_logo.svg';
-import Button from '@/src/app/components/button';
+import { Button } from '@/src/app/(app)/components';
 
 interface UnitsAvailableProps {
     title: string;

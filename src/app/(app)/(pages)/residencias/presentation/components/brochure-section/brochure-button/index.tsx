@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "@/src/app/components";
 import { BrochureModal, ModalLayout } from "@/src/core/components";
 import { useState } from "react";
 
 import styles from './brochure-button.module.css'
+import { Button } from "@/src/app/(app)/components";
 
 export default function BrochureButton() {
     const [modalVisible, setModalVisible] = useState(false);

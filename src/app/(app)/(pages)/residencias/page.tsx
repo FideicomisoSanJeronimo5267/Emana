@@ -14,11 +14,11 @@ import {
     UnitsAvailable,
     VillasSection
 } from './presentation/components'
-import { AppointmentSection } from '@/src/app/components'
 
 import { residencesImagesdata } from '@/src/core/constants/image-data/residences-page'
 import CoverPageV2 from '../../components/coverpage-v2'
 import LazyAnimation from '../../components/lazy-animation'
+import { AppointmentSection } from '../../components'
 
 export default function Residences() {
     return (

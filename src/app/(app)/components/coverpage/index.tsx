@@ -7,12 +7,10 @@ import { motion, useScroll, useSpring, useTransform } from "motion/react";
 import { useCoverpageRefStore } from "@/src/core/stores/coverpage-ref.store";
 
 interface CoverPageProps {
-  coverImage: {
     className?: string;
     alt: string;
     src: string;
     blurData: string;
-  };
 }
 
 export default function CoverPage(props: CoverPageProps) {
@@ -55,10 +53,10 @@ export default function CoverPage(props: CoverPageProps) {
       >
         <Image
           className={styles.coverpage__image}
-          src={props.coverImage.src}
-          alt={props.coverImage.alt}
+          src={props.src}
+          alt={props.alt}
           placeholder="blur"
-          blurDataURL={props.coverImage.blurData}
+          blurDataURL={props.blurData}
           fill
           priority
           sizes="100vw"

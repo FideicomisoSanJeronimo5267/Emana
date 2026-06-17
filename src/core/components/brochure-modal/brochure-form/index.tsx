@@ -5,8 +5,8 @@ import { useFormik } from 'formik'
 
 
 import styles from './brochure-form.module.css'
-import { Button } from "@/src/app/components";
 import { ENV } from "@/src/core/config/env";
+import { Button } from "@/src/app/(app)/components";
 
 const validationSchema = Yup.object({
     email: Yup.string().email("Ingresa un correo válido").required('El correo electrónico es obligatorio'),

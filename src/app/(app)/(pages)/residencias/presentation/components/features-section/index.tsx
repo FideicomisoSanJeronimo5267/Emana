@@ -1,5 +1,5 @@
 "use client"
-import { useDragScroll } from '@/src/app/hooks/useDragScroll'
+import { useDragScroll } from '@/src/app/(app)/hooks/useDragScroll'
 import styles from './features-section.module.css'
 
 export default function FeaturesSection() {

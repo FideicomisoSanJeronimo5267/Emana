@@ -3,8 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "./components/footer";
 import Header from "./components/header";
-import SmoothScrollProvider from "../core/components/smooth-scroll-provider";
-import MetaPixel from "../core/components/meta-pixel";
+import { MetaPixel } from "@/src/core/components";
+import SmoothScrollProvider from "@/src/core/components/smooth-scroll-provider";
 
 const gilroy = localFont({
   src: [

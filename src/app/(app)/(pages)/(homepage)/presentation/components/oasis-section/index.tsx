@@ -1,8 +1,8 @@
 'use client'
 import { useState } from 'react';
-import Button from '@/src/app/components/button';
 import { BrochureModal, ModalLayout } from '@/src/core/components';
 import styles from './oasis-section.module.css';
+import { Button } from '@/src/app/(app)/components';
 
 export default function OasisSection() {
     const [modalVisible, setModalVisible] = useState(false);
