@@ -169,20 +169,80 @@ export interface Media {
  */
 export interface PageContent {
   id: string;
-  slug: string;
-  sections: {
-    type: string;
-    props:
-      | {
-          [k: string]: unknown;
-        }
-      | unknown[]
-      | string
-      | number
-      | boolean
-      | null;
-    id?: string | null;
-  }[];
+  pageType: 'home' | 'development' | 'department';
+  homeSections?:
+    | (
+        | {
+            alt?: string | null;
+            src?: string | null;
+            blurData?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'coverpage';
+          }
+        | {
+            title?: string | null;
+            description?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'oasis';
+          }
+        | {
+            features?:
+              | {
+                  title: string;
+                  description?: string | null;
+                  icon: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'features';
+          }
+        | {
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'divisor';
+          }
+        | {
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'location';
+          }
+        | {
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'amenities';
+          }
+        | {
+            title?: string | null;
+            buttonTitle?: string | null;
+            headerDescription?: string | null;
+            footerDescription?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'unitsAvailable';
+          }
+        | {
+            title?: string | null;
+            description?: string | null;
+            titleFont?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'brochure';
+          }
+        | {
+            title?: string | null;
+            description?: string | null;
+            coverImage?: string | null;
+            blurDataURL?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'appointment';
+          }
+      )[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -309,13 +369,88 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "page-content_select".
  */
 export interface PageContentSelect<T extends boolean = true> {
-  slug?: T;
-  sections?:
+  pageType?: T;
+  homeSections?:
     | T
     | {
-        type?: T;
-        props?: T;
-        id?: T;
+        coverpage?:
+          | T
+          | {
+              alt?: T;
+              src?: T;
+              blurData?: T;
+              id?: T;
+              blockName?: T;
+            };
+        oasis?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              id?: T;
+              blockName?: T;
+            };
+        features?:
+          | T
+          | {
+              features?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    icon?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        divisor?:
+          | T
+          | {
+              id?: T;
+              blockName?: T;
+            };
+        location?:
+          | T
+          | {
+              id?: T;
+              blockName?: T;
+            };
+        amenities?:
+          | T
+          | {
+              id?: T;
+              blockName?: T;
+            };
+        unitsAvailable?:
+          | T
+          | {
+              title?: T;
+              buttonTitle?: T;
+              headerDescription?: T;
+              footerDescription?: T;
+              id?: T;
+              blockName?: T;
+            };
+        brochure?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              titleFont?: T;
+              id?: T;
+              blockName?: T;
+            };
+        appointment?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              coverImage?: T;
+              blurDataURL?: T;
+              id?: T;
+              blockName?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;

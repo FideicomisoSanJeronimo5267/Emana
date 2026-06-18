@@ -4,14 +4,19 @@ import { BrochureModal, ModalLayout } from '@/src/core/components';
 import styles from './oasis-section.module.css';
 import { Button } from '@/src/app/(app)/components';
 
-export default function OasisSection() {
+interface OasisSectionProps {
+    title: string;
+    description: string;
+}
+
+export default function OasisSection({ title, description }: OasisSectionProps) {
     const [modalVisible, setModalVisible] = useState(false);
 
     return (
         <section className={styles.oasis}>
-            <h2 className={styles.oasis__title}>UN OASIS DENTRO DE LA CIUDAD</h2>
+            <h2 className={styles.oasis__title}>{title}</h2>
             <p className={styles.oasis__description}>
-                Ubicado en Valle Norte – San Jerónimo, EMANA redefine la experiencia de vivir en Monterrey: diseño, calma y conexión en equilibrio.
+                {description}
             </p>
 
             <div className={styles.oasis__actions}>

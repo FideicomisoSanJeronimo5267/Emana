@@ -6,19 +6,17 @@ import { PageContentModel } from '../../domain/models/page-content-model';
 
 export class PageContentDatasourceImpl implements PageContentDatasource {
     async getBySlug(params: GetBySlugParams): Promise<PageContentModel> {
-        const payload =await getPayload({
+        const payload = await getPayload({
             config: config
         })
 
         const result = await payload.find({
             collection: 'page-content',
             where: {
-                slug: {
-                    equals: params.slug,
+                pageType: {
+                    equals: 'home',
                 },
-
             },
-
         });
 
         return result.docs[0];

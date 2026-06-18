@@ -5,8 +5,8 @@ export class PageContentMapper {
   static toEntity(content: PageContentModel): PageContentEntity {
     return {
         id: content.id,
-        slug: content.slug,
-        sections: content.sections,
+        pageType: content.pageType,
+        homeSections: content.homeSections,
         updatedAt: content.updatedAt,
         createdAt: content.createdAt,
     };

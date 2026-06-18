@@ -9,10 +9,10 @@ import { pageContentFactory } from '@/src/core/modules/page-content/infrastructu
 import { PageSections } from './presentation/constants/page-sections';
 
 export default async function Home() {
+
   const getPageContentUseCase = new GetPageContentUseCase(pageContentFactory());
 
   const page = await getPageContentUseCase.execute('home');
-
 
   if (!page.ok) {
     return (
@@ -21,19 +21,20 @@ export default async function Home() {
       </main>
     );
   }
+
   return (
     <main className={styles.main}>
       {
-        page.value.sections.map((section) => {
+        page.value.homeSections?.map((section) => {
           const Component =
-            PageSections[section.type as keyof typeof PageSections];
+            PageSections[section.blockType as keyof typeof PageSections];
           if (!Component) return null;
 
           return (
             <LazyAnimation key={section.id}>
               <Component
                 key={section.id}
-                {...section.props as any}
+                {...section as any}
               />
             </LazyAnimation>
           );
