@@ -1,39 +1,37 @@
 "use client"
 
-// Next.js imports
 import Image from "next/image";
-
-// Styles
 import styles from './amenities-gallery.module.css'
-
-// Constants & Store
 import { useAmenitieSelectedStore } from "../../stores/amenitie-selected.store";
-import { homepageImagesdata } from "@/src/core/constants/image-data/home-page";
 
+interface AmenityItem {
+    imageSrc?: string | null
+    imageAlt?: string | null
+    imageBlurData?: string | null
+    id?: string | null
+}
 
-export default function AmenitiesGallery() {
-    const currentAmenity = useAmenitieSelectedStore((state) => state.currentAmenitie);
+interface AmenitiesGalleryProps {
+    amenities: AmenityItem[]
+}
 
-    const GALLERY_IMAGES = {
-        SKYPOOL: homepageImagesdata.skyPool,
-        GRILLDECK: homepageImagesdata.grillDeck,
-        BUSINESSCENTER: homepageImagesdata.businessCenter,
-        POOL: homepageImagesdata.pool,
-    } as const
+export default function AmenitiesGallery({ amenities }: AmenitiesGalleryProps) {
+    const currentAmenitieIndex = useAmenitieSelectedStore((state) => state.currentAmenitieIndex);
 
     return (
         <div className={styles.container}>
-            {Object.entries(GALLERY_IMAGES).map(([key, image]) => {
-                const isActive = currentAmenity === key
+            {amenities.map((amenity, index) => {
+                if (!amenity.imageSrc) return null
+                const isActive = currentAmenitieIndex === index
                 return (
                     <Image
-                        key={key}
+                        key={amenity.id ?? index}
                         className={`${styles.image} ${isActive ? styles.active : ""}`}
-                        src={image.src}
-                        alt={image.alt}
+                        src={amenity.imageSrc}
+                        alt={amenity.imageAlt ?? ''}
                         fill
-                        placeholder="blur"
-                        blurDataURL={image.blurData}
+                        placeholder={amenity.imageBlurData ? "blur" : "empty"}
+                        blurDataURL={amenity.imageBlurData ?? undefined}
                         sizes="100vw"
                         loading="lazy"
                     />

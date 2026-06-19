@@ -29,7 +29,7 @@ export interface PageContentModel {
               | null;
             id?: string | null;
             blockName?: string | null;
-            blockType: 'features-section';
+            blockType: 'features';
           }
         | {
             id?: string | null;
@@ -37,11 +37,32 @@ export interface PageContentModel {
             blockType: 'divisor';
           }
         | {
+            coverSrc?: string | null;
+            coverAlt?: string | null;
+            coverBlurData?: string | null;
+            title?: string | null;
+            description?: string | null;
+            importantLocations?: {
+              icon?: string | null;
+              description?: string | null;
+              id?: string | null;
+            }[] | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'location';
           }
         | {
+            title?: string | null;
+            description?: string | null;
+            linkText?: string | null;
+            amenities?: {
+              name?: string | null;
+              description?: string | null;
+              imageSrc?: string | null;
+              imageAlt?: string | null;
+              imageBlurData?: string | null;
+              id?: string | null;
+            }[] | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'amenities';

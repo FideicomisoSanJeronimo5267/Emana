@@ -71,9 +71,7 @@ export default function Residences() {
             <LazyAnimation>
                 <UnitsAvailable
                     title='Conoce las unidades disponibles'
-                    button={{
-                        title: 'Agenda una cita'
-                    }}
+                    buttonTitle='Agenda una cita'
                 />
             </LazyAnimation>
             <div className={styles.main__axis__divisor} />

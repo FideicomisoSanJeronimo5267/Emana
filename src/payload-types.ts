@@ -223,6 +223,17 @@ export interface PageContent {
             blockType: 'location';
           }
         | {
+            title: string;
+            description: string;
+            linkText: string;
+            amenities: {
+              name: string;
+              description?: string | null;
+              imageSrc: string;
+              imageAlt: string;
+              imageBlurData: string;
+              id?: string | null;
+            }[];
             id?: string | null;
             blockName?: string | null;
             blockType: 'amenities';
@@ -443,6 +454,19 @@ export interface PageContentSelect<T extends boolean = true> {
         amenities?:
           | T
           | {
+              title?: T;
+              description?: T;
+              linkText?: T;
+              amenities?:
+                | T
+                | {
+                    name?: T;
+                    description?: T;
+                    imageSrc?: T;
+                    imageAlt?: T;
+                    imageBlurData?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };

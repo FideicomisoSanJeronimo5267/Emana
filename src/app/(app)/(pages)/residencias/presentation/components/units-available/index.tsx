@@ -10,10 +10,7 @@ import { Button } from '@/src/app/(app)/components';
 
 interface UnitsAvailableProps {
     title: string;
-    button: {
-        title: string,
-        action?: () => void
-    }
+    buttonTitle?: string;
     headerDescription?: string;
     footerDescription?: string
 }
@@ -38,7 +35,7 @@ export default function UnitsAvailable(props: UnitsAvailableProps) {
                     target: '_blank'
                 }}
             >
-                Ver Inventario
+                {props.buttonTitle ?? 'Ver Inventario'}
             </Button>
             <Image className={styles.units__available__logo} src={SmallLogo} alt={'Small logo'} />
             {
