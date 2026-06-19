@@ -11,6 +11,13 @@ import { AppointmentBlock } from "../blocks/homepage/appoiment.block";
 import { CoverpageV2Block } from "../blocks/amenidades/coverpage-v2.block";
 import { AmenitiesMainSectionBlock } from "../blocks/amenidades/main-section.block";
 import { AmenitiesGallerySectionBlock } from "../blocks/amenidades/gallery-section.block";
+import { ResidenciasCoverpageBlock } from "../blocks/residencias/coverpage.block";
+import { ResidenciasFeaturesBlock } from "../blocks/residencias/features.block";
+import { ResidenciasPropertyTypeBlock } from "../blocks/residencias/property-type.block";
+import { ResidenciasApartmentSectionBlock } from "../blocks/residencias/apartment-section.block";
+import { ResidenciasVillasSectionBlock } from "../blocks/residencias/villas-section.block";
+import { ResidenciasHeroBlock } from "../blocks/residencias/hero.block";
+import { ResidenciasPanoramicPhotoBlock } from "../blocks/residencias/panoramic-photo.block";
 
 export const PageContent: CollectionConfig = {
     slug: "page-content",
@@ -35,6 +42,10 @@ export const PageContent: CollectionConfig = {
                 {
                     label: 'Amenidades',
                     value: 'amenidades',
+                },
+                {
+                    label: 'Residencias',
+                    value: 'residencias',
                 },
             ],
 
@@ -72,6 +83,27 @@ export const PageContent: CollectionConfig = {
             admin: {
                 condition: (_, siblingData) =>
                     siblingData.pageType === 'amenidades',
+            },
+        },
+        {
+            name: 'residenciasSections',
+            type: 'blocks',
+            blocks: [
+                ResidenciasCoverpageBlock,
+                ResidenciasFeaturesBlock,
+                ResidenciasPropertyTypeBlock,
+                ResidenciasApartmentSectionBlock,
+                ResidenciasVillasSectionBlock,
+                ResidenciasHeroBlock,
+                ResidenciasPanoramicPhotoBlock,
+                UnitsAvailableBlock,
+                DivisorBlock,
+                BrochureBlock,
+                AppointmentBlock,
+            ],
+            admin: {
+                condition: (_, siblingData) =>
+                    siblingData.pageType === 'residencias',
             },
         }
     ],

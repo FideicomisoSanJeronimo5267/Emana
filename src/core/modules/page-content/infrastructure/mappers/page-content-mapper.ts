@@ -7,6 +7,7 @@ export class PageContentMapper {
         id: content.id,
         pageType: content.pageType,
         homeSections: content.homeSections,
+        residenciasSections: content.residenciasSections,
         amenidadesSections: content.amenidadesSections,
         updatedAt: content.updatedAt,
         createdAt: content.createdAt,

@@ -1,6 +1,6 @@
 export interface PageContentEntity {
     id: string;
-    pageType: 'home' | 'development' | 'department' | 'amenidades';
+    pageType: 'home' | 'development' | 'department' | 'amenidades' | 'residencias';
     homeSections?:
     | (
         | {
@@ -75,6 +75,120 @@ export interface PageContentEntity {
             id?: string | null;
             blockName?: string | null;
             blockType: 'unitsAvailable';
+        }
+        | {
+            title?: string | null;
+            description?: string | null;
+            titleFont?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'brochure';
+        }
+        | {
+            title?: string | null;
+            description?: string | null;
+            coverImage?: string | null;
+            blurDataURL?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'appointment';
+        }
+    )[]
+    | null;
+    residenciasSections?:
+    | (
+        | {
+            title?: string | null;
+            subtitle?: string | null;
+            buttonTitle?: string | null;
+            buttonHref?: string | null;
+            coverSrc?: string | null;
+            coverAlt?: string | null;
+            coverBlurData?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'residenciasCoverpage';
+        }
+        | {
+            features?: { text?: string | null; id?: string | null }[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'residenciasFeatures';
+        }
+        | {
+            apartments?: {
+                title?: string | null;
+                description?: string | null;
+                buttonText?: string | null;
+                bgSrc?: string | null;
+                bgAlt?: string | null;
+                bgBlurData?: string | null;
+            } | null;
+            villas?: {
+                title?: string | null;
+                description?: string | null;
+                buttonText?: string | null;
+                bgSrc?: string | null;
+                bgAlt?: string | null;
+                bgBlurData?: string | null;
+            } | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'residenciasPropertyType';
+        }
+        | {
+            title?: string | null;
+            description?: string | null;
+            features?: { text?: string | null; id?: string | null }[] | null;
+            imageSrc?: string | null;
+            imageAlt?: string | null;
+            imageBlurData?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'residenciasApartmentSection';
+        }
+        | {
+            title?: string | null;
+            description?: string | null;
+            features?: { text?: string | null; id?: string | null }[] | null;
+            imageSrc?: string | null;
+            imageAlt?: string | null;
+            imageBlurData?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'residenciasVillasSection';
+        }
+        | {
+            title?: string | null;
+            description?: string | null;
+            bgSrc?: string | null;
+            bgAlt?: string | null;
+            bgBlurData?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'residenciasHero';
+        }
+        | {
+            src?: string | null;
+            alt?: string | null;
+            blurData?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'residenciasPanoramicPhoto';
+        }
+        | {
+            title?: string | null;
+            buttonTitle?: string | null;
+            headerDescription?: string | null;
+            footerDescription?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'unitsAvailable';
+        }
+        | {
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'divisor';
         }
         | {
             title?: string | null;

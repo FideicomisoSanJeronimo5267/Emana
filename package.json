@@ -11,7 +11,8 @@
     "generate:types": "npx payload generate:types --config src/payload.config.ts",
     "seed:location": "npx tsx --tsconfig tsconfig.json scripts/seed-location.ts",
     "seed:amenities": "npx tsx --tsconfig tsconfig.json scripts/seed-amenities.ts",
-    "seed:amenidades-page": "npx tsx --tsconfig tsconfig.json scripts/seed-amenidades-page.ts"
+    "seed:amenidades-page": "npx tsx --tsconfig tsconfig.json scripts/seed-amenidades-page.ts",
+    "seed:residencias-page": "npx tsx --tsconfig tsconfig.json scripts/seed-residencias-page.ts"
   },
   "dependencies": {
     "@payloadcms/db-mongodb": "^3.85.1",
