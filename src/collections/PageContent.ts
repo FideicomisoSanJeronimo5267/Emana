@@ -8,6 +8,9 @@ import { AmenitiesBlock } from "../blocks/homepage/amenities.block";
 import { UnitsAvailableBlock } from "../blocks/homepage/units-available.block";
 import { BrochureBlock } from "../blocks/homepage/brochure.block";
 import { AppointmentBlock } from "../blocks/homepage/appoiment.block";
+import { CoverpageV2Block } from "../blocks/amenidades/coverpage-v2.block";
+import { AmenitiesMainSectionBlock } from "../blocks/amenidades/main-section.block";
+import { AmenitiesGallerySectionBlock } from "../blocks/amenidades/gallery-section.block";
 
 export const PageContent: CollectionConfig = {
     slug: "page-content",
@@ -29,7 +32,10 @@ export const PageContent: CollectionConfig = {
                     label: 'Department',
                     value: 'department',
                 },
-
+                {
+                    label: 'Amenidades',
+                    value: 'amenidades',
+                },
             ],
 
         },
@@ -51,7 +57,22 @@ export const PageContent: CollectionConfig = {
                 condition: (_, siblingData) =>
                     siblingData.pageType === 'home',
             },
-
+        },
+        {
+            name: 'amenidadesSections',
+            type: 'blocks',
+            blocks: [
+                CoverpageV2Block,
+                AmenitiesMainSectionBlock,
+                AmenitiesGallerySectionBlock,
+                DivisorBlock,
+                BrochureBlock,
+                AppointmentBlock,
+            ],
+            admin: {
+                condition: (_, siblingData) =>
+                    siblingData.pageType === 'amenidades',
+            },
         }
     ],
 }

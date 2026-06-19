@@ -1,6 +1,6 @@
 export interface PageContentModel {
   id: string;
-  pageType: 'home' | 'development' | 'department';
+  pageType: 'home' | 'development' | 'department' | 'amenidades';
   homeSections?:
     | (
         | {
@@ -75,6 +75,75 @@ export interface PageContentModel {
             id?: string | null;
             blockName?: string | null;
             blockType: 'unitsAvailable';
+          }
+        | {
+            title?: string | null;
+            description?: string | null;
+            titleFont?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'brochure';
+          }
+        | {
+            title?: string | null;
+            description?: string | null;
+            coverImage?: string | null;
+            blurDataURL?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'appointment';
+          }
+      )[]
+    | null;
+  amenidadesSections?:
+    | (
+        | {
+            title?: string | null;
+            subtitle?: string | null;
+            buttonTitle?: string | null;
+            buttonHref?: string | null;
+            coverSrc?: string | null;
+            coverAlt?: string | null;
+            coverBlurData?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'amenidadesCoverpage';
+          }
+        | {
+            amenities?: {
+              title?: string | null;
+              description?: string | null;
+              imageSrc?: string | null;
+              imageAlt?: string | null;
+              imageBlurData?: string | null;
+              applyGrillDeckZoom?: boolean | null;
+              id?: string | null;
+            }[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'amenidadesMainSection';
+          }
+        | {
+            amenities?: {
+              title?: string | null;
+              description?: string | null;
+              galleryDescription?: string | null;
+              imageSrc?: string | null;
+              imageAlt?: string | null;
+              imageBlurData?: string | null;
+              galleryImageSrc?: string | null;
+              galleryImageAlt?: string | null;
+              galleryImageBlurData?: string | null;
+              id?: string | null;
+            }[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'amenidadesGallerySection';
+          }
+        | {
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'divisor';
           }
         | {
             title?: string | null;

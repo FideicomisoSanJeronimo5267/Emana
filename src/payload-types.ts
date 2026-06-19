@@ -169,7 +169,7 @@ export interface Media {
  */
 export interface PageContent {
   id: string;
-  pageType: 'home' | 'development' | 'department';
+  pageType: 'home' | 'development' | 'department' | 'amenidades';
   homeSections?:
     | (
         | {
@@ -246,6 +246,75 @@ export interface PageContent {
             id?: string | null;
             blockName?: string | null;
             blockType: 'unitsAvailable';
+          }
+        | {
+            title?: string | null;
+            description?: string | null;
+            titleFont?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'brochure';
+          }
+        | {
+            title?: string | null;
+            description?: string | null;
+            coverImage?: string | null;
+            blurDataURL?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'appointment';
+          }
+      )[]
+    | null;
+  amenidadesSections?:
+    | (
+        | {
+            title?: string | null;
+            subtitle?: string | null;
+            buttonTitle?: string | null;
+            buttonHref?: string | null;
+            coverSrc?: string | null;
+            coverAlt?: string | null;
+            coverBlurData?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'amenidadesCoverpage';
+          }
+        | {
+            amenities: {
+              title: string;
+              description?: string | null;
+              imageSrc: string;
+              imageAlt: string;
+              imageBlurData: string;
+              applyGrillDeckZoom?: boolean | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'amenidadesMainSection';
+          }
+        | {
+            amenities: {
+              title: string;
+              description?: string | null;
+              galleryDescription?: string | null;
+              imageSrc: string;
+              imageAlt: string;
+              imageBlurData: string;
+              galleryImageSrc?: string | null;
+              galleryImageAlt?: string | null;
+              galleryImageBlurData?: string | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'amenidadesGallerySection';
+          }
+        | {
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'divisor';
           }
         | {
             title?: string | null;
@@ -477,6 +546,85 @@ export interface PageContentSelect<T extends boolean = true> {
               buttonTitle?: T;
               headerDescription?: T;
               footerDescription?: T;
+              id?: T;
+              blockName?: T;
+            };
+        brochure?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              titleFont?: T;
+              id?: T;
+              blockName?: T;
+            };
+        appointment?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              coverImage?: T;
+              blurDataURL?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  amenidadesSections?:
+    | T
+    | {
+        amenidadesCoverpage?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              buttonTitle?: T;
+              buttonHref?: T;
+              coverSrc?: T;
+              coverAlt?: T;
+              coverBlurData?: T;
+              id?: T;
+              blockName?: T;
+            };
+        amenidadesMainSection?:
+          | T
+          | {
+              amenities?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    imageSrc?: T;
+                    imageAlt?: T;
+                    imageBlurData?: T;
+                    applyGrillDeckZoom?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        amenidadesGallerySection?:
+          | T
+          | {
+              amenities?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    galleryDescription?: T;
+                    imageSrc?: T;
+                    imageAlt?: T;
+                    imageBlurData?: T;
+                    galleryImageSrc?: T;
+                    galleryImageAlt?: T;
+                    galleryImageBlurData?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        divisor?:
+          | T
+          | {
               id?: T;
               blockName?: T;
             };

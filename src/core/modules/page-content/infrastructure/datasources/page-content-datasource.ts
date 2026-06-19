@@ -14,7 +14,7 @@ export class PageContentDatasourceImpl implements PageContentDatasource {
             collection: 'page-content',
             where: {
                 pageType: {
-                    equals: 'home',
+                    equals: params.slug,
                 },
             },
         });
