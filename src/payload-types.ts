@@ -206,6 +206,18 @@ export interface PageContent {
             blockType: 'divisor';
           }
         | {
+            coverSrc: string;
+            coverAlt: string;
+            coverBlurData: string;
+            title: string;
+            description: string;
+            importantLocations?:
+              | {
+                  icon?: string | null;
+                  description?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'location';
@@ -413,6 +425,18 @@ export interface PageContentSelect<T extends boolean = true> {
         location?:
           | T
           | {
+              coverSrc?: T;
+              coverAlt?: T;
+              coverBlurData?: T;
+              title?: T;
+              description?: T;
+              importantLocations?:
+                | T
+                | {
+                    icon?: T;
+                    description?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };

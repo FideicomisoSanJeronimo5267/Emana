@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "generate:types": "npx payload generate:types --config src/payload.config.ts"
+    "generate:types": "npx payload generate:types --config src/payload.config.ts",
+    "seed:location": "npx tsx --tsconfig tsconfig.json scripts/seed-location.ts"
   },
   "dependencies": {
     "@payloadcms/db-mongodb": "^3.85.1",

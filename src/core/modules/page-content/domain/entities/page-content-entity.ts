@@ -37,6 +37,16 @@ export interface PageContentEntity {
             blockType: 'divisor';
         }
         | {
+            coverSrc?: string | null;
+            coverAlt?: string | null;
+            coverBlurData?: string | null;
+            title?: string | null;
+            description?: string | null;
+            importantLocations?: {
+                icon?: string | null;
+                description?: string | null;
+                id?: string | null;
+            }[] | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'location';

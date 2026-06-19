@@ -1,74 +1,58 @@
-//Next.js imports
 import Image from 'next/image';
-
-// Styles
 import styles from './location-section.module.css'
 
-// Assets
-import { homepageImagesdata } from '@/src/core/constants/image-data/home-page';
+interface LocationSectionProps {
+    coverSrc: string;
+    coverAlt: string;
+    coverBlurData: string;
+    title: string;
+    description: string;
+    importantLocations?: {
+        icon?: string | null;
+        description?: string | null;
+        id?: string | null;
+    }[] | null;
+}
 
-export default function LocationSection() {
+export default function LocationSection({
+    coverSrc,
+    coverAlt,
+    coverBlurData,
+    title,
+    description,
+    importantLocations,
+}: LocationSectionProps) {
     return (
         <section className={styles.wrapper}>
             <div className={styles.wrapper__cover}>
                 <Image
                     className={styles.wrapper__cover__image}
-                    src={homepageImagesdata.frontalTower.src}
-                    alt={homepageImagesdata.frontalTower.alt}
-                    blurDataURL={homepageImagesdata.frontalTower.blurData}
-                    placeholder={"blur"}
+                    src={coverSrc}
+                    alt={coverAlt}
+                    blurDataURL={coverBlurData}
+                    placeholder="blur"
                     objectFit="cover"
                     fill
                 />
             </div>
             <div className={styles.wrapper__content}>
                 <h2 className={styles.wrapper__content__title}>
-                    Cerca de todo; en equilibrio
-                    con lo que necesitas
+                    {title}
                 </h2>
-                <p className={styles.wrapper__content__description}>
-                    Vivir en Valle Norte – San Jerónimo es disfrutar de una ubicación que te conecta con lo mejor de Monterrey, mientras disfrutas la tranquilidad de un entorno residencial exclusivo.
-                    <br />
-                    <br />
-                    Conectividad a los puntos más importantes de la ciudad:
-                </p>
+                <p
+                    className={styles.wrapper__content__description}
+                    dangerouslySetInnerHTML={{ __html: description }}
+                />
 
                 <ul className={styles.wrapper__content__important_locations__list}>
-                    <li className={styles.wrapper__content__important_locations__list__item}>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <mask id="mask0_142_1120" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                                <rect width="24" height="24" fill="#D9D9D9" />
-                            </mask>
-                            <g mask="url(#mask0_142_1120)">
-                                <path d="M12 21C10.3872 21 9.06733 20.7942 8.0405 20.3825C7.0135 19.971 6.5 19.4397 6.5 18.7885C6.5 18.4782 6.6465 18.181 6.9395 17.897C7.23233 17.6132 7.63392 17.3718 8.14425 17.173L8.93075 17.8405C8.65258 17.9455 8.36508 18.0846 8.06825 18.2578C7.77142 18.4308 7.58583 18.6013 7.5115 18.7693C7.62567 19.1001 8.10967 19.3879 8.9635 19.6327C9.81733 19.8776 10.8263 20 11.9905 20C13.1545 20 14.1676 19.8776 15.0297 19.6327C15.8919 19.3879 16.3801 19.1001 16.4943 18.7693C16.4418 18.5974 16.2501 18.425 15.9193 18.252C15.5884 18.0788 15.2756 17.9397 14.9808 17.8345L15.7615 17.1615C16.318 17.3642 16.7468 17.6074 17.048 17.8913C17.3493 18.1753 17.5 18.4714 17.5 18.7797C17.5 19.4336 16.9865 19.9671 15.9595 20.3803C14.9327 20.7934 13.6128 21 12 21ZM12.025 16.75C13.6878 15.4563 14.9327 14.1907 15.7595 12.953C16.5865 11.7152 17 10.4988 17 9.30375C17 7.55308 16.4615 6.23142 15.3845 5.33875C14.3077 4.44625 13.1827 4 12.0095 4C10.8365 4 9.70833 4.44675 8.625 5.34025C7.54167 6.23375 7 7.55683 7 9.3095C7 10.4608 7.4115 11.6503 8.2345 12.878C9.05767 14.1055 10.3212 15.3962 12.025 16.75ZM12 18C9.98567 16.4703 8.48208 14.9847 7.48925 13.5433C6.49642 12.1018 6 10.6897 6 9.307C6 8.26267 6.18042 7.34908 6.54125 6.56625C6.90225 5.78358 7.37117 5.1275 7.948 4.598C8.525 4.0685 9.17025 3.66983 9.88375 3.402C10.5972 3.134 11.3037 3 12.003 3C12.7023 3 13.4078 3.134 14.1193 3.402C14.8308 3.66983 15.475 4.0685 16.052 4.598C16.6288 5.1275 17.0977 5.78417 17.4587 6.568C17.8196 7.35167 18 8.26358 18 9.30375C18 10.6869 17.5036 12.0995 16.5107 13.5415C15.5179 14.9835 14.0143 16.4697 12 18ZM12.0095 10.7885C12.4507 10.7885 12.8286 10.6343 13.1432 10.326C13.4581 10.0177 13.6155 9.63658 13.6155 9.18275C13.6155 8.72892 13.4573 8.34458 13.1408 8.02975C12.8244 7.71508 12.4442 7.55775 12 7.55775C11.5653 7.55775 11.1874 7.71592 10.8663 8.03225C10.5451 8.34858 10.3845 8.72883 10.3845 9.173C10.3845 9.63333 10.5451 10.0177 10.8663 10.326C11.1874 10.6343 11.5685 10.7885 12.0095 10.7885Z" fill="#676861" />
-                            </g>
-                        </svg>
-                        <span>A 5 minutos de San Pedro Garza García</span>
-                    </li>
-                    <li className={styles.wrapper__content__important_locations__list__item}>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <mask id="mask0_254_1274" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-                                <rect width="24" height="24" fill="#D9D9D9" />
-                            </mask>
-                            <g mask="url(#mask0_254_1274)">
-                                <path d="M6.6155 21C6.15517 21 5.77083 20.8458 5.4625 20.5375C5.15417 20.2292 5 19.8448 5 19.3845V17.2308H4V16.2308H5V12.5H4V11.5H5V7.76925H4V6.76925H5V4.6155C5 4.15517 5.15417 3.77083 5.4625 3.4625C5.77083 3.15417 6.15517 3 6.6155 3H17.3845C17.8448 3 18.2292 3.15417 18.5375 3.4625C18.8458 3.77083 19 4.15517 19 4.6155V19.3845C19 19.8448 18.8458 20.2292 18.5375 20.5375C18.2292 20.8458 17.8448 21 17.3845 21H6.6155ZM6.6155 20H17.3845C17.564 20 17.7115 19.9423 17.827 19.827C17.9423 19.7115 18 19.564 18 19.3845V4.6155C18 4.436 17.9423 4.2885 17.827 4.173C17.7115 4.05767 17.564 4 17.3845 4H6.6155C6.436 4 6.2885 4.05767 6.173 4.173C6.05767 4.2885 6 4.436 6 4.6155V6.76925H7V7.76925H6V11.5H7V12.5H6V16.2308H7V17.2308H6V19.3845C6 19.564 6.05767 19.7115 6.173 19.827C6.2885 19.9423 6.436 20 6.6155 20ZM10.1923 16.6923H11.077V12.7115C11.4718 12.6205 11.8077 12.4247 12.0845 12.124C12.3615 11.8233 12.5 11.4737 12.5 11.075V7.30775H11.7308V11.0057H11.0192V7.30775H10.25V11.0057H9.5385V7.30775H8.76925V11.075C8.76925 11.4737 8.90767 11.8233 9.1845 12.124C9.4615 12.4247 9.79742 12.6205 10.1923 12.7115V16.6923ZM14.8462 16.6923H15.7308V7.327C15.0513 7.391 14.4839 7.68267 14.0288 8.202C13.5738 8.72117 13.3462 9.3205 13.3462 10V12.6923H14.8462V16.6923Z" fill="#676861" />
-                            </g>
-                        </svg>
-
-                        <span>Hospitales, colegios, centros comerciales, restaurantes</span>
-                    </li>
-                    <li className={styles.wrapper__content__important_locations__list__item}>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <mask id="mask0_254_1291" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
-                                <rect width="20" height="20" fill="#D9D9D9" />
-                            </mask>
-                            <g mask="url(#mask0_254_1291)">
-                                <path d="M7.75 17C6.91667 17 6.20833 16.7072 5.625 16.1215C5.04167 15.5356 4.75 14.8315 4.75 14.009V7.89583C4.23611 7.72917 3.81597 7.42361 3.48958 6.97917C3.16319 6.53472 3 6.04167 3 5.5C3 4.80556 3.24653 4.21528 3.73958 3.72917C4.23264 3.24306 4.82292 3 5.51042 3C6.19792 3 6.78472 3.24306 7.27083 3.72917C7.75694 4.21528 8 4.80556 8 5.5C8 6.06944 7.83333 6.56944 7.5 7C7.16667 7.43056 6.75 7.72222 6.25 7.875V14.0013C6.25 14.4133 6.39729 14.7662 6.69187 15.0598C6.98646 15.3533 7.34062 15.5 7.75437 15.5C8.16813 15.5 8.52083 15.3531 8.8125 15.0594C9.10417 14.7656 9.25 14.4125 9.25 14V6C9.25 5.16667 9.54167 4.45833 10.125 3.875C10.7083 3.29167 11.4167 3 12.25 3C13.0833 3 13.7917 3.29167 14.375 3.875C14.9583 4.45833 15.25 5.16667 15.25 6V12.125C15.75 12.2778 16.1667 12.5694 16.5 13C16.8333 13.4306 17 13.9306 17 14.5C17 15.1944 16.7569 15.7847 16.2708 16.2708C15.7847 16.7569 15.1944 17 14.5 17C13.8194 17 13.2326 16.7569 12.7396 16.2708C12.2465 15.7847 12 15.1944 12 14.5C12 13.9722 12.1667 13.4792 12.5 13.0208C12.8333 12.5625 13.25 12.2585 13.75 12.109V5.99229C13.75 5.58076 13.6027 5.22917 13.3081 4.9375C13.0135 4.64583 12.6594 4.5 12.2456 4.5C11.8319 4.5 11.4792 4.64688 11.1875 4.94063C10.8958 5.23438 10.75 5.5875 10.75 6V14C10.75 14.8333 10.4583 15.5417 9.875 16.125C9.29167 16.7083 8.58333 17 7.75 17ZM5.5 6.5C5.78333 6.5 6.02083 6.40417 6.2125 6.2125C6.40417 6.02083 6.5 5.78333 6.5 5.5C6.5 5.21667 6.40417 4.97917 6.2125 4.7875C6.02083 4.59583 5.78333 4.5 5.5 4.5C5.21667 4.5 4.97917 4.59583 4.7875 4.7875C4.59583 4.97917 4.5 5.21667 4.5 5.5C4.5 5.78333 4.59583 6.02083 4.7875 6.2125C4.97917 6.40417 5.21667 6.5 5.5 6.5ZM14.5 15.5C14.7833 15.5 15.0208 15.4042 15.2125 15.2125C15.4042 15.0208 15.5 14.7833 15.5 14.5C15.5 14.2167 15.4042 13.9792 15.2125 13.7875C15.0208 13.5958 14.7833 13.5 14.5 13.5C14.2167 13.5 13.9792 13.5958 13.7875 13.7875C13.5958 13.9792 13.5 14.2167 13.5 14.5C13.5 14.7833 13.5958 15.0208 13.7875 15.2125C13.9792 15.4042 14.2167 15.5 14.5 15.5Z" fill="#676861" />
-                            </g>
-                        </svg>
-
-                        <span>Vialidades principales como Gonzalitos, Constitución y Morones Prieto</span>
-                    </li>
+                    {importantLocations?.map((location) => (
+                        <li key={location.id} className={styles.wrapper__content__important_locations__list__item}>
+                            {location.icon && (
+                                <span dangerouslySetInnerHTML={{ __html: location.icon }} />
+                            )}
+                            <span>{location.description}</span>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </section>
