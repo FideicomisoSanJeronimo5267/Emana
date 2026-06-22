@@ -20,6 +20,8 @@ import { ResidenciasHeroBlock } from "../blocks/residencias/hero.block";
 import { ResidenciasPanoramicPhotoBlock } from "../blocks/residencias/panoramic-photo.block";
 import { ColaboradoresCoverpageBlock } from "../blocks/colaboradores/coverpage.block";
 import { ColaboradoresListBlock } from "../blocks/colaboradores/list.block";
+import { ContactoHeaderBlock } from "../blocks/contacto/header.block";
+import { ContactoShowroomBlock } from "../blocks/contacto/showroom.block";
 
 export const PageContent: CollectionConfig = {
     slug: "page-content",
@@ -52,6 +54,10 @@ export const PageContent: CollectionConfig = {
                 {
                     label: 'Colaboradores',
                     value: 'colaboradores',
+                },
+                {
+                    label: 'Contacto',
+                    value: 'contacto',
                 },
             ],
 
@@ -125,6 +131,19 @@ export const PageContent: CollectionConfig = {
                 condition: (_, siblingData) =>
                     siblingData.pageType === 'colaboradores',
             },
-        }
+        },
+        {
+            name: 'contactoSections',
+            type: 'blocks',
+            blocks: [
+                ContactoHeaderBlock,
+                ContactoShowroomBlock,
+                AppointmentBlock,
+            ],
+            admin: {
+                condition: (_, siblingData) =>
+                    siblingData.pageType === 'contacto',
+            },
+        },
     ],
 }

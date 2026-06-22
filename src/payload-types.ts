@@ -169,7 +169,7 @@ export interface Media {
  */
 export interface PageContent {
   id: string;
-  pageType: 'home' | 'development' | 'department' | 'amenidades' | 'residencias' | 'colaboradores';
+  pageType: 'home' | 'development' | 'department' | 'amenidades' | 'residencias' | 'colaboradores' | 'contacto';
   homeSections?:
     | (
         | {
@@ -499,6 +499,38 @@ export interface PageContent {
             id?: string | null;
             blockName?: string | null;
             blockType: 'brochure';
+          }
+        | {
+            title?: string | null;
+            description?: string | null;
+            coverImage?: string | null;
+            blurDataURL?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'appointment';
+          }
+      )[]
+    | null;
+  contactoSections?:
+    | (
+        | {
+            title?: string | null;
+            subtitle?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contactoHeader';
+          }
+        | {
+            title?: string | null;
+            description?: string | null;
+            address?: string | null;
+            whatsapp?: string | null;
+            hours?: string | null;
+            latitude?: number | null;
+            longitude?: number | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contactoShowroom';
           }
         | {
             title?: string | null;
@@ -1005,6 +1037,41 @@ export interface PageContentSelect<T extends boolean = true> {
               title?: T;
               description?: T;
               titleFont?: T;
+              id?: T;
+              blockName?: T;
+            };
+        appointment?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              coverImage?: T;
+              blurDataURL?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  contactoSections?:
+    | T
+    | {
+        contactoHeader?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              id?: T;
+              blockName?: T;
+            };
+        contactoShowroom?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              address?: T;
+              whatsapp?: T;
+              hours?: T;
+              latitude?: T;
+              longitude?: T;
               id?: T;
               blockName?: T;
             };

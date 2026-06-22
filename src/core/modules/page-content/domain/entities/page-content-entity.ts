@@ -1,6 +1,6 @@
 export interface PageContentEntity {
     id: string;
-    pageType: 'home' | 'development' | 'department' | 'amenidades' | 'residencias' | 'colaboradores';
+    pageType: 'home' | 'development' | 'department' | 'amenidades' | 'residencias' | 'colaboradores' | 'contacto';
     homeSections?:
     | (
         | {
@@ -311,6 +311,38 @@ export interface PageContentEntity {
             id?: string | null;
             blockName?: string | null;
             blockType: 'brochure';
+        }
+        | {
+            title?: string | null;
+            description?: string | null;
+            coverImage?: string | null;
+            blurDataURL?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'appointment';
+        }
+    )[]
+    | null;
+    contactoSections?:
+    | (
+        | {
+            title?: string | null;
+            subtitle?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contactoHeader';
+        }
+        | {
+            title?: string | null;
+            description?: string | null;
+            address?: string | null;
+            whatsapp?: string | null;
+            hours?: string | null;
+            latitude?: number | null;
+            longitude?: number | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contactoShowroom';
         }
         | {
             title?: string | null;
