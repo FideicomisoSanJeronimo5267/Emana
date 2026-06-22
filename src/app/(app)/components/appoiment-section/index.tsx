@@ -1,9 +1,12 @@
+"use client";
+
 // Next.js
 import Image from "next/image";
 
 // Styles
 import styles from './appoiment-section.module.css'
 import Button from "../button";
+import { useDataLayer } from "@/src/core/hooks/useDataLayer";
 
 interface Props {
     title: string;
@@ -16,6 +19,8 @@ interface Props {
 }
 
 export default function AppointmentSection(props: Props) {
+    const { push } = useDataLayer();
+
     return (
         <section className={styles.container}>
             <div className={styles.container__info}>
@@ -27,33 +32,36 @@ export default function AppointmentSection(props: Props) {
             
             <div className={styles.container__contact__info}>
                 {!props.hideButton && (
-                    <Button link={{ href: "/contacto" }}>Agenda una visita</Button>
+                    <Button link={{ href: "/contacto" }} onClick={() => push('cta_agenda_click')}>Agenda una visita</Button>
                 )}
 
                 <div className={styles.container__contact__info__details}>
-                    <a 
-                        href="https://wa.me/528131243371" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                    <a
+                        href="https://wa.me/528131243371"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className={styles.contactLink}
+                        onClick={() => push('contact_link_click', { contact_type: 'whatsapp' })}
                     >
                         WhatsApp
                     </a>
-                    
+
                     <div className={styles.cross__axis_divisor} />
-                    
+
                     <a
                         href="mailto:info@emanamx.com"
                         className={styles.contactLink}
+                        onClick={() => push('contact_link_click', { contact_type: 'email' })}
                     >
                         Email
                     </a>
-                    
+
                     <div className={styles.cross__axis_divisor} />
-                    
-                    <a 
-                        href="tel:8131243371" 
+
+                    <a
+                        href="tel:8131243371"
                         className={styles.contactLink}
+                        onClick={() => push('contact_link_click', { contact_type: 'phone' })}
                     >
                         Llamada
                     </a>

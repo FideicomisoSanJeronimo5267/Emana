@@ -6,6 +6,7 @@ import { useFormik } from 'formik'
 
 import styles from './brochure-form.module.css'
 import { ENV } from "@/src/core/config/env";
+import { useDataLayer } from "@/src/core/hooks/useDataLayer";
 import { Button } from "@/src/app/(app)/components";
 
 const validationSchema = Yup.object({
@@ -13,6 +14,7 @@ const validationSchema = Yup.object({
 });
 
 export default function BrochureForm() {
+    const { push } = useDataLayer();
 
     const formik = useFormik({
         initialValues: {
@@ -22,6 +24,7 @@ export default function BrochureForm() {
         onSubmit: (values) => {
             console.log("Datos del formulario:", values);
             if (ENV.BROCHURE_URL) {
+                push('brochure_download');
                 window.open(ENV.BROCHURE_URL, "_blank");
             } else {
                 console.error("La URL del brochure no está configurada");

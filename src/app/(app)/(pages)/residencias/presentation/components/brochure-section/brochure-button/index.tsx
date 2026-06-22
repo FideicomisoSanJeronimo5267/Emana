@@ -5,13 +5,15 @@ import { useState } from "react";
 
 import styles from './brochure-button.module.css'
 import { Button } from "@/src/app/(app)/components";
+import { useDataLayer } from "@/src/core/hooks/useDataLayer";
 
 export default function BrochureButton() {
     const [modalVisible, setModalVisible] = useState(false);
+    const { push } = useDataLayer();
 
     return (
         <>
-            <Button className={styles.button} onClick={() => setModalVisible(true)}>
+            <Button className={styles.button} onClick={() => { push('brochure_modal_open', { source: 'residencias' }); setModalVisible(true); }}>
                 Descargar brochure
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <mask id="mask0_1592_2075" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">

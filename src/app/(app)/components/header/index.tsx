@@ -12,6 +12,7 @@ import Link from 'next/link';
 import sidebarLogoMobile from '@assets/images/general/sidebarLogoMobile.svg'
 import { useCoverpageRefStore } from '@/src/core/stores/coverpage-ref.store';
 import { useScroll, useTransform, motion, useSpring, useMotionValueEvent } from 'motion/react';
+import { useDataLayer } from '@/src/core/hooks/useDataLayer';
 
 export default function Header() {
     const pathname = usePathname();
@@ -19,8 +20,18 @@ export default function Header() {
     const isContactPage = pathname === '/contacto';
     const isPrivacyPolicy = pathname === '/aviso-de-privacidad'
 
+    const { push } = useDataLayer();
+
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
+
+    useEffect(() => {
+        push('page_view', { page_path: pathname });
+    }, [pathname, push]);
+
+    const handleNavClick = (label: string, href: string) => {
+        push('nav_click', { nav_label: label, nav_href: href });
+    };
 
     const toggleMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -150,12 +161,12 @@ export default function Header() {
                             </Link>
                         )}
 
-                        <li className={styles.header__nav__options__list__item}><Link href="/residencias">Residencias</Link></li>
-                        <li className={styles.header__nav__options__list__item}><Link href="/amenidades">Amenidades</Link></li>
-                        <li className={styles.header__nav__options__list__item}><Link href="/colaboradores">Colaboradores</Link></li>
-                        <li className={styles.header__nav__options__list__item}><Link href="/contacto">Contacto</Link></li>
+                        <li className={styles.header__nav__options__list__item}><Link href="/residencias" onClick={() => handleNavClick('Residencias', '/residencias')}>Residencias</Link></li>
+                        <li className={styles.header__nav__options__list__item}><Link href="/amenidades" onClick={() => handleNavClick('Amenidades', '/amenidades')}>Amenidades</Link></li>
+                        <li className={styles.header__nav__options__list__item}><Link href="/colaboradores" onClick={() => handleNavClick('Colaboradores', '/colaboradores')}>Colaboradores</Link></li>
+                        <li className={styles.header__nav__options__list__item}><Link href="/contacto" onClick={() => handleNavClick('Contacto', '/contacto')}>Contacto</Link></li>
                         <li className={styles.header__nav__options__list__item}>
-                            <Link href="/contacto" className={styles.citaLink}>
+                            <Link href="/contacto" className={styles.citaLink} onClick={() => handleNavClick('Agenda una cita', '/contacto')}>
                                 Agenda una cita
                             </Link>
                         </li>
@@ -186,11 +197,11 @@ export default function Header() {
 
 
                     <ul className={styles.mobileNavList}>
-                        <li><Link href="/" className={styles.mobileNavLink} onClick={closeMenu}>INICIO</Link></li>
-                        <li><Link href="/residencias" className={styles.mobileNavLink} onClick={closeMenu}>RESIDENCIAS</Link></li>
-                        <li><Link href="/amenidades" className={styles.mobileNavLink} onClick={closeMenu}>AMENIDADES</Link></li>
-                        <li><Link href="/colaboradores" className={styles.mobileNavLink} onClick={closeMenu}>COLABORADORES</Link></li>
-                        <li><Link href="/contacto" className={styles.mobileNavLink} onClick={closeMenu}>CONTACTO</Link></li>
+                        <li><Link href="/" className={styles.mobileNavLink} onClick={() => { handleNavClick('Inicio', '/'); closeMenu(); }}>INICIO</Link></li>
+                        <li><Link href="/residencias" className={styles.mobileNavLink} onClick={() => { handleNavClick('Residencias', '/residencias'); closeMenu(); }}>RESIDENCIAS</Link></li>
+                        <li><Link href="/amenidades" className={styles.mobileNavLink} onClick={() => { handleNavClick('Amenidades', '/amenidades'); closeMenu(); }}>AMENIDADES</Link></li>
+                        <li><Link href="/colaboradores" className={styles.mobileNavLink} onClick={() => { handleNavClick('Colaboradores', '/colaboradores'); closeMenu(); }}>COLABORADORES</Link></li>
+                        <li><Link href="/contacto" className={styles.mobileNavLink} onClick={() => { handleNavClick('Contacto', '/contacto'); closeMenu(); }}>CONTACTO</Link></li>
                     </ul>
 
                     <div className={styles.mobileLogo}>

@@ -5,7 +5,7 @@
 .modal {
   width: calc(100% - 40px);
   max-width: 794px;
-  height: 410px;
+  height: auto;
   border-radius: 22px;
   margin-inline: 20px;
 }

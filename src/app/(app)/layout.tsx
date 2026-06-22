@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "./components/footer";
 import Header from "./components/header";
-import { MetaPixel } from "@/src/core/components";
+import { MetaPixel, GoogleTagManager } from "@/src/core/components";
 import SmoothScrollProvider from "@/src/core/components/smooth-scroll-provider";
 
 const gilroy = localFont({
@@ -75,6 +75,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${gilroy.variable} ${neueMachina.variable} antialiased`}>
+        <GoogleTagManager />
         <MetaPixel />
         <Header />
         <SmoothScrollProvider>

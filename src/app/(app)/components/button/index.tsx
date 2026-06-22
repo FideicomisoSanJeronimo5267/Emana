@@ -12,7 +12,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
         }
 }
 
-export default function Button({children, className, ...props}: ButtonProps) {
+export default function Button({children, className, onClick, ...props}: ButtonProps) {
     if (props.link) {
         return (
             <Link
@@ -20,13 +20,14 @@ export default function Button({children, className, ...props}: ButtonProps) {
                 target={props.link.target}
                 rel={props.link.rel ?? (props.link.target === '_blank' ? 'noopener noreferrer' : undefined)}
                 className={`${styles.button} ${className}`}
+                onClick={onClick}
             >
                 {children}
             </Link>
         )
     }
     return (
-        <button className={`${styles.button} ${className}`} {...props}>
+        <button className={`${styles.button} ${className}`} {...props} onClick={onClick}>
             {children}
         </button>
     )

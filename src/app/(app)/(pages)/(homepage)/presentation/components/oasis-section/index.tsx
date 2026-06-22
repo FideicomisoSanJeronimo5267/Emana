@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { BrochureModal, ModalLayout } from '@/src/core/components';
 import styles from './oasis-section.module.css';
 import { Button } from '@/src/app/(app)/components';
+import { useDataLayer } from '@/src/core/hooks/useDataLayer';
 
 interface OasisSectionProps {
     title: string;
@@ -11,6 +12,7 @@ interface OasisSectionProps {
 
 export default function OasisSection({ title, description }: OasisSectionProps) {
     const [modalVisible, setModalVisible] = useState(false);
+    const { push } = useDataLayer();
 
     return (
         <section className={styles.oasis}>
@@ -29,7 +31,7 @@ export default function OasisSection({ title, description }: OasisSectionProps) 
 
                 <Button
                     className={styles.oasis__brochure}
-                    onClick={() => setModalVisible(true)}
+                    onClick={() => { push('brochure_modal_open', { source: 'oasis' }); setModalVisible(true); }}
                 >
                     Descarga el Brochure
                     <svg className={styles.oasis__brochure__icon} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

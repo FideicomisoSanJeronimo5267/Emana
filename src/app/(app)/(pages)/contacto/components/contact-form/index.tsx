@@ -5,7 +5,8 @@ import "react-phone-number-input/style.css";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import styles from "./contact-form.module.css";
 import { useCreateContact } from "@/src/core/hooks/useCreateContact";
-import { ENV } from "@/src/core/config/env"; 
+import { useDataLayer } from "@/src/core/hooks/useDataLayer";
+import { ENV } from "@/src/core/config/env";
 
 const validationSchema = Yup.object({
   name: Yup.string().required("El nombre completo es obligatorio"),
@@ -24,6 +25,7 @@ interface ContactFormProps {
 
 export default function ContactForm({ isBrochureModal = false }: ContactFormProps) {
   const { status, submitContact } = useCreateContact();
+  const { push } = useDataLayer();
 
   const handleDownloadBrochure = () => {
     if (ENV.BROCHURE_URL) {
@@ -39,8 +41,8 @@ export default function ContactForm({ isBrochureModal = false }: ContactFormProp
     onSubmit: async (values, { resetForm }) => {
       try {
         await submitContact(values);
-        
-        // Si estamos en el modal, descargar el PDF al tener éxito
+        push('contact_form_submit', { form_type: 'contact' });
+
         if (isBrochureModal) {
           handleDownloadBrochure();
         }
