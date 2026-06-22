@@ -9,12 +9,13 @@
     "start": "next start",
     "lint": "eslint",
     "generate:types": "npx payload generate:types --config src/payload.config.ts",
-    "seed:location": "npx tsx --tsconfig tsconfig.json scripts/seed-location.ts",
-    "seed:amenities": "npx tsx --tsconfig tsconfig.json scripts/seed-amenities.ts",
     "seed:amenidades-page": "npx tsx --tsconfig tsconfig.json scripts/seed-amenidades-page.ts",
     "seed:residencias-page": "npx tsx --tsconfig tsconfig.json scripts/seed-residencias-page.ts",
     "seed:colaboradores-page": "npx tsx --tsconfig tsconfig.json scripts/seed-colaboradores-page.ts",
-    "seed:contacto-page": "npx tsx --tsconfig tsconfig.json scripts/seed-contacto-page.ts"
+    "seed:contacto-page": "npx tsx --tsconfig tsconfig.json scripts/seed-contacto-page.ts",
+    "seed:home-page": "npx tsx --tsconfig tsconfig.json scripts/seed-home-page.ts",
+    "seed:all": "npx tsx --tsconfig tsconfig.json scripts/seed-all.ts",
+    "vercel-build": "npm run seed:all && next build"
   },
   "dependencies": {
     "@payloadcms/db-mongodb": "^3.85.1",
