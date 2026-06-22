@@ -3,6 +3,7 @@ import { useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import styles from './map.module.css';
+import { ENV } from '@/src/core/config/env';
 
 interface MapProps {
   latitude: number;
@@ -17,7 +18,7 @@ export default function MapComponent({ latitude, longitude, zoom = 14 }: MapProp
   useEffect(() => {
     if (map.current || !mapContainer.current) return;
 
-    mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || '';
+    mapboxgl.accessToken = ENV.MAPBOX_TOKEN;
 
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
