@@ -169,7 +169,7 @@ export interface Media {
  */
 export interface PageContent {
   id: string;
-  pageType: 'home' | 'development' | 'department' | 'amenidades' | 'residencias';
+  pageType: 'home' | 'development' | 'department' | 'amenidades' | 'residencias' | 'colaboradores';
   homeSections?:
     | (
         | {
@@ -444,6 +444,53 @@ export interface PageContent {
             id?: string | null;
             blockName?: string | null;
             blockType: 'divisor';
+          }
+        | {
+            title?: string | null;
+            description?: string | null;
+            titleFont?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'brochure';
+          }
+        | {
+            title?: string | null;
+            description?: string | null;
+            coverImage?: string | null;
+            blurDataURL?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'appointment';
+          }
+      )[]
+    | null;
+  colaboradoresSections?:
+    | (
+        | {
+            title?: string | null;
+            subtitle?: string | null;
+            coverSrc?: string | null;
+            coverAlt?: string | null;
+            coverBlurData?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'colaboradoresCoverpage';
+          }
+        | {
+            collaborators?:
+              | {
+                  name: string;
+                  description?: string | null;
+                  imageSrc?: string | null;
+                  imageAlt?: string | null;
+                  imageBlurData?: string | null;
+                  logoSrc?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'colaboradoresList';
           }
         | {
             title?: string | null;
@@ -898,6 +945,57 @@ export interface PageContentSelect<T extends boolean = true> {
         divisor?:
           | T
           | {
+              id?: T;
+              blockName?: T;
+            };
+        brochure?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              titleFont?: T;
+              id?: T;
+              blockName?: T;
+            };
+        appointment?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              coverImage?: T;
+              blurDataURL?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  colaboradoresSections?:
+    | T
+    | {
+        colaboradoresCoverpage?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              coverSrc?: T;
+              coverAlt?: T;
+              coverBlurData?: T;
+              id?: T;
+              blockName?: T;
+            };
+        colaboradoresList?:
+          | T
+          | {
+              collaborators?:
+                | T
+                | {
+                    name?: T;
+                    description?: T;
+                    imageSrc?: T;
+                    imageAlt?: T;
+                    imageBlurData?: T;
+                    logoSrc?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };

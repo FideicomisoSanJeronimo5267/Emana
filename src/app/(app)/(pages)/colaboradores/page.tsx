@@ -1,82 +1,35 @@
-import AppointmentSection from '../../components/appoiment-section';
-import CoverPageV2 from '../../components/coverpage-v2';
-import LazyAnimation from '../../components/lazy-animation';
-import BrochureSection from '../residencias/presentation/components/brochure-section';
-import styles from './colaboradores.module.css';
-import CollaboratorSection from './presentation/components/collaborator-section';
-import { collaboratorsImagesdata } from '@/src/core/constants/image-data/collaborators-page';
-const collaborators = [
-    {
-        name: "ONE DEVELOPMENT GROUP",
-        description: "Empresa mexicana dedicada a crear espacios inmobiliarios de nueva generación y experiencias memorables que transforman la forma de vivir, trabajar y convivir. \n\n En cada proyecto, ONE prioriza generar un impacto positivo en residentes, usuarios, visitantes, inversionistas y en la comunidad que rodea cada desarrollo. \n\n Entre sus proyectos más destacados se encuentran SOFIA, Arboleda, El Gran Ancira y GALA en Nuevo León, así como NAYA y NAYAMĀ en el estado de Nayarit, y ALISIA en Jalisco.",
-        image: collaboratorsImagesdata.one_development_group,
-        logo: "/assets/images/collaborators/odg.svg"
-    },
-    {
-        name: "JSA",
-        description: "Taller arquitectónico mexicano liderado por la visión de Javier Sánchez, cuya práctica se basa en procesos colectivos y estrategias de convivencia a distintas escalas. \n\n Su trabajo se ha consolidado a través de proyectos como Pujol, Hotel Carlota y The Cape en Los Cabos, creando espacios que dialogan de manera orgánica con su entorno. \n\n JSA entiende la arquitectura como un ciclo continuo de aprendizaje, investigación y aproximación urbana, donde cada proyecto se convierte en una propuesta de valor para clientes y usuarios.",
-        image: collaboratorsImagesdata.jsa,
-        logo: "/assets/images/collaborators/jsa.svg"
-    },
-    {
-        name: "ESRAWE",
-        description: "Es un taller multidisciplinario de diseño con sede en la Ciudad de México, especializado en mobiliario, interiorismo y soluciones arquitectónicas para proyectos residenciales, culturales y de hospitalidad. \n\n Su trabajo se distingue por una visión sofisticada que combina precisión técnica, sensibilidad estética y una profunda conexión con el contexto. \n\n A través de un proceso meticuloso y colaborativo, el estudio transforma cada proyecto en una experiencia coherente, innovadora y atemporal.",
-        image: collaboratorsImagesdata.esrawe,
-        logo: "/assets/images/collaborators/esrawe.svg"
-    }
-];
+import styles from './colaboradores.module.css'
+import LazyAnimation from '../../components/lazy-animation'
+import { GetPageContentUseCase } from '@/src/core/modules/page-content/application/use-cases/get-page-content-use-case'
+import { pageContentFactory } from '@/src/core/modules/page-content/infrastructure/factories/page-content-factory'
+import { ColaboradoresPageSections } from './presentation/constants/page-sections'
 
-export default function CollaboratorsPage() {
+export default async function CollaboratorsPage() {
+    const getPageContentUseCase = new GetPageContentUseCase(pageContentFactory())
+    const page = await getPageContentUseCase.execute('colaboradores')
+
+    if (!page.ok) {
+        return (
+            <main className={styles.main}>
+                <p>There was an error loading the page content. Please try again later.</p>
+            </main>
+        )
+    }
+
     return (
         <main className={styles.main}>
-            <CoverPageV2 coverImage={{
-                alt: collaboratorsImagesdata.frontal_tower.alt,
-                src: collaboratorsImagesdata.frontal_tower.src,
-                blurData: collaboratorsImagesdata.frontal_tower.blurData
-            }}
-                title={{
-                    className: styles.coverTitle,
-                    text: 'El origen de un oasis en la ciudad'
-                }}
-                subtitle={{
-                    className: styles.coverDescription,
-                    text: 'Una visión respaldada por experiencia, diseño y compromiso.'
-                }}
-                darkLayout
-            />
-            <div className={styles.collaboratorsList}>
-                {collaborators.map((collab, index) => (
-                    <LazyAnimation
-                        key={index}
-                    >
-                        <CollaboratorSection
-                            name={collab.name}
-                            description={collab.description}
-                            image={collab.image}
-                            isReversed={index % 2 == 0}
-                            logo={collab.logo}
-                        />
-
+            {page.value.colaboradoresSections?.map((section) => {
+                const Component = ColaboradoresPageSections[section.blockType as keyof typeof ColaboradoresPageSections]
+                if (!Component) return null
+                if (section.blockType === 'colaboradoresCoverpage' || section.blockType === 'colaboradoresList') {
+                    return <Component key={section.id} {...(section as any)} />
+                }
+                return (
+                    <LazyAnimation key={section.id}>
+                        <Component {...(section as any)} />
                     </LazyAnimation>
-
-                ))}
-            </div>
-            <LazyAnimation>
-                <BrochureSection
-                    title=''
-                    description='Conoce todos los detalles detrás del proyecto.'
-                />
-
-            </LazyAnimation>
-            <LazyAnimation>
-                <AppointmentSection
-                    title={'Vive la experiencia EMANA'}
-                    description={'Conoce nuestro showroom'}
-                    coverImage={collaboratorsImagesdata.emana_experience.src}
-                    blurDataURL={collaboratorsImagesdata.emana_experience.blurData}
-                    className={styles.container__coverImage}
-                />
-            </LazyAnimation>
+                )
+            })}
         </main>
     )
 }

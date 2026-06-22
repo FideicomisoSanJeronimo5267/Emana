@@ -18,6 +18,8 @@ import { ResidenciasApartmentSectionBlock } from "../blocks/residencias/apartmen
 import { ResidenciasVillasSectionBlock } from "../blocks/residencias/villas-section.block";
 import { ResidenciasHeroBlock } from "../blocks/residencias/hero.block";
 import { ResidenciasPanoramicPhotoBlock } from "../blocks/residencias/panoramic-photo.block";
+import { ColaboradoresCoverpageBlock } from "../blocks/colaboradores/coverpage.block";
+import { ColaboradoresListBlock } from "../blocks/colaboradores/list.block";
 
 export const PageContent: CollectionConfig = {
     slug: "page-content",
@@ -46,6 +48,10 @@ export const PageContent: CollectionConfig = {
                 {
                     label: 'Residencias',
                     value: 'residencias',
+                },
+                {
+                    label: 'Colaboradores',
+                    value: 'colaboradores',
                 },
             ],
 
@@ -104,6 +110,20 @@ export const PageContent: CollectionConfig = {
             admin: {
                 condition: (_, siblingData) =>
                     siblingData.pageType === 'residencias',
+            },
+        },
+        {
+            name: 'colaboradoresSections',
+            type: 'blocks',
+            blocks: [
+                ColaboradoresCoverpageBlock,
+                ColaboradoresListBlock,
+                BrochureBlock,
+                AppointmentBlock,
+            ],
+            admin: {
+                condition: (_, siblingData) =>
+                    siblingData.pageType === 'colaboradores',
             },
         }
     ],

@@ -9,6 +9,7 @@ export class PageContentMapper {
         homeSections: content.homeSections,
         residenciasSections: content.residenciasSections,
         amenidadesSections: content.amenidadesSections,
+        colaboradoresSections: content.colaboradoresSections,
         updatedAt: content.updatedAt,
         createdAt: content.createdAt,
     };
