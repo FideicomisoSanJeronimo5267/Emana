@@ -162,6 +162,14 @@ npm run seed:residencias-page
 
 ---
 
+## Imágenes y CDN
+
+Las imágenes están servidas desde AWS CloudFront. Para más detalles sobre la estructura de archivos, los puntos de contacto en el código y cómo migrar a otra plataforma, ver:
+
+→ [`docs/image-hosting.md`](./docs/image-hosting.md)
+
+---
+
 ## Arquitectura
 
 ```
