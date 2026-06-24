@@ -1,7 +1,0 @@
-export {default as ApartmentSection} from './apartment-section'
-export {default as FeaturesSection} from './features-section'
-export {default as PropertyTypeSection} from './property-type-section'
-export {default as ResidencesHeroSection} from './residence-hero-section'
-export {default as UnitsAvailable} from './units-available'
-export {default as BrochureSection} from './brochure-section'
-export {default as VillasSection} from './villas-section'

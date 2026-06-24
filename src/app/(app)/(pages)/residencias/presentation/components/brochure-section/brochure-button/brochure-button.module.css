@@ -1,0 +1,11 @@
+.button{
+  display: flex;
+  flex: none;
+}
+.modal {
+  width: calc(100% - 40px);
+  max-width: 794px;
+  height: auto;
+  border-radius: 22px;
+  margin-inline: 20px;
+}

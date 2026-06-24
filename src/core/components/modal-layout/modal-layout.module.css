@@ -25,15 +25,16 @@
 }
 
 .wrapper__content {
-  position: relative; 
+  position: relative;
   width: 100%;
-  max-width: 900px; 
+  max-width: 900px;
   background-color: #ffffff;
   padding: 50px;
-  
-  flex: 0 0 auto; 
-  height: auto; 
-  min-height: min-content; 
+
+  flex: 0 0 auto;
+  height: auto;
+  max-height: calc(100dvh - 80px);
+  overflow-y: auto;
   box-sizing: border-box;
 }
 
@@ -55,11 +56,12 @@
 @media screen and (max-width: 1024px) {
   .wrapper::before,
   .wrapper::after {
-    min-height: 20px; 
+    min-height: 20px;
   }
-  
+
   .wrapper__content {
-    width: calc(100% - 30px); 
-    padding: 40px 20px 20px 20px; 
+    width: calc(100% - 30px);
+    padding: 40px 20px 20px 20px;
+    max-height: calc(100dvh - 40px);
   }
 }
